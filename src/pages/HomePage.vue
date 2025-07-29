@@ -47,8 +47,8 @@
 
       <div class="grid md:grid-cols-2 gap-12">
         <div class="glass-card-enhanced text-center animate-slide-up">
-          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
-            <IconShield class="w-10 h-10 text-luxury-black" />
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconShield class="w-10 h-10 text-luxury-gold" />
           </div>
           <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Gestori Ufficiali</h3>
           <p class="body-text-luxury">
@@ -57,8 +57,8 @@
         </div>
 
         <div class="glass-card-enhanced text-center animate-slide-up" style="animation-delay: 0.2s">
-          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
-            <IconMail class="w-10 h-10 text-luxury-black" />
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconMail class="w-10 h-10 text-luxury-gold" />
           </div>
           <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Account Manager Dedicato</h3>
           <p class="body-text-luxury">
@@ -94,8 +94,8 @@
         <!-- Banking -->
         <div class="card-luxury-elegant">
           <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
-              <IconBuildingBank class="w-10 h-10 text-luxury-black" />
+            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+              <IconBuildingBank class="w-10 h-10 text-luxury-gold" />
             </div>
             <div>
               <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Banche e Istituti di Credito</h3>
@@ -123,8 +123,8 @@
         <!-- Legal -->
         <div class="card-luxury-elegant">
           <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
-              <IconScale class="w-10 h-10 text-luxury-black" />
+            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+              <IconScale class="w-10 h-10 text-luxury-gold" />
             </div>
             <div>
               <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Studi Legali Internazionali</h3>
@@ -152,8 +152,8 @@
         <!-- Investment -->
         <div class="card-luxury-elegant">
           <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
-              <IconTrendingUp class="w-10 h-10 text-luxury-black" />
+            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+              <IconTrendingUp class="w-10 h-10 text-luxury-gold" />
             </div>
             <div>
               <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">SGR e Società di Investimento</h3>
@@ -181,8 +181,8 @@
         <!-- Fiduciary -->
         <div class="card-luxury-elegant">
           <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
-              <IconReceipt class="w-10 h-10 text-luxury-black" />
+            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+              <IconReceipt class="w-10 h-10 text-luxury-gold" />
             </div>
             <div>
               <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Fiduciarie e Trust Company</h3>
@@ -210,8 +210,8 @@
         <!-- Insurance -->
         <div class="card-luxury-elegant">
           <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
-              <IconShield class="w-10 h-10 text-luxury-black" />
+            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+              <IconShield class="w-10 h-10 text-luxury-gold" />
             </div>
             <div>
               <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Assicurazioni</h3>
@@ -262,6 +262,14 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Request Complete Catalog Button -->
+      <div class="text-center mt-12">
+        <button @click="showCatalogModal = true" class="btn-luxury-outline flex items-center mx-auto">
+          <IconPackage class="w-5 h-5 mr-3" />
+          Richiedi Catalogo Completo API
+        </button>
       </div>
     </section>
 
@@ -350,6 +358,36 @@
         </div>
       </div>
     </section>
+
+    <!-- API Catalog Request Modal -->
+    <div v-if="showCatalogModal" class="fixed inset-0 z-50 flex items-center justify-center">
+      <!-- Backdrop -->
+      <div class="absolute inset-0 bg-black/60 backdrop-blur-xl" @click="closeCatalogModal"></div>
+
+      <!-- Modal Content -->
+      <div class="relative bg-black/40 backdrop-blur-xl border border-white/20 rounded-none max-w-md mx-4 p-8 text-center shadow-2xl">
+        <div class="w-16 h-16 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-6">
+          <IconPackage class="w-8 h-8 text-luxury-black" />
+        </div>
+
+        <h3 class="text-2xl font-display font-semibold mb-4 text-luxury-gold">Catalogo Completo API</h3>
+
+        <p class="body-text-luxury mb-8">
+          Richiedi il catalogo completo delle API disponibili con tutte le specifiche tecniche,
+          documentazione e esempi di integrazione.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button @click="requestCatalog" class="btn-luxury flex items-center justify-center">
+            <IconMail class="w-5 h-5 mr-2" />
+            Richiedi Catalogo
+          </button>
+          <button @click="closeCatalogModal" class="btn-luxury-outline">
+            Annulla
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -427,6 +465,9 @@ export default {
     // Environment variables
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
     const supportEmailLink = `mailto:${supportEmail}`
+    const catalogEmail = import.meta.env.VITE_BUSINESS_EMAIL
+
+    const showCatalogModal = ref(false)
 
     const showEmailModal = (event) => {
       event.preventDefault()
@@ -436,6 +477,31 @@ export default {
       }))
     }
 
+    const closeCatalogModal = () => {
+      showCatalogModal.value = false
+    }
+
+    const requestCatalog = () => {
+      const subject = encodeURIComponent('Richiesta Catalogo Completo API - RegistroAPI')
+      const body = encodeURIComponent(`Gentile Massimiliano,
+
+Sono interessato al catalogo completo delle API di RegistroAPI.
+
+Vorrei ricevere:
+- Catalogo completo delle API disponibili
+- Specifiche tecniche dettagliate
+- Documentazione di integrazione
+- Esempi di utilizzo
+- Informazioni sui costi e modalità di attivazione
+
+Cordiali saluti,
+[Il tuo nome]`)
+
+      const mailtoLink = `mailto:${catalogEmail}?subject=${subject}&body=${body}`
+      window.location.href = mailtoLink
+      closeCatalogModal()
+    }
+
     return {
       apiCatalog,
       keyStats,
@@ -443,7 +509,10 @@ export default {
       validationCriteria,
       supportEmail,
       supportEmailLink,
-      showEmailModal
+      showEmailModal,
+      showCatalogModal,
+      closeCatalogModal,
+      requestCatalog
     }
   }
 }
