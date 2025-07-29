@@ -9,26 +9,26 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-luxury-black text-luxury-text-primary font-sans antialiased;
     font-feature-settings: "liga" 1, "kern" 1;
     text-rendering: optimizeLegibility;
   }
-  
+
   /* Refined Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   ::-webkit-scrollbar-track {
     @apply bg-luxury-dark;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     @apply bg-luxury-gray-medium rounded-full;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-luxury-gold;
   }
@@ -47,98 +47,98 @@
     @apply px-8 py-4 bg-luxury-gold text-luxury-black font-medium tracking-wide rounded-none border border-luxury-gold transition-all duration-500 hover:bg-luxury-gold-light hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-luxury-gold/50;
     letter-spacing: 0.05em;
   }
-  
+
   .btn-luxury-outline {
     @apply px-8 py-4 border border-luxury-gold text-luxury-gold font-medium tracking-wide rounded-none transition-all duration-500 hover:bg-luxury-gold hover:text-luxury-black hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-luxury-gold/50;
     letter-spacing: 0.05em;
   }
-  
+
   .btn-luxury-subtle {
     @apply px-6 py-3 border border-luxury-gray-medium text-luxury-text-secondary font-medium tracking-wide rounded-none transition-all duration-300 hover:border-luxury-gold hover:text-luxury-gold focus:outline-none;
     letter-spacing: 0.03em;
   }
-  
+
   /* Sophisticated Card Styles */
   .card-luxury {
     @apply bg-luxury-gray border border-luxury-gray-light/10 rounded-none p-8 transition-all duration-500 hover:border-luxury-gold/30 hover:shadow-xl;
     backdrop-filter: blur(10px);
   }
-  
+
   .card-luxury-elegant {
     @apply bg-gradient-to-br from-luxury-gray to-luxury-gray-light border border-luxury-gray-medium/20 rounded-none p-10 transition-all duration-700 hover:border-luxury-gold/40 hover:shadow-2xl;
     backdrop-filter: blur(15px);
   }
-  
+
   /* Refined Glass Effects */
   .glass-effect {
     @apply bg-black/20 backdrop-blur-md border border-white/5 rounded-none shadow-2xl;
-    box-shadow: 
+    box-shadow:
       0 8px 32px 0 rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
-  
+
   .glass-card {
     @apply bg-black/30 backdrop-blur-lg border border-white/10 rounded-none p-10 transition-all duration-700;
-    box-shadow: 
+    box-shadow:
       0 8px 32px 0 rgba(0, 0, 0, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
-  
+
   .glass-card:hover {
     @apply border-luxury-gold/40 shadow-2xl;
-    box-shadow: 
+    box-shadow:
       0 8px 32px 0 rgba(0, 0, 0, 0.5),
       0 0 30px rgba(212, 175, 55, 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
-  
+
   .glass-hero {
     @apply bg-gradient-to-br from-black/40 to-black/30 backdrop-blur-lg border border-white/15 rounded-none p-16;
-    box-shadow: 
+    box-shadow:
       0 25px 50px -12px rgba(0, 0, 0, 0.6),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  
+
   /* Enhanced glass effects */
   .glass-card-enhanced {
     @apply bg-black/40 backdrop-blur-xl border border-white/15 rounded-none p-12 transition-all duration-700;
-    box-shadow: 
+    box-shadow:
       0 8px 32px 0 rgba(0, 0, 0, 0.6),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  
+
   .glass-card-enhanced:hover {
     @apply border-luxury-gold/50 shadow-2xl;
-    box-shadow: 
+    box-shadow:
       0 8px 32px 0 rgba(0, 0, 0, 0.6),
       0 0 40px rgba(212, 175, 55, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  
+
   .glass-hero-enhanced {
     @apply bg-gradient-to-br from-black/50 to-black/40 backdrop-blur-xl border border-white/20 rounded-none p-20;
-    box-shadow: 
+    box-shadow:
       0 25px 50px -12px rgba(0, 0, 0, 0.7),
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
-  
+
   /* Elegant Text Gradients */
   .text-gradient-gold {
     @apply bg-gradient-to-r from-luxury-gold via-luxury-gold-light to-luxury-gold bg-clip-text text-transparent;
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
   }
-  
+
   @keyframes shimmer {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
-  
+
   /* Sophisticated Animations */
   .animate-elegant-glow {
     animation: elegantGlow 4s ease-in-out infinite alternate;
   }
-  
+
   @keyframes elegantGlow {
     0% {
       box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
@@ -147,78 +147,78 @@
       box-shadow: 0 0 25px rgba(212, 175, 55, 0.2), 0 0 40px rgba(212, 175, 55, 0.1);
     }
   }
-  
+
   /* Luxury Section Spacing */
   .section-luxury {
     @apply py-24 px-6 max-w-7xl mx-auto;
   }
-  
+
   .section-luxury-compact {
     @apply py-16 px-6 max-w-7xl mx-auto;
   }
-  
+
   /* Sophisticated Typography with improved contrast */
   .heading-luxury {
     @apply text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight tracking-tight text-luxury-text-primary;
     letter-spacing: -0.02em;
   }
-  
+
   .heading-luxury-medium {
     @apply text-3xl md:text-5xl font-display font-semibold leading-tight tracking-tight text-luxury-text-primary;
     letter-spacing: -0.01em;
   }
-  
+
   .subheading-luxury {
     @apply text-xl md:text-2xl font-sans font-light text-luxury-text-secondary leading-relaxed;
     letter-spacing: 0.01em;
   }
-  
+
   .body-text-luxury {
     @apply text-base md:text-lg font-sans font-normal text-luxury-text-secondary leading-relaxed;
     letter-spacing: 0.01em;
   }
-  
+
   /* Elegant Dividers */
   .divider-luxury {
     @apply w-24 h-px bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto my-8;
   }
-  
+
   .divider-luxury-vertical {
     @apply w-px h-24 bg-gradient-to-b from-transparent via-luxury-gold to-transparent mx-auto my-8;
   }
-  
+
   /* Sophisticated Navigation */
   .nav-link-luxury {
     @apply text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300 font-medium tracking-wide;
     letter-spacing: 0.02em;
   }
-  
+
   /* Elegant Form Elements */
   .input-luxury {
     @apply w-full px-6 py-4 bg-luxury-gray border border-luxury-gray-medium/30 rounded-none text-luxury-text-primary focus:border-luxury-gold focus:outline-none transition-all duration-300 font-sans;
     letter-spacing: 0.01em;
   }
-  
+
   .textarea-luxury {
     @apply w-full px-6 py-4 bg-luxury-gray border border-luxury-gray-medium/30 rounded-none text-luxury-text-primary focus:border-luxury-gold focus:outline-none transition-all duration-300 font-sans resize-none;
     letter-spacing: 0.01em;
   }
-  
+
   /* Luxury Table Styles */
   .table-luxury {
     @apply w-full bg-luxury-gray rounded-none overflow-hidden;
   }
-  
+
   .table-luxury th {
     @apply px-8 py-6 text-left text-luxury-gold font-semibold tracking-wide border-b border-luxury-gray-medium/30;
     letter-spacing: 0.02em;
   }
-  
+
   .table-luxury td {
     @apply px-8 py-6 text-luxury-text-secondary border-b border-luxury-gray-medium/20;
   }
-  
+
   .table-luxury tr:hover {
     @apply bg-luxury-gray-light/50;
   }
-} 
+}
