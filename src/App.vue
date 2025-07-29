@@ -5,7 +5,7 @@
 
     <!-- Elegant Navigation Header -->
     <nav class="fixed top-0 w-full h-24 z-50 bg-luxury-black/90 backdrop-blur-xl border-b border-luxury-gray-medium/20">
-      <div class="max-w-7xl mx-auto px-8 py-4">
+      <div class="max-w-7xl mx-auto px-8 py-1 ">
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <router-link to="/" class="flex items-center space-x-4 group">
@@ -32,8 +32,8 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div v-if="mobileMenuOpen" class="md:hidden mt-6 pb-6 border-t border-luxury-gray-medium/20">
-          <div class="flex flex-col space-y-6 pt-6">
+        <div v-if="mobileMenuOpen" class="md:hidden mt-4 pb-4 border-t border-luxury-gray-medium/20">
+          <div class="flex flex-col space-y-4 pt-4">
             <router-link v-if="$route.path === '/HelpCenter'" to="/" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg">
               Home
             </router-link>
