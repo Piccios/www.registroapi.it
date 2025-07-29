@@ -38,7 +38,82 @@
 .logo-img {
   width: 12rem;
   filter: brightness(1.1) contrast(1.1);
-  margin-top: -15px;
+  margin-top: -5px;
+}
+
+/* Artistic Icon Container */
+.icon-artistic {
+  @apply relative;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 70%);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.icon-artistic::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  animation: rotate 8s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.icon-artistic:hover {
+  transform: rotate(5deg) scale(1.05);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 10px 30px rgba(212, 175, 55, 0.2),
+    0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+.icon-artistic:hover::after {
+  opacity: 1;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Elegant Icon Style */
+.icon-elegant {
+  @apply relative;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.icon-elegant::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.icon-elegant:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow:
+    0 12px 35px rgba(212, 175, 55, 0.18),
+    0 0 30px rgba(212, 175, 55, 0.12);
+}
+
+.icon-elegant:hover::before {
+  left: 100%;
 }
 
 @layer components {
@@ -53,53 +128,13 @@
     letter-spacing: 0.05em;
   }
 
-  .btn-luxury-subtle {
-    @apply px-6 py-3 border border-luxury-gray-medium text-luxury-text-secondary font-medium tracking-wide rounded-none transition-all duration-300 hover:border-luxury-gold hover:text-luxury-gold focus:outline-none;
-    letter-spacing: 0.03em;
-  }
-
   /* Sophisticated Card Styles */
-  .card-luxury {
-    @apply bg-luxury-gray border border-luxury-gray-light/10 rounded-none p-8 transition-all duration-500 hover:border-luxury-gold/30 hover:shadow-xl;
-    backdrop-filter: blur(10px);
-  }
-
   .card-luxury-elegant {
     @apply bg-gradient-to-br from-luxury-gray to-luxury-gray-light border border-luxury-gray-medium/20 rounded-none p-10 transition-all duration-700 hover:border-luxury-gold/40 hover:shadow-2xl;
     backdrop-filter: blur(15px);
   }
 
   /* Refined Glass Effects */
-  .glass-effect {
-    @apply bg-black/20 backdrop-blur-md border border-white/5 rounded-none shadow-2xl;
-    box-shadow:
-      0 8px 32px 0 rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  }
-
-  .glass-card {
-    @apply bg-black/30 backdrop-blur-lg border border-white/10 rounded-none p-10 transition-all duration-700;
-    box-shadow:
-      0 8px 32px 0 rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  }
-
-  .glass-card:hover {
-    @apply border-luxury-gold/40 shadow-2xl;
-    box-shadow:
-      0 8px 32px 0 rgba(0, 0, 0, 0.5),
-      0 0 30px rgba(212, 175, 55, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  }
-
-  .glass-hero {
-    @apply bg-gradient-to-br from-black/40 to-black/30 backdrop-blur-lg border border-white/15 rounded-none p-16;
-    box-shadow:
-      0 25px 50px -12px rgba(0, 0, 0, 0.6),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  /* Enhanced glass effects */
   .glass-card-enhanced {
     @apply bg-black/40 backdrop-blur-xl border border-white/15 rounded-none p-12 transition-all duration-700;
     box-shadow:
@@ -132,20 +167,6 @@
   @keyframes shimmer {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
-  }
-
-  /* Sophisticated Animations */
-  .animate-elegant-glow {
-    animation: elegantGlow 4s ease-in-out infinite alternate;
-  }
-
-  @keyframes elegantGlow {
-    0% {
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
-    }
-    100% {
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.2), 0 0 40px rgba(212, 175, 55, 0.1);
-    }
   }
 
   /* Luxury Section Spacing */
@@ -181,10 +202,6 @@
   /* Elegant Dividers */
   .divider-luxury {
     @apply w-24 h-px bg-gradient-to-r from-transparent via-luxury-gold to-transparent mx-auto my-8;
-  }
-
-  .divider-luxury-vertical {
-    @apply w-px h-24 bg-gradient-to-b from-transparent via-luxury-gold to-transparent mx-auto my-8;
   }
 
   /* Sophisticated Navigation */
