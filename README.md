@@ -1,19 +1,19 @@
-# 🖤 RegistroAPI - Dark Luxury Website
+# RegistroAPI - Dark Luxury Website
 
-## 📊 La Piattaforma API Affidabile per Professionisti e Imprese
+##  La Piattaforma API Affidabile per Professionisti e Imprese
 
 Sito web vetrina sviluppato in **Vue.js 3** con tema **dark luxury** per presentare i servizi API di RegistroAPI, rivolto a una clientela di alto profilo nel settore bancario, legale, finanziario e assicurativo.
 
 
 
-### 🏗️ Architettura Tecnica
+###  Architettura Tecnica
 - **Vue.js 3** con Composition API
 - **Vue Router** per navigazione SPA
 - **Tailwind CSS** con configurazione personalizzata
 - **Vite** come build tool per performance ottimali
 - **Frontend-only** (JAMstack) - nessun backend richiesto
 
-### 📱 Sezioni del Sito
+###  Sezioni del Sito
 - **Hero Section**: Slogan e value proposition principali
 - **Settori Target**: Banche, studi legali, SGR, fiduciarie, assicurazioni
 - **Catalogo API**: Tabella completa dei moduli disponibili
@@ -21,7 +21,7 @@ Sito web vetrina sviluppato in **Vue.js 3** con tema **dark luxury** per present
 - **Fonti Ufficiali**: Credibilità e autorizzazioni
 - **Form Contatto**: Generazione lead con validazione
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installazione
 
@@ -71,7 +71,7 @@ Il form di contatto utilizza **EmailJS** per invio diretto delle email:
 Il progetto utilizza un file `.env` per le configurazioni sensibili:
 
 
-## 🔧 Configurazione
+##  Configurazione
 
 ### Vue Router
 Routing configurato per:
