@@ -1,0 +1,450 @@
+<template>
+  <div class="homepage">
+    <!-- Hero Section -->
+    <section class="section-luxury text-center">
+      <div class="glass-hero-enhanced animate-fade-in">
+        <h1 class="heading-luxury mb-8">
+          DATI UFFICIALI. <span class="text-gradient-gold">ACCESSO ILLIMITATO.</span>
+        </h1>
+        <p class="subheading-luxury mb-10 max-w-4xl mx-auto">
+          La Piattaforma API Affidabile per Professionisti e Imprese
+        </p>
+        <p class="body-text-luxury mb-12 max-w-3xl mx-auto leading-relaxed">
+          Accesso illimitato ai dati. Nessun credito da ricaricare. Massima efficienza.<br>
+          Siamo il registro più affidabile per API ad alto valore legale, fiscale e informativo.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
+          <a :href="`mailto:${supportEmail}`" @click="showEmailModal" class="btn-luxury flex items-center">
+            <IconSend class="w-5 h-5 mr-3" />
+            Richiedi Accesso Immediato
+          </a>
+          <router-link to="/contatti" class="btn-luxury-outline flex items-center">
+            <IconMail class="w-5 h-5 mr-3" />
+            Richiedi Informazioni
+          </router-link>
+        </div>
+        
+        <div class="divider-luxury mt-12"></div>
+        
+        <p class="text-luxury-gold text-sm mt-8 font-medium tracking-wide">
+          Risposta garantita entro 1 ora • Supporto 7/7 dalle 9:00 alle 19:00
+        </p>
+      </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="section-luxury">
+      <div class="text-center mb-20">
+        <h2 class="heading-luxury-medium mb-8">
+          Il Vantaggio <span class="text-gradient-gold">Competitivo</span>
+        </h2>
+        <p class="subheading-luxury max-w-4xl mx-auto">
+          A differenza di altre piattaforme che vincolano l'utilizzo a pacchetti prepagati o ricariche a consumo, 
+          noi offriamo accesso illimitato e tariffe flat annuali, ideali per chi sviluppa progetti complessi e ha bisogno di continuità operativa.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="glass-card-enhanced text-center animate-slide-up">
+          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
+            <IconShield class="w-10 h-10 text-luxury-black" />
+          </div>
+          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Gestori Ufficiali</h3>
+          <p class="body-text-luxury">
+            PortaleAPI.it e PortaleAPI.com - La garanzia di affidabilità nel settore
+          </p>
+        </div>
+        
+        <div class="glass-card-enhanced text-center animate-slide-up" style="animation-delay: 0.2s">
+          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
+            <IconMail class="w-10 h-10 text-luxury-black" />
+          </div>
+          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Account Manager Dedicato</h3>
+          <p class="body-text-luxury">
+            Ogni cliente seguito da un Account Manager dedicato con supporto attivo personalizzato
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clienti di Prestigio Section -->
+    <section class="section-luxury">
+      <div class="text-center mb-16">
+        <h2 class="heading-luxury-medium mb-8">
+          Clienti di <span class="text-gradient-gold">Prestigio</span>
+        </h2>
+        <p class="subheading-luxury max-w-4xl mx-auto">
+          Le aziende più importanti si fidano di noi per i loro dati critici
+        </p>
+      </div>
+      
+      <ClientCarousel />
+    </section>
+
+    <!-- Professional Sectors -->
+    <section class="section-luxury">
+      <div class="text-center mb-20">
+        <h2 class="heading-luxury-medium mb-8">
+          Soluzioni API per ogni <span class="text-gradient-gold">Settore Professionale</span>
+        </h2>
+      </div>
+      
+      <div class="space-y-16">
+        <!-- Banking -->
+        <div class="card-luxury-elegant">
+          <div class="flex items-start space-x-8">
+            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
+              <IconBuildingBank class="w-10 h-10 text-luxury-black" />
+            </div>
+            <div>
+              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Banche e Istituti di Credito</h3>
+              <p class="body-text-luxury mb-6">
+                Automatizza onboarding, KYC/AML e credit scoring. Le API supportano:
+              </p>
+              <ul class="space-y-3 text-base">
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Analisi real-time su imprese e privati</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Credit score, protesti, negatività</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Integrazione nei CRM per finanziamenti</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legal -->
+        <div class="card-luxury-elegant">
+          <div class="flex items-start space-x-8">
+            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
+              <IconScale class="w-10 h-10 text-luxury-black" />
+            </div>
+            <div>
+              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Studi Legali Internazionali</h3>
+              <p class="body-text-luxury mb-6">
+                Supporto completo per M&A, due diligence, recupero crediti, contenziosi:
+              </p>
+              <ul class="space-y-3 text-base">
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Struttura societaria e beneficiari effettivi</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Proprietà immobiliari, cariche, atti</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Accesso diretto a documenti ufficiali</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Investment -->
+        <div class="card-luxury-elegant">
+          <div class="flex items-start space-x-8">
+            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
+              <IconTrendingUp class="w-10 h-10 text-luxury-black" />
+            </div>
+            <div>
+              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">SGR e Società di Investimento</h3>
+              <p class="body-text-luxury mb-6">
+                Analizza imprese target, portafogli e controparti in operazioni complesse:
+              </p>
+              <ul class="space-y-3 text-base">
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Bilanci e performance storica</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Immobili intestati, soci, rischi</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Report aggregati geolocalizzati</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fiduciary -->
+        <div class="card-luxury-elegant">
+          <div class="flex items-start space-x-8">
+            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
+              <IconReceipt class="w-10 h-10 text-luxury-black" />
+            </div>
+            <div>
+              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Fiduciarie e Trust Company</h3>
+              <p class="body-text-luxury mb-6">
+                Valutazioni su soggetti terzi, trasparenza patrimoniale e supporto antiriciclaggio:
+              </p>
+              <ul class="space-y-3 text-base">
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Controllo affidabilità</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Verifica patrimonio mobiliare e immobiliare</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Ricostruzione attività economica</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insurance -->
+        <div class="card-luxury-elegant">
+          <div class="flex items-start space-x-8">
+            <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center flex-shrink-0">
+              <IconShield class="w-10 h-10 text-luxury-black" />
+            </div>
+            <div>
+              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Assicurazioni</h3>
+              <p class="body-text-luxury mb-6">
+                Strumenti per profilazione, antifrode e sottoscrizione:
+              </p>
+              <ul class="space-y-3 text-base">
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Visure immobiliari e cariche</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Controlli su soggetti beneficiari</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <span class="text-luxury-gold text-lg">•</span>
+                  <span class="text-luxury-text-secondary">Atti patrimoniali e pregiudizievoli</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Catalog -->
+    <section class="section-luxury">
+      <div class="text-center mb-20">
+        <h2 class="heading-luxury-medium mb-8">
+          Catalogo <span class="text-gradient-gold">API</span>
+        </h2>
+        <p class="subheading-luxury">Principali Moduli a Tua Disposizione</p>
+      </div>
+      
+      <div class="overflow-x-auto">
+        <table class="table-luxury">
+          <thead>
+            <tr>
+              <th>Modulo API</th>
+              <th>Cosa fa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="api in apiCatalog" :key="api.name">
+              <td class="font-semibold text-luxury-white">{{ api.name }}</td>
+              <td class="text-luxury-text-secondary">{{ api.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Key Numbers -->
+    <section class="section-luxury">
+      <div class="text-center mb-20">
+        <h2 class="heading-luxury-medium mb-8">
+          Numeri <span class="text-gradient-gold">Chiave</span>
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div v-for="stat in keyStats" :key="stat.number" class="glass-card-enhanced text-center">
+          <div class="text-5xl md:text-6xl font-display font-bold text-gradient-gold mb-6">{{ stat.number }}</div>
+          <p class="body-text-luxury">{{ stat.description }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Quality -->
+    <section class="section-luxury">
+      <div class="text-center mb-20">
+        <h2 class="heading-luxury-medium mb-8">
+          Qualità del Dato e <span class="text-gradient-gold">Fonti Ufficiali</span>
+        </h2>
+        <p class="subheading-luxury max-w-4xl mx-auto">
+          Utilizziamo esclusivamente fonti certificate e pubblici registri
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-16">
+        <div>
+          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold">Fonti Autorizzate</h3>
+          <ul class="space-y-4">
+            <li v-for="source in officialSources" :key="source" class="flex items-center space-x-4">
+              <span class="w-3 h-3 bg-luxury-gold rounded-full"></span>
+              <span class="text-luxury-text-secondary">{{ source }}</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold">Criteri di Validazione</h3>
+          <ul class="space-y-4">
+            <li v-for="criteria in validationCriteria" :key="criteria" class="flex items-center space-x-4">
+              <span class="w-3 h-3 bg-luxury-gold rounded-full"></span>
+              <span class="text-luxury-text-secondary">{{ criteria }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-16 p-8 bg-luxury-gray border border-luxury-gold/30">
+        <p class="text-luxury-text-secondary">
+          <strong class="text-luxury-gold">Openapi è autorizzata</strong> a svolgere attività di investigazioni, ricerche e raccolta di informazioni 
+          anche commerciali su specifico mandato, come previsto dalla normativa, tramite licenza rilasciata dalla Questura (TULPS n. 234801).
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-luxury text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="heading-luxury-medium mb-8">
+          Attivazione e <span class="text-gradient-gold">Richiesta Informazioni</span>
+        </h2>
+        <p class="subheading-luxury mb-12">
+          Richiedi ora accesso alle API illimitate:<br>
+          Ricevi risposta entro 1 ora. Nessuna ricarica, nessun credito. Un unico canone annuale flat.
+        </p>
+        
+        <div class="glass-card-enhanced">
+          <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
+            <router-link to="/contatti" class="btn-luxury text-lg px-12 py-6 flex items-center">
+              <IconSend class="w-6 h-6 mr-3" />
+              Compila il modulo per attivare l'accesso
+            </router-link>
+          </div>
+          
+          <div class="divider-luxury mt-8"></div>
+          
+          <p class="text-luxury-gold text-sm mt-6 font-medium tracking-wide">
+            <IconMail class="inline w-4 h-4 mr-2" />
+            Per supporto tecnico diretto: <a :href="supportEmailLink" @click="showEmailModal" class="underline hover:text-luxury-gold-light transition-colors duration-300">{{ supportEmail }}</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue'
+import { 
+  IconDatabase, 
+  IconBuildingBank, 
+  IconScale, 
+  IconTrendingUp, 
+  IconReceipt, 
+  IconShield, 
+  IconPackage, 
+  IconSearch, 
+  IconCheck, 
+  IconMail, 
+  IconSend 
+} from '@tabler/icons-vue'
+import ClientCarousel from '../components/ClientCarousel.vue'
+
+export default {
+  name: 'HomePage',
+  components: {
+    IconDatabase,
+    IconBuildingBank,
+    IconScale,
+    IconTrendingUp,
+    IconReceipt,
+    IconShield,
+    IconPackage,
+    IconSearch,
+    IconCheck,
+    IconMail,
+    IconSend,
+    ClientCarousel
+  },
+  setup() {
+    const apiCatalog = ref([
+      { name: 'Imprese Italia', description: 'Dati completi su aziende italiane, soci, bilanci, PEC, sede' },
+      { name: 'Imprese Estero', description: 'Informazioni fiscali e societarie su imprese UE e mondiali' },
+      { name: 'Verifica Enti Pubblici', description: 'Controllo enti PA e split payment' },
+      { name: 'Visure Immobili', description: 'Catasto, intestazioni, schede immobiliari, visure, planimetrie' },
+      { name: 'Analisi Affidabilità', description: 'Credit score, eventi negativi, immobili, ispezioni ipotecarie' },
+      { name: 'Documenti Ufficiali', description: 'Atti, bilanci, certificati, registrazioni immobiliari, certificati anagrafici' },
+      { name: 'Visure Integrate', description: 'Accesso unificato a 128+ tipologie documentali tra cui 730, ISEE, NASpI' },
+      { name: 'Documenti Camerali', description: 'Visure CCIAA, bilanci, vigenze, certificati, elenco soci' }
+    ])
+    
+    const keyStats = ref([
+      { number: '7M+', description: 'Compravendite immobiliari censite' },
+      { number: '6M+', description: 'Imprese italiane attive' },
+      { number: '900K+', description: 'Bilanci digitali ufficiali' },
+      { number: '5M+', description: 'PEC certificate' },
+      { number: 'Milioni', description: 'Dati anagrafici, fiscali, patrimoniali' },
+      { number: '128+', description: 'Tipologie documentali accessibili' }
+    ])
+    
+    const officialSources = ref([
+      'Registro Imprese / InfoCamere',
+      'Agenzia delle Entrate / Catasto / Conservatorie',
+      'INPS, ANPR, PRA',
+      'CAF e Patronati autorizzati',
+      'Indagini investigative (Licenza TULPS 234801)',
+      'Elenchi ufficiali di ordini, albi e PA'
+    ])
+    
+    const validationCriteria = ref([
+      'Accuratezza',
+      'Completezza',
+      'Attualità',
+      'Affidabilità incrociata',
+      'Rilevanza professionale'
+    ])
+    
+    // Environment variables
+    const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
+    const supportEmailLink = `mailto:${supportEmail}`
+    
+    const showEmailModal = (event) => {
+      event.preventDefault()
+      // Emit event to parent component (App.vue) to show modal
+      window.dispatchEvent(new CustomEvent('showEmailModal', { 
+        detail: { href: event.target.href } 
+      }))
+    }
+
+    return {
+      apiCatalog,
+      keyStats,
+      officialSources,
+      validationCriteria,
+      supportEmail,
+      supportEmailLink,
+      showEmailModal
+    }
+  }
+}
+</script> 
