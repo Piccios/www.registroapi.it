@@ -14,19 +14,16 @@
     <section class="section-luxury-compact">
       <div class="grid md:grid-cols-2 gap-12 mb-20">
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
-            <IconMail class="w-10 h-10 text-luxury-black" />
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconMail class="w-10 h-10 text-luxury-gold" />
           </div>
           <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Supporto Email</h3>
           <p class="body-text-luxury mb-6">Contatto diretto per assistenza tecnica</p>
-          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium">
-            {{ supportEmail }}
-          </a>
+          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium">{{ supportEmail }}</a>
         </div>
-
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
-            <IconClock class="w-10 h-10 text-luxury-black" />
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconClock class="w-10 h-10 text-luxury-gold" />
           </div>
           <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Orari Supporto</h3>
           <p class="body-text-luxury mb-6">Disponibilità garantita</p>
@@ -79,9 +76,9 @@
               Contatta Supporto Tecnico
             </a>
           </div>
-          
+
           <div class="divider-luxury mt-8"></div>
-          
+
           <p class="text-luxury-gold text-sm mt-6 font-medium tracking-wide">
             Risposta garantita entro 1 ora • Supporto 7/7 dalle 9:00 alle 19:00
           </p>
@@ -140,7 +137,7 @@
 </template>
 
 <script>
-import { IconMail, IconClock } from '@tabler/icons-vue'
+import { IconClock, IconMail } from '@tabler/icons-vue'
 
 export default {
   name: 'HelpCenter',
@@ -152,12 +149,12 @@ export default {
     // Environment variables
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
     const supportEmailLink = `mailto:${supportEmail}`
-    
+
     const showEmailModal = (event) => {
       event.preventDefault()
       // Emit event to parent component (App.vue) to show modal
-      window.dispatchEvent(new CustomEvent('showEmailModal', { 
-        detail: { href: event.target.href } 
+      window.dispatchEvent(new CustomEvent('showEmailModal', {
+        detail: { href: event.target.href }
       }))
     }
 
@@ -168,4 +165,4 @@ export default {
     }
   }
 }
-</script> 
+</script>
