@@ -14,8 +14,8 @@
     <section class="section-luxury-compact">
       <div class="grid md:grid-cols-3 gap-12 mb-20">
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
-            <IconMail class="w-10 h-10 text-luxury-black" />
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconMail class="w-10 h-10 text-luxury-gold" />
           </div>
           <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Supporto Tecnico</h3>
           <p class="body-text-luxury mb-6">Per assistenza API e problemi tecnici</p>
@@ -25,8 +25,8 @@
         </div>
 
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
-            <IconClock class="w-10 h-10 text-luxury-black" />
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconClock class="w-10 h-10 text-luxury-gold" />
           </div>
           <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Tempi di Risposta</h3>
           <p class="body-text-luxury mb-6">Garantiamo risposta entro</p>
@@ -34,8 +34,8 @@
         </div>
 
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
-            <IconPhone class="w-10 h-10 text-luxury-black" />
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconPhone class="w-10 h-10 text-luxury-gold" />
           </div>
           <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Orari Supporto</h3>
           <p class="body-text-luxury mb-6">7 giorni su 7</p>
@@ -146,7 +146,7 @@
                 class="mt-1 text-luxury-gold focus:ring-luxury-gold"
               />
               <span class="body-text-luxury">
-                Accetto la <router-link to="/privacy-policy" class="text-luxury-gold hover:text-luxury-gold-light underline transition-colors duration-300">Privacy Policy</router-link> 
+                Accetto la <router-link to="/privacy-policy" class="text-luxury-gold hover:text-luxury-gold-light underline transition-colors duration-300">Privacy Policy</router-link>
                 e autorizzo il trattamento dei miei dati per ricevere informazioni commerciali. *
               </span>
             </label>
@@ -192,8 +192,8 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
-import { IconMail, IconClock, IconPhone, IconSend } from '@tabler/icons-vue'
+import { IconClock, IconMail, IconPhone, IconSend } from '@tabler/icons-vue'
+import { onMounted, ref } from 'vue'
 
 export default {
   name: 'ContactPage',
@@ -232,7 +232,7 @@ export default {
       try {
         // EmailJS configuration
         const emailjs = window.emailjs
-        
+
         // Prepare email template parameters
         const templateParams = {
           form_name: form.value.firstName,
@@ -243,7 +243,7 @@ export default {
           message: form.value.message,
           time: new Date().toLocaleString('it-IT')
         }
-        
+
         // Send email using EmailJS with environment variables
         const result = await emailjs.send(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -251,10 +251,10 @@ export default {
           templateParams,
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )
-        
+
         submitSuccess.value = true
         submitMessage.value = 'La tua richiesta è stata inviata con successo! Ti contatteremo entro 1 ora.'
-        
+
         // Reset form
         form.value = {
           firstName: '',
@@ -265,7 +265,7 @@ export default {
           message: '',
           privacy: false
         }
-        
+
       } catch (error) {
         console.error('EmailJS Error:', error)
         submitSuccess.value = false
@@ -278,12 +278,12 @@ export default {
     // Environment variables
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
     const supportEmailLink = `mailto:${supportEmail}`
-    
+
     const showEmailModal = (event) => {
       event.preventDefault()
       // Emit event to parent component (App.vue) to show modal
-      window.dispatchEvent(new CustomEvent('showEmailModal', { 
-        detail: { href: event.target.href } 
+      window.dispatchEvent(new CustomEvent('showEmailModal', {
+        detail: { href: event.target.href }
       }))
     }
 
@@ -299,4 +299,4 @@ export default {
     }
   }
 }
-</script> 
+</script>
