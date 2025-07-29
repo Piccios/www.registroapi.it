@@ -13,7 +13,7 @@
           Accesso illimitato ai dati. Nessun credito da ricaricare. Massima efficienza.<br>
           Siamo il registro più affidabile per API ad alto valore legale, fiscale e informativo.
         </p>
-        
+
         <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
           <a :href="`mailto:${supportEmail}`" @click="showEmailModal" class="btn-luxury flex items-center">
             <IconSend class="w-5 h-5 mr-3" />
@@ -24,9 +24,9 @@
             Richiedi Informazioni
           </router-link>
         </div>
-        
+
         <div class="divider-luxury mt-12"></div>
-        
+
         <p class="text-luxury-gold text-sm mt-8 font-medium tracking-wide">
           Risposta garantita entro 1 ora • Supporto 7/7 dalle 9:00 alle 19:00
         </p>
@@ -40,11 +40,11 @@
           Il Vantaggio <span class="text-gradient-gold">Competitivo</span>
         </h2>
         <p class="subheading-luxury max-w-4xl mx-auto">
-          A differenza di altre piattaforme che vincolano l'utilizzo a pacchetti prepagati o ricariche a consumo, 
+          A differenza di altre piattaforme che vincolano l'utilizzo a pacchetti prepagati o ricariche a consumo,
           noi offriamo accesso illimitato e tariffe flat annuali, ideali per chi sviluppa progetti complessi e ha bisogno di continuità operativa.
         </p>
       </div>
-      
+
       <div class="grid md:grid-cols-2 gap-12">
         <div class="glass-card-enhanced text-center animate-slide-up">
           <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
@@ -55,7 +55,7 @@
             PortaleAPI.it e PortaleAPI.com - La garanzia di affidabilità nel settore
           </p>
         </div>
-        
+
         <div class="glass-card-enhanced text-center animate-slide-up" style="animation-delay: 0.2s">
           <div class="w-20 h-20 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-8">
             <IconMail class="w-10 h-10 text-luxury-black" />
@@ -78,7 +78,7 @@
           Le aziende più importanti si fidano di noi per i loro dati critici
         </p>
       </div>
-      
+
       <ClientCarousel />
     </section>
 
@@ -89,7 +89,7 @@
           Soluzioni API per ogni <span class="text-gradient-gold">Settore Professionale</span>
         </h2>
       </div>
-      
+
       <div class="space-y-16">
         <!-- Banking -->
         <div class="card-luxury-elegant">
@@ -246,7 +246,7 @@
         </h2>
         <p class="subheading-luxury">Principali Moduli a Tua Disposizione</p>
       </div>
-      
+
       <div class="overflow-x-auto">
         <table class="table-luxury">
           <thead>
@@ -272,7 +272,7 @@
           Numeri <span class="text-gradient-gold">Chiave</span>
         </h2>
       </div>
-      
+
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
         <div v-for="stat in keyStats" :key="stat.number" class="glass-card-enhanced text-center">
           <div class="text-5xl md:text-6xl font-display font-bold text-gradient-gold mb-6">{{ stat.number }}</div>
@@ -291,7 +291,7 @@
           Utilizziamo esclusivamente fonti certificate e pubblici registri
         </p>
       </div>
-      
+
       <div class="grid md:grid-cols-2 gap-16">
         <div>
           <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold">Fonti Autorizzate</h3>
@@ -302,7 +302,7 @@
             </li>
           </ul>
         </div>
-        
+
         <div>
           <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold">Criteri di Validazione</h3>
           <ul class="space-y-4">
@@ -313,10 +313,10 @@
           </ul>
         </div>
       </div>
-      
+
       <div class="mt-16 p-8 bg-luxury-gray border border-luxury-gold/30">
         <p class="text-luxury-text-secondary">
-          <strong class="text-luxury-gold">Openapi è autorizzata</strong> a svolgere attività di investigazioni, ricerche e raccolta di informazioni 
+          <strong class="text-luxury-gold">Openapi è autorizzata</strong> a svolgere attività di investigazioni, ricerche e raccolta di informazioni
           anche commerciali su specifico mandato, come previsto dalla normativa, tramite licenza rilasciata dalla Questura (TULPS n. 234801).
         </p>
       </div>
@@ -332,7 +332,7 @@
           Richiedi ora accesso alle API illimitate:<br>
           Ricevi risposta entro 1 ora. Nessuna ricarica, nessun credito. Un unico canone annuale flat.
         </p>
-        
+
         <div class="glass-card-enhanced">
           <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
             <router-link to="/contatti" class="btn-luxury text-lg px-12 py-6 flex items-center">
@@ -340,9 +340,9 @@
               Compila il modulo per attivare l'accesso
             </router-link>
           </div>
-          
+
           <div class="divider-luxury mt-8"></div>
-          
+
           <p class="text-luxury-gold text-sm mt-6 font-medium tracking-wide">
             <IconMail class="inline w-4 h-4 mr-2" />
             Per supporto tecnico diretto: <a :href="supportEmailLink" @click="showEmailModal" class="underline hover:text-luxury-gold-light transition-colors duration-300">{{ supportEmail }}</a>
@@ -354,20 +354,20 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { 
-  IconDatabase, 
-  IconBuildingBank, 
-  IconScale, 
-  IconTrendingUp, 
-  IconReceipt, 
-  IconShield, 
-  IconPackage, 
-  IconSearch, 
-  IconCheck, 
-  IconMail, 
-  IconSend 
+import {
+  IconBuildingBank,
+  IconCheck,
+  IconDatabase,
+  IconMail,
+  IconPackage,
+  IconReceipt,
+  IconScale,
+  IconSearch,
+  IconSend,
+  IconShield,
+  IconTrendingUp
 } from '@tabler/icons-vue'
+import { ref } from 'vue'
 import ClientCarousel from '../components/ClientCarousel.vue'
 
 export default {
@@ -394,19 +394,19 @@ export default {
       { name: 'Visure Immobili', description: 'Catasto, intestazioni, schede immobiliari, visure, planimetrie' },
       { name: 'Analisi Affidabilità', description: 'Credit score, eventi negativi, immobili, ispezioni ipotecarie' },
       { name: 'Documenti Ufficiali', description: 'Atti, bilanci, certificati, registrazioni immobiliari, certificati anagrafici' },
-      { name: 'Visure Integrate', description: 'Accesso unificato a 128+ tipologie documentali tra cui 730, ISEE, NASpI' },
+      { name: 'Visure Integrate', description: 'Accesso unificato a centinaia di tipologie documentali tra cui 730, ISEE, NASpI' },
       { name: 'Documenti Camerali', description: 'Visure CCIAA, bilanci, vigenze, certificati, elenco soci' }
     ])
-    
+
     const keyStats = ref([
       { number: '7M+', description: 'Compravendite immobiliari censite' },
       { number: '6M+', description: 'Imprese italiane attive' },
       { number: '900K+', description: 'Bilanci digitali ufficiali' },
       { number: '5M+', description: 'PEC certificate' },
-      { number: 'Milioni', description: 'Dati anagrafici, fiscali, patrimoniali' },
+      { number: '13M+', description: 'Dati anagrafici, fiscali, patrimoniali' },
       { number: '128+', description: 'Tipologie documentali accessibili' }
     ])
-    
+
     const officialSources = ref([
       'Registro Imprese / InfoCamere',
       'Agenzia delle Entrate / Catasto / Conservatorie',
@@ -415,7 +415,7 @@ export default {
       'Indagini investigative (Licenza TULPS 234801)',
       'Elenchi ufficiali di ordini, albi e PA'
     ])
-    
+
     const validationCriteria = ref([
       'Accuratezza',
       'Completezza',
@@ -423,16 +423,16 @@ export default {
       'Affidabilità incrociata',
       'Rilevanza professionale'
     ])
-    
+
     // Environment variables
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
     const supportEmailLink = `mailto:${supportEmail}`
-    
+
     const showEmailModal = (event) => {
       event.preventDefault()
       // Emit event to parent component (App.vue) to show modal
-      window.dispatchEvent(new CustomEvent('showEmailModal', { 
-        detail: { href: event.target.href } 
+      window.dispatchEvent(new CustomEvent('showEmailModal', {
+        detail: { href: event.target.href }
       }))
     }
 
@@ -447,4 +447,4 @@ export default {
     }
   }
 }
-</script> 
+</script>
