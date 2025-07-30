@@ -4,8 +4,8 @@
     <div class="luxury-overlay"></div>
 
     <!-- Elegant Navigation Header -->
-    <nav class="fixed top-0 w-full h-24 z-50 bg-luxury-black/90 backdrop-blur-xl border-b border-luxury-gray-medium/20">
-      <div class="max-w-7xl mx-auto px-8 py-1 ">
+    <nav class="fixed top-0 w-full h-32 z-50 bg-luxury-black/90 backdrop-blur-xl border-b border-luxury-gray-medium/20">
+      <div class="max-w-7xl mx-auto py-1 ">
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <router-link to="/" class="flex items-center space-x-4 group">
