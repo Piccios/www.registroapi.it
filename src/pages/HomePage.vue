@@ -300,7 +300,7 @@
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-16">
+      <div class="grid md:grid-cols-2 space-x-60">
         <div>
           <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold">Fonti Autorizzate</h3>
           <ul class="space-y-4">
