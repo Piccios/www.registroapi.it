@@ -57,6 +57,31 @@
         </div>
 
         <form @submit.prevent="submitForm" class="glass-card-enhanced">
+          <!-- Honeypot fields - hidden from users but visible to bots -->
+          <div class="absolute -left-[9999px] opacity-0 pointer-events-none">
+            <input
+              v-model="honeypot.name"
+              type="text"
+              name="website"
+              autocomplete="off"
+              tabindex="-1"
+            />
+            <input
+              v-model="honeypot.email"
+              type="email"
+              name="email_confirm"
+              autocomplete="off"
+              tabindex="-1"
+            />
+            <input
+              v-model="honeypot.phone"
+              type="tel"
+              name="phone"
+              autocomplete="off"
+              tabindex="-1"
+            />
+          </div>
+
           <div class="grid md:grid-cols-2 gap-8 mb-8">
             <div>
               <label for="firstName" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Nome *</label>
@@ -67,6 +92,8 @@
                 required
                 class="input-luxury"
                 placeholder="Il tuo nome"
+                autocomplete="given-name"
+                :disabled="isSubmitting"
               />
             </div>
             <div>
@@ -78,6 +105,8 @@
                 required
                 class="input-luxury"
                 placeholder="Il tuo cognome"
+                autocomplete="family-name"
+                :disabled="isSubmitting"
               />
             </div>
           </div>
@@ -92,6 +121,8 @@
                 required
                 class="input-luxury"
                 placeholder="email@azienda.com"
+                autocomplete="email"
+                :disabled="isSubmitting"
               />
             </div>
             <div>
@@ -103,6 +134,8 @@
                 required
                 class="input-luxury"
                 placeholder="Nome azienda"
+                autocomplete="organization"
+                :disabled="isSubmitting"
               />
             </div>
           </div>
@@ -114,6 +147,7 @@
               v-model="form.sector"
               required
               class="input-luxury"
+              :disabled="isSubmitting"
             >
               <option value="">Seleziona il tuo settore</option>
               <option value="banking">Banche e Istituti di Credito</option>
@@ -134,6 +168,7 @@
               rows="6"
               class="textarea-luxury"
               placeholder="Descrivi il tuo progetto e le API di cui hai bisogno..."
+              :disabled="isSubmitting"
             ></textarea>
           </div>
 
@@ -144,6 +179,7 @@
                 type="checkbox"
                 required
                 class="mt-1 text-luxury-gold focus:ring-luxury-gold"
+                :disabled="isSubmitting"
               />
               <span class="body-text-luxury">
                 Accetto la <router-link to="/privacy-policy" class="text-luxury-gold hover:text-luxury-gold-light underline transition-colors duration-300">Privacy Policy</router-link>
@@ -155,7 +191,7 @@
           <div class="text-center">
             <button
               type="submit"
-              :disabled="isSubmitting"
+              :disabled="isSubmitting || !canSubmit"
               class="btn-luxury text-lg px-12 py-6 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span v-if="isSubmitting">Invio in corso...</span>
@@ -193,7 +229,7 @@
 
 <script>
 import { IconClock, IconMail, IconPhone, IconSend } from '@tabler/icons-vue'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 export default {
   name: 'ContactPage',
@@ -211,6 +247,7 @@ export default {
         window.emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
       }
     })
+
     const form = ref({
       firstName: '',
       lastName: '',
@@ -221,15 +258,107 @@ export default {
       privacy: false
     })
 
+    // Honeypot fields to catch bots
+    const honeypot = ref({
+      name: '',
+      email: '',
+      phone: ''
+    })
+
     const isSubmitting = ref(false)
     const submitMessage = ref('')
     const submitSuccess = ref(false)
+    const lastSubmissionTime = ref(0)
+
+    // Rate limiting - prevent multiple submissions
+    const canSubmit = computed(() => {
+      const now = Date.now()
+      return now - lastSubmissionTime.value > 20000 // 20 seconds cooldown
+    })
+
+    // Bot detection functions
+    const isBot = () => {
+      // Check honeypot fields
+      if (honeypot.value.name || honeypot.value.email || honeypot.value.phone) {
+        return true
+      }
+
+      // Check if form was filled too quickly (less than 5 seconds)
+      const formStartTime = sessionStorage.getItem('formStartTime')
+      if (formStartTime) {
+        const timeSpent = Date.now() - parseInt(formStartTime)
+        if (timeSpent < 5000) {
+          return true
+        }
+      }
+
+      // Check for suspicious patterns
+      const suspiciousPatterns = [
+        /^[a-z]{1,2}\d{1,2}$/i, // Very short names with numbers
+        /^test/i, // Test submissions
+        /^admin/i, // Admin submissions
+        /^bot/i, // Bot submissions
+        /^spam/i // Spam submissions
+      ]
+
+      const email = form.value.email.toLowerCase()
+      const firstName = form.value.firstName.toLowerCase()
+      const lastName = form.value.lastName.toLowerCase()
+
+      return suspiciousPatterns.some(pattern =>
+        pattern.test(email) || pattern.test(firstName) || pattern.test(lastName)
+      )
+    }
+
+    const validateForm = () => {
+      // Check message length (prevent very short or very long messages)
+      if (form.value.message.length < 10) {
+        return 'Il messaggio deve contenere almeno 10 caratteri.'
+      }
+
+      if (form.value.message.length > 2000) {
+        return 'Il messaggio non può superare i 2000 caratteri.'
+      }
+
+      // Check email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(form.value.email)) {
+        return 'Inserisci un indirizzo email valido.'
+      }
+
+      // Check for suspicious content
+      const suspiciousWords = ['casino', 'viagra', 'loan', 'credit', 'debt', 'make money', 'earn money', 'work from home']
+      const messageLower = form.value.message.toLowerCase()
+      if (suspiciousWords.some(word => messageLower.includes(word))) {
+        return 'Il contenuto del messaggio contiene parole non consentite.'
+      }
+
+      return null
+    }
 
     const submitForm = async () => {
+      // Rate limiting check
+      if (!canSubmit.value) {
+        submitMessage.value = 'Attendi un momento prima di inviare un\'altra richiesta.'
+        submitSuccess.value = false
+        return
+      }
+
       isSubmitting.value = true
       submitMessage.value = ''
 
       try {
+        // Bot detection
+        if (isBot()) {
+          throw new Error('Rilevata attività sospetta. Contattaci direttamente via email.')
+        }
+
+        // Form validation
+        const validationError = validateForm()
+        if (validationError) {
+          throw new Error(validationError)
+        }
+
         // EmailJS configuration
         const emailjs = window.emailjs
 
@@ -241,7 +370,9 @@ export default {
           company: form.value.company,
           sector: form.value.sector,
           message: form.value.message,
-          time: new Date().toLocaleString('it-IT')
+          time: new Date().toLocaleString('it-IT'),
+          user_agent: navigator.userAgent,
+          ip_address: 'N/A' // Would be set server-side
         }
 
         // Send email using EmailJS with environment variables
@@ -255,25 +386,42 @@ export default {
         submitSuccess.value = true
         submitMessage.value = 'La tua richiesta è stata inviata con successo! Ti contatteremo entro 1 ora.'
 
-        // Reset form
-        form.value = {
-          firstName: '',
-          lastName: '',
+        // Update last submission time
+        lastSubmissionTime.value = Date.now()
+
+                 // Reset form
+         form.value = {
+           firstName: '',
+           lastName: '',
+           email: '',
+           company: '',
+           sector: '',
+           message: '',
+           privacy: false
+         }
+
+        // Reset honeypot
+        honeypot.value = {
+          name: '',
           email: '',
-          company: '',
-          sector: '',
-          message: '',
-          privacy: false
+          phone: ''
         }
 
+
+
       } catch (error) {
-        console.error('EmailJS Error:', error)
+        console.error('Form submission error:', error)
         submitSuccess.value = false
-        submitMessage.value = 'Si è verificato un errore nell\'invio. Ti preghiamo di contattare' + supportEmail
+        submitMessage.value = error.message || 'Si è verificato un errore nell\'invio. Ti preghiamo di contattare ' + supportEmail
       } finally {
         isSubmitting.value = false
       }
     }
+
+    // Track form start time
+    onMounted(() => {
+      sessionStorage.setItem('formStartTime', Date.now().toString())
+    })
 
     // Environment variables
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
@@ -287,16 +435,18 @@ export default {
       }))
     }
 
-    return {
-      form,
-      isSubmitting,
-      submitMessage,
-      submitSuccess,
-      submitForm,
-      supportEmail,
-      supportEmailLink,
-      showEmailModal
-    }
+         return {
+       form,
+       honeypot,
+       isSubmitting,
+       submitMessage,
+       submitSuccess,
+       canSubmit,
+       submitForm,
+       supportEmail,
+       supportEmailLink,
+       showEmailModal
+     }
   }
 }
 </script>
