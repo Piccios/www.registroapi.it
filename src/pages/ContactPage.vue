@@ -5,14 +5,14 @@
       <h1 class="heading-luxury mb-8">
         Contatta il Nostro <span class="text-gradient-gold">Team</span>
       </h1>
-      <p class="subheading-luxury mb-12 max-w-3xl mx-auto">
+      <p class="subheading-luxury max-w-3xl mx-auto">
         Siamo qui per supportarti con soluzioni API personalizzate per il tuo business
       </p>
     </section>
 
     <!-- Contact Info -->
     <section class="section-luxury-compact">
-      <div class="grid md:grid-cols-3 gap-12 mb-20">
+      <div class="grid md:grid-cols-3 gap-12 mb-8">
         <div class="glass-card-enhanced text-center">
           <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
             <IconMail class="w-10 h-10 text-luxury-gold" />
