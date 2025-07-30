@@ -95,33 +95,161 @@
           </h2>
         </div>
 
-        <div class="space-y-8">
-          <div class="glass-card-enhanced">
-            <h3 class="text-xl font-display font-semibold mb-4 text-luxury-gold">Come posso accedere alle API?</h3>
-            <p class="body-text-luxury">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nisi voluptas inventore, maiores dolores atque error. Error eius, provident, sint esse modi ipsa dolorum, velit numquam nihil aperiam vero dolorem?
-            </p>
-          </div>
+        <!-- Funzionamento del Servizio -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold text-center">
+            Funzionamento del Servizio
+          </h3>
+          <div class="space-y-6">
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">1. Cosa sono le API offerte da RegistroAPI?</h4>
+              <p class="body-text-luxury">
+                Le nostre API consentono di accedere in tempo reale a informazioni ufficiali e certificate su imprese, immobili, persone, visure camerali, atti, bilanci, rischi e molto altro, con copertura nazionale ed europea.
+              </p>
+            </div>
 
-          <div class="glass-card-enhanced">
-            <h3 class="text-xl font-display font-semibold mb-4 text-luxury-gold">Quali sono i tempi di risposta?</h3>
-            <p class="body-text-luxury">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nisi voluptas inventore, maiores dolores atque error. Error eius, provident, sint esse modi ipsa dolorum, velit numquam nihil aperiam vero dolorem?
-            </p>
-          </div>
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">2. A cosa servono le API di RegistroAPI?</h4>
+              <p class="body-text-luxury">
+                Sono usate da banche, assicurazioni, SGR, fiduciari, studi legali, comuni, università e tech company per integrare dati pubblici e certificati nei propri processi decisionali, gestionali, investigativi o di onboarding clienti (KYC, AML, scoring, M&A, ecc.).
+              </p>
+            </div>
 
-          <div class="glass-card-enhanced">
-            <h3 class="text-xl font-display font-semibold mb-4 text-luxury-gold">È disponibile la documentazione API?</h3>
-            <p class="body-text-luxury">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nisi voluptas inventore, maiores dolores atque error. Error eius, provident, sint esse modi ipsa dolorum, velit numquam nihil aperiam vero dolorem?
-            </p>
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">3. Come funziona l'accesso ai dati?</h4>
+              <p class="body-text-luxury">
+                Offriamo un accesso illimitato tramite licenza annuale: niente ricariche, niente consumo a crediti. Le nostre API sono documentate e pronte all'uso, e un account manager ti guida nell'integrazione.
+              </p>
+            </div>
           </div>
+        </div>
 
-          <div class="glass-card-enhanced">
-            <h3 class="text-xl font-display font-semibold mb-4 text-luxury-gold">Come funziona il supporto tecnico?</h3>
-            <p class="body-text-luxury">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum molestiae alias vero dicta natus accusantium ullam, doloremque impedit dolor temporibus atque ab ipsa aliquid quia. Tempora quod beatae dolorem sed.
-            </p>
+        <!-- Modelli Commerciali -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold text-center">
+            Modelli Commerciali
+          </h3>
+          <div class="space-y-6">
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">4. Quanto costa il servizio?</h4>
+              <p class="body-text-luxury">
+                Il prezzo varia in base ai moduli richiesti e all'utilizzo aziendale. Offriamo solo formule flat a canone annuo, senza costi a chiamata. Contattaci per un'offerta su misura.
+              </p>
+            </div>
+
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">5. Offrite anche formule a consumo o a credito?</h4>
+              <p class="body-text-luxury">
+                No. A differenza di altre piattaforme, noi forniamo solo contratti flat illimitati, per garantire massima prevedibilità di costo, efficienza e libertà nell'utilizzo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sicurezza e Legalità -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold text-center">
+            Sicurezza e Legalità
+          </h3>
+          <div class="space-y-6">
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">6. Le vostre fonti dati sono ufficiali?</h4>
+              <p class="body-text-luxury">
+                Sì. Le informazioni provengono da pubblici registri come Camera di Commercio, Agenzia delle Entrate, Catasto, PRA, ANPR, INPS, Gazzette Ufficiali e altre fonti verificate. Tutti i dati sono gestiti nel rispetto delle normative.
+              </p>
+            </div>
+
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">7. Siete autorizzati per l'attività di investigazione commerciale?</h4>
+              <p class="body-text-luxury">
+                Sì. RegistroAPI (già PortaleAPI.it / .com) opera con licenza TULPS n. 234801, rilasciata dalla Questura per attività investigative e raccolta dati su mandato.
+              </p>
+            </div>
+
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">8. I dati sono aggiornati in tempo reale?</h4>
+              <p class="body-text-luxury">
+                Sì. Tutte le API lavorano su fonti dinamiche o aggiornate con periodicità garantita, specificata nella documentazione tecnica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supporto & Integrazione -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold text-center">
+            Supporto & Integrazione
+          </h3>
+          <div class="space-y-6">
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">9. Quanto è difficile integrare le API?</h4>
+              <p class="body-text-luxury">
+                Tutte le API sono REST, documentate in modo semplice e pronte per l'integrazione in CRM, software interni, piattaforme e app. Ti forniamo supporto tecnico dedicato.
+              </p>
+            </div>
+
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">10. In quanto tempo attivate il servizio?</h4>
+              <p class="body-text-luxury">
+                Entro 1 ora dalla richiesta (negli orari 9–19, 7 giorni su 7). L'account manager dedicato ti seguirà nella configurazione e durante tutto il contratto.
+              </p>
+            </div>
+
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">11. Chi ha già scelto RegistroAPI?</h4>
+              <p class="body-text-luxury">
+                Tra i nostri clienti: BNP Paribas, Euroansa, Dentons, PWC, Comune di Genova, Comune di Venezia, Università di Pisa, Cassa di Risparmio Sparkasse, Aruba.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contesto d'uso -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold text-center">
+            Contesto d'uso
+          </h3>
+          <div class="space-y-6">
+            <div class="glass-card-enhanced">
+              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">12. Per quali settori è utile il vostro servizio?</h4>
+              <div class="body-text-luxury space-y-3">
+                <div class="flex items-start space-x-3">
+                  <span class="text-luxury-gold text-lg mt-1">•</span>
+                  <div>
+                    <span class="font-semibold text-luxury-gold">Banche e assicurazioni:</span>
+                    <span class="text-luxury-text-secondary"> onboarding clienti, KYC, scoring, erogazione mutui</span>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <span class="text-luxury-gold text-lg mt-1">•</span>
+                  <div>
+                    <span class="font-semibold text-luxury-gold">SGR e Fiduciarie:</span>
+                    <span class="text-luxury-text-secondary"> controllo asset, tracciabilità, antiriciclaggio</span>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <span class="text-luxury-gold text-lg mt-1">•</span>
+                  <div>
+                    <span class="font-semibold text-luxury-gold">Studi legali e Notai:</span>
+                    <span class="text-luxury-text-secondary"> atti, visure, due diligence, ipocatastali</span>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <span class="text-luxury-gold text-lg mt-1">•</span>
+                  <div>
+                    <span class="font-semibold text-luxury-gold">Enti pubblici:</span>
+                    <span class="text-luxury-text-secondary"> digitalizzazione, accertamenti, pratiche</span>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <span class="text-luxury-gold text-lg mt-1">•</span>
+                  <div>
+                    <span class="font-semibold text-luxury-gold">Aziende IT e Fintech:</span>
+                    <span class="text-luxury-text-secondary"> arricchimento dati, automazione processi</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
