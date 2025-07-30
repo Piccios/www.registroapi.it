@@ -9,7 +9,7 @@
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <router-link to="/" class="flex items-center space-x-4 group">
-            <img src="/public/img/logo_header.svg" alt="RegistroAPI_Logo" class="logo-img transition-transform duration-500 group-hover:scale-105" />
+            <img src="/public/img/logo_senzabackground.svg" alt="RegistroAPI_Logo" class="logo-img transition-transform duration-500 group-hover:scale-105" />
           </router-link>
 
           <!-- Desktop Navigation -->
