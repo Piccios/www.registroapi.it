@@ -192,7 +192,7 @@
             <button
               type="submit"
               :disabled="isSubmitting || !canSubmit"
-              class="btn-luxury text-lg px-12 py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+              class="btn-artistic text-luxury-gold text-lg px-12 py-6 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span v-if="isSubmitting">Invio in corso...</span>
               <span v-else class="flex items-center">
@@ -218,7 +218,7 @@
         Per problemi tecnici, assistenza API o supporto immediato, contatta direttamente il nostro team
       </p>
       <div class="flex justify-center">
-        <a :href="supportEmailLink" @click="showEmailModal" class="btn-luxury flex items-center">
+        <a :href="supportEmailLink" @click="showEmailModal" class="btn-elegant text-luxury-gold flex items-center">
           <IconMail class="w-5 h-5 mr-3" />
           Supporto Tecnico Diretto
         </a>

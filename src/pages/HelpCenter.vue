@@ -71,7 +71,7 @@
           </div>
 
           <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-            <a :href="supportEmailLink" @click="showEmailModal" class="btn-luxury text-lg px-12 py-6 flex items-center">
+            <a :href="supportEmailLink" @click="showEmailModal" class="btn-artistic text-luxury-gold text-lg px-12 py-6 flex items-center">
               <IconMail class="w-6 h-6 mr-3" />
               Contatta Supporto Tecnico
             </a>
@@ -257,7 +257,7 @@
 
     <!-- Back to Home -->
     <section class="section-luxury-compact text-center">
-      <router-link to="/" class="btn-luxury-outline">
+      <router-link to="/" class="btn-elegant text-luxury-gold">
         ← Torna alla Homepage
       </router-link>
     </section>

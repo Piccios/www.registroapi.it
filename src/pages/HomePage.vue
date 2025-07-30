@@ -15,11 +15,11 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-          <a :href="`mailto:${supportEmail}`" @click="showEmailModal" class="btn-luxury flex items-center">
+          <a :href="`mailto:${supportEmail}`" @click="showEmailModal" class="btn-artistic text-luxury-gold flex items-center">
             <IconSend class="w-5 h-5 mr-3" />
             Richiedi Accesso Immediato
           </a>
-          <router-link to="/contatti" class="btn-luxury-outline flex items-center">
+          <router-link to="/contatti" class="btn-elegant text-luxury-gold flex items-center">
             <IconMail class="w-5 h-5 mr-3" />
             Richiedi Informazioni
           </router-link>
@@ -266,7 +266,7 @@
 
       <!-- Request Complete Catalog Button -->
       <div class="text-center mt-12">
-        <button @click="showCatalogModal = true" class="btn-luxury-outline flex items-center mx-auto">
+        <button @click="showCatalogModal = true" class="btn-elegant text-luxury-gold flex items-center mx-auto">
           <IconPackage class="w-5 h-5 mr-3" />
           Richiedi Catalogo Completo API
         </button>
@@ -343,7 +343,7 @@
 
         <div class="glass-card-enhanced">
           <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-            <router-link to="/contatti" class="btn-luxury text-lg px-12 py-6 flex items-center">
+            <router-link to="/contatti" class="btn-artistic text-luxury-gold text-lg px-12 py-6 flex items-center">
               <IconSend class="w-6 h-6 mr-3" />
               Compila il modulo per attivare l'accesso
             </router-link>
@@ -378,11 +378,11 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button @click="requestCatalog" class="btn-luxury flex items-center justify-center">
+          <button @click="requestCatalog" class="btn-artistic text-luxury-gold flex items-center justify-center">
             <IconMail class="w-5 h-5 mr-2" />
             Richiedi Catalogo
           </button>
-          <button @click="closeCatalogModal" class="btn-luxury-outline">
+          <button @click="closeCatalogModal" class="btn-elegant text-luxury-gold">
             Annulla
           </button>
         </div>

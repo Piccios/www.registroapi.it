@@ -116,6 +116,74 @@
   left: 100%;
 }
 
+/* Artistic Button Styles - Inspired by icon styles */
+.btn-artistic {
+  @apply relative px-8 py-4 font-medium tracking-wide rounded-none transition-all duration-500 focus:outline-none;
+  background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 70%);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  overflow: hidden;
+  letter-spacing: 0.05em;
+}
+
+.btn-artistic::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  animation: rotate 8s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-artistic:hover {
+  transform: scale(1.02);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 10px 30px rgba(212, 175, 55, 0.2),
+    0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+.btn-artistic:hover::after {
+  opacity: 1;
+}
+
+/* Elegant Button Style */
+.btn-elegant {
+  @apply relative px-8 py-4 font-medium tracking-wide rounded-none transition-all duration-500 focus:outline-none;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  overflow: hidden;
+  letter-spacing: 0.05em;
+}
+
+.btn-elegant::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-elegant:hover {
+  transform: scale(1.02);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow:
+    0 12px 35px rgba(212, 175, 55, 0.18),
+    0 0 30px rgba(212, 175, 55, 0.12);
+}
+
+.btn-elegant:hover::before {
+  left: 100%;
+}
+
 @layer components {
   /* Elegant Button Styles */
   .btn-luxury {

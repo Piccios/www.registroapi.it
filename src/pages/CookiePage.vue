@@ -5,24 +5,24 @@
         <h1 class="heading-luxury text-center mb-12">
           Cookie <span class="text-gradient-gold">Policy</span>
         </h1>
-        
+
         <div class="glass-card-enhanced">
           <div class="prose prose-luxury max-w-none">
             <p class="body-text-luxury mb-8">
-              Questa Cookie Policy spiega come <strong class="text-luxury-gold">registroapi.it</strong> utilizza i cookie e tecnologie simili 
-              per riconoscerti quando visiti il nostro sito web. Spiega cosa sono queste tecnologie e perché le utilizziamo, 
+              Questa Cookie Policy spiega come <strong class="text-luxury-gold">registroapi.it</strong> utilizza i cookie e tecnologie simili
+              per riconoscerti quando visiti il nostro sito web. Spiega cosa sono queste tecnologie e perché le utilizziamo,
               oltre ai tuoi diritti per controllarne l'uso.
             </p>
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Cosa sono i Cookie</h2>
             <p class="body-text-luxury mb-8">
-              I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo quando visiti un sito web. 
-              Sono ampiamente utilizzati per far funzionare i siti web o per migliorarne l'efficienza, oltre che per 
+              I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo quando visiti un sito web.
+              Sono ampiamente utilizzati per far funzionare i siti web o per migliorarne l'efficienza, oltre che per
               fornire informazioni ai proprietari del sito.
             </p>
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Elenco dei Cookie</h2>
-            
+
             <div class="overflow-x-auto mb-8">
               <table class="table-luxury">
                 <thead>
@@ -75,7 +75,7 @@
             </div>
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Dettagli dei Cookie</h2>
-            
+
             <div class="space-y-8">
               <div class="bg-luxury-gray p-6">
                 <h3 class="text-lg font-display font-semibold text-luxury-gold mb-4">CookieConsent</h3>
@@ -130,10 +130,10 @@
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Gestione dei Cookie</h2>
             <p class="body-text-luxury mb-6">
-              Puoi controllare e/o eliminare i cookie come desideri. Puoi eliminare tutti i cookie che sono già sul tuo computer 
+              Puoi controllare e/o eliminare i cookie come desideri. Puoi eliminare tutti i cookie che sono già sul tuo computer
               e puoi impostare la maggior parte dei browser per impedire che vengano memorizzati.
             </p>
-            
+
             <div class="bg-luxury-gray p-6 mb-8">
               <h3 class="text-lg font-display font-semibold text-luxury-gold mb-4">Come disabilitare i cookie</h3>
               <ul class="space-y-2 text-base">
@@ -158,7 +158,7 @@
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Cookie di Terze Parti</h2>
             <p class="body-text-luxury mb-8">
-              Il nostro sito utilizza servizi di terze parti come Google Analytics e Google AdSense che installano cookie. 
+              Il nostro sito utilizza servizi di terze parti come Google Analytics e Google AdSense che installano cookie.
               Per informazioni dettagliate sui cookie di terze parti, ti invitiamo a consultare le privacy policy dei rispettivi fornitori.
             </p>
 
@@ -179,7 +179,7 @@
         </div>
 
         <div class="text-center mt-12">
-          <router-link to="/" class="btn-luxury-outline">
+          <router-link to="/" class="btn-elegant text-luxury-gold">
             ← Torna alla Homepage
           </router-link>
         </div>
@@ -192,4 +192,4 @@
 export default {
   name: 'CookiePage'
 }
-</script> 
+</script>

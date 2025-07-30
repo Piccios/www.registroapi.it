@@ -20,7 +20,7 @@
             <router-link to="/HelpCenter" class="nav-link-luxury">
               Help Center
             </router-link>
-            <router-link v-if="$route.path === '/'" to="/contatti" class="btn-luxury-outline">
+            <router-link v-if="$route.path === '/'" to="/contatti" class="btn-artistic text-luxury-gold">
               Richiedi Accesso
             </router-link>
           </div>
@@ -40,7 +40,7 @@
             <router-link to="/HelpCenter" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg">
               Help Center
             </router-link>
-            <router-link v-if="$route.path === '/'" to="/contatti" @click="mobileMenuOpen = false" class="btn-luxury-outline text-center">
+            <router-link v-if="$route.path === '/'" to="/contatti" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center">
               Richiedi Accesso
             </router-link>
           </div>
@@ -136,11 +136,11 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button @click="proceedToEmail" class="btn-luxury flex items-center justify-center">
+          <button @click="proceedToEmail" class="btn-artistic text-luxury-gold flex items-center justify-center">
             <IconMail class="w-5 h-5 mr-2" />
             Procedi
           </button>
-          <button @click="closeEmailModal" class="btn-luxury-outline">
+          <button @click="closeEmailModal" class="btn-elegant text-luxury-gold">
             Annulla
           </button>
         </div>

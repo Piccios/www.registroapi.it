@@ -5,21 +5,21 @@
         <h1 class="heading-luxury text-center mb-12">
           Privacy <span class="text-gradient-gold">Policy</span>
         </h1>
-        
+
         <div class="glass-card-enhanced">
           <div class="prose prose-luxury max-w-none">
             <p class="body-text-luxury mb-8">
-              Questa Privacy Policy spiega come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali 
-              quando utilizzi il sito <strong class="text-luxury-gold">registroapi.it</strong>. 
+              Questa Privacy Policy spiega come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali
+              quando utilizzi il sito <strong class="text-luxury-gold">registroapi.it</strong>.
               Ti consigliamo di leggere attentamente questa policy.
             </p>
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Raccolta delle Informazioni</h2>
             <p class="body-text-luxury mb-6">
-              Raccogliamo informazioni che ci fornisci direttamente, come quando compili il modulo di contatto, 
+              Raccogliamo informazioni che ci fornisci direttamente, come quando compili il modulo di contatto,
               ci invii un'email o ci contatti per supporto tecnico.
             </p>
-            
+
             <div class="bg-luxury-gray p-6 mb-8">
               <h3 class="text-lg font-display font-semibold text-luxury-gold mb-4">Informazioni che raccogliamo:</h3>
               <ul class="space-y-3 text-base">
@@ -71,7 +71,7 @@
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Condivisione delle Informazioni</h2>
             <p class="body-text-luxury mb-6">
-              Non vendiamo, affittiamo o condividiamo le tue informazioni personali con terze parti, 
+              Non vendiamo, affittiamo o condividiamo le tue informazioni personali con terze parti,
               eccetto nei seguenti casi:
             </p>
             <ul class="space-y-3 mb-8">
@@ -91,7 +91,7 @@
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Sicurezza dei Dati</h2>
             <p class="body-text-luxury mb-6">
-              Implementiamo misure di sicurezza appropriate per proteggere le tue informazioni personali 
+              Implementiamo misure di sicurezza appropriate per proteggere le tue informazioni personali
               contro accesso non autorizzato, alterazione, divulgazione o distruzione.
             </p>
 
@@ -120,13 +120,13 @@
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Conservazione dei Dati</h2>
             <p class="body-text-luxury mb-6">
-              Conserviamo le tue informazioni personali solo per il tempo necessario a raggiungere 
+              Conserviamo le tue informazioni personali solo per il tempo necessario a raggiungere
               le finalità per cui sono state raccolte, o come richiesto dalla legge.
             </p>
 
             <h2 class="text-2xl font-display font-semibold text-luxury-gold mb-6">Modifiche alla Privacy Policy</h2>
             <p class="body-text-luxury mb-6">
-              Ci riserviamo il diritto di modificare questa Privacy Policy in qualsiasi momento. 
+              Ci riserviamo il diritto di modificare questa Privacy Policy in qualsiasi momento.
               Le modifiche saranno pubblicate su questa pagina con una data di aggiornamento.
             </p>
 
@@ -147,7 +147,7 @@
         </div>
 
         <div class="text-center mt-12">
-          <router-link to="/" class="btn-luxury-outline">
+          <router-link to="/" class="btn-elegant text-luxury-gold">
             ← Torna alla Homepage
           </router-link>
         </div>
@@ -160,4 +160,4 @@
 export default {
   name: 'PrivacyPage'
 }
-</script> 
+</script>
