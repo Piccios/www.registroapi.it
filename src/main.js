@@ -4,11 +4,11 @@ import App from './App.vue'
 import './style.css'
 
 // Import pages
+import ContactPage from './pages/ContactPage.vue'
+import CookiePage from './pages/CookiePage.vue'
+import HelpCenter from './pages/HelpCenter.vue'
 import HomePage from './pages/HomePage.vue'
 import PrivacyPage from './pages/PrivacyPage.vue'
-import CookiePage from './pages/CookiePage.vue'
-import ContactPage from './pages/ContactPage.vue'
-import HelpCenter from './pages/HelpCenter.vue'
 
 // Router configuration
 const routes = [
@@ -22,11 +22,28 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior() {
-    return { top: 0 }
+  scrollBehavior(to, from, savedPosition) {
+    // Always scroll to top on navigation
+    return { top: 0, behavior: 'smooth' }
+  }
+})
+
+// Add navigation guard to handle anchor links
+router.beforeEach((to, from, next) => {
+  if (to.hash) {
+    // Wait for the route to be resolved and then scroll
+    next()
+    setTimeout(() => {
+      const element = document.querySelector(to.hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 100)
+  } else {
+    next()
   }
 })
 
 const app = createApp(App)
 app.use(router)
-app.mount('#app') 
+app.mount('#app')
