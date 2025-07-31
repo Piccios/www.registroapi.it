@@ -1,7 +1,3 @@
-# ========================================
-# CURSOR GITIGNORE TEMPLATE
-# Copia questo contenuto nel .gitignore di ogni nuovo progetto
-# ========================================
 
 # Cursor AI Configuration Files
 .cursor/
@@ -35,6 +31,7 @@
 .cursor/temp/
 
 # IDE and Editor Files
+.vscode/
 .vscode/settings.json
 .vscode/launch.json
 .vscode/tasks.json
@@ -86,7 +83,3 @@ temp/
 *.bak
 *.backup
 *.old
-
-# ========================================
-# END CURSOR GITIGNORE TEMPLATE
-# ========================================
