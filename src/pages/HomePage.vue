@@ -41,7 +41,7 @@
         </h2>
         <p class="subheading-luxury max-w-4xl mx-auto">
           A differenza di altre piattaforme che vincolano l'utilizzo a pacchetti prepagati o ricariche a consumo,
-          noi offriamo accesso illimitato e tariffe flat annuali, ideali per chi sviluppa progetti complessi e ha bisogno di continuità operativa.
+          noi offriamo accesso illimitato e tariffe flat mensili/annuali, ideali per chi sviluppa progetti complessi e ha bisogno di continuità operativa.
         </p>
       </div>
 
@@ -299,6 +299,31 @@
           Utilizziamo esclusivamente fonti certificate e pubblici registri
         </p>
       </div>
+      <!-- Government Agencies Logos -->
+      <div class="mt-16 text-center mb-10">
+        <div class="flex justify-center items-center space-x-16">
+          <div class="flex flex-col items-center space-y-4">
+            <img
+              src="/img/gov/Logo_Agenzia_Entrate.png"
+              alt="Agenzia delle Entrate"
+              class="gov-logo"
+            />
+          </div>
+          <div class="flex flex-col items-center space-y-4">
+            <img
+              src="/img/gov/INPS_logo_2023.svg.png"
+              alt="INPS"
+              class="gov-logo"
+            />
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+            src="/img/gov/Logo_Registro_Imprese.svg"
+            alt="Registro_Imprese"
+            class="gov-logo">
+          </div>
+        </div>
+      </div>
 
       <div class="grid md:grid-cols-2 space-x-60">
         <div>
@@ -322,6 +347,7 @@
         </div>
       </div>
 
+
       <div class="mt-16 p-8 bg-luxury-gray border border-luxury-gold/30">
         <p class="text-luxury-text-secondary">
           <strong class="text-luxury-gold">Openapi è autorizzata</strong> a svolgere attività di investigazioni, ricerche e raccolta di informazioni
@@ -338,7 +364,7 @@
         </h2>
         <p class="subheading-luxury mb-12">
           Richiedi ora accesso alle API illimitate:<br>
-          Ricevi risposta entro 1 ora. Nessuna ricarica, nessun credito. Un unico canone annuale flat.
+          Ricevi risposta entro 1 ora. Nessuna ricarica, nessun credito. Un unico canone mensile o annuale (flat).
         </p>
 
         <div class="glass-card-enhanced">
@@ -517,3 +543,26 @@ Cordiali saluti,
   }
 }
 </script>
+
+<style scoped>
+.gov-logo {
+  height: 130px;
+  max-width: 300px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Make logos white */
+  transition: all 0.5s ease;
+  opacity: 0.9;
+}
+
+.gov-logo:hover {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gov-logo {
+    height: 60px;
+    max-width: 150px;
+  }
+}
+</style>
