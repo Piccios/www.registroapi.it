@@ -46,4 +46,18 @@ router.beforeEach((to, from, next) => {
 
 const app = createApp(App)
 app.use(router)
+
+// Global click handler for navigation elements
+app.directive('scroll-to-top', {
+  mounted(el) {
+    el.addEventListener('click', () => {
+      // Scroll to top with smooth behavior
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    })
+  }
+})
+
 app.mount('#app')

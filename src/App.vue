@@ -8,19 +8,19 @@
       <div class="max-w-7xl mx-auto py-1 ">
         <div class="flex justify-between items-center">
           <!-- Logo -->
-          <router-link to="/" class="flex items-center space-x-4 group">
+          <router-link to="/" class="flex items-center space-x-4 group" v-scroll-to-top>
             <img src="/public/img/logo_senzabackground.svg" alt="RegistroAPI_Logo" class="logo-img transition-transform duration-500 group-hover:scale-105" />
           </router-link>
 
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-12">
-            <router-link v-if="$route.path === '/HelpCenter'" to="/" class="nav-link-luxury">
+            <router-link v-if="$route.path === '/HelpCenter' || $route.path === '/contatti' || $route.path === '/privacy-policy' || $route.path === '/cookie-policy'" to="/" class="nav-link-luxury" v-scroll-to-top>
               Home
             </router-link>
-            <router-link to="/HelpCenter" class="nav-link-luxury">
+            <router-link v-if="$route.path !== '/HelpCenter'" to="/HelpCenter" class="nav-link-luxury" v-scroll-to-top>
               Help Center
             </router-link>
-            <router-link v-if="$route.path === '/'" to="/contatti" class="btn-artistic text-luxury-gold">
+            <router-link v-if="$route.path === '/' || $route.path === '/HelpCenter'" to="/contatti" class="btn-artistic text-luxury-gold" v-scroll-to-top>
               Richiedi Accesso
             </router-link>
           </div>
@@ -34,13 +34,13 @@
         <!-- Mobile Menu -->
         <div v-if="mobileMenuOpen" class="md:hidden mt-4 pb-4 border-t border-luxury-gray-medium/20">
           <div class="flex flex-col space-y-4 pt-4">
-            <router-link v-if="$route.path === '/HelpCenter'" to="/" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg">
+            <router-link v-if="$route.path === '/HelpCenter'" to="/" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg" v-scroll-to-top>
               Home
             </router-link>
-            <router-link to="/HelpCenter" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg">
+            <router-link v-if="$route.path !== '/HelpCenter'" to="/HelpCenter" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg hidden" v-scroll-to-top>
               Help Center
             </router-link>
-            <router-link v-if="$route.path === '/'" to="/contatti" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center">
+            <router-link v-if="$route.path === '/'" to="/contatti" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center" v-scroll-to-top>
               Richiedi Accesso
             </router-link>
           </div>
@@ -94,10 +94,10 @@
           <div>
             <h3 class="text-luxury-gold font-display font-semibold mb-6 text-lg">Informazioni Legali</h3>
             <div class="space-y-4">
-              <router-link to="/privacy-policy" class="block body-text-luxury hover:text-luxury-gold transition-colors duration-300">
+              <router-link to="/privacy-policy" class="block body-text-luxury hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
                 Privacy Policy
               </router-link>
-              <router-link to="/cookie-policy" class="block body-text-luxury hover:text-luxury-gold transition-colors duration-300">
+              <router-link to="/cookie-policy" class="block body-text-luxury hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
                 Cookie Policy
               </router-link>
             </div>

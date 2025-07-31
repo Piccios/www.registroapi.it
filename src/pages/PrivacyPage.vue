@@ -147,7 +147,7 @@
         </div>
 
         <div class="text-center mt-12">
-          <router-link to="/" class="btn-elegant text-luxury-gold">
+          <router-link to="/" class="btn-elegant text-luxury-gold" v-scroll-to-top>
             ← Torna alla Homepage
           </router-link>
         </div>

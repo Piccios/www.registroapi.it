@@ -182,7 +182,7 @@
                 :disabled="isSubmitting"
               />
               <span class="body-text-luxury">
-                Accetto la <router-link to="/privacy-policy" class="text-luxury-gold hover:text-luxury-gold-light underline transition-colors duration-300">Privacy Policy</router-link>
+                Accetto la <router-link to="/privacy-policy" class="text-luxury-gold hover:text-luxury-gold-light underline transition-colors duration-300" v-scroll-to-top>Privacy Policy</router-link>
                 e autorizzo il trattamento dei miei dati per ricevere informazioni commerciali. *
               </span>
             </label>

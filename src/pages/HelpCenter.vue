@@ -257,7 +257,7 @@
 
     <!-- Back to Home -->
     <section class="section-luxury-compact text-center">
-      <router-link to="/" class="btn-elegant text-luxury-gold">
+      <router-link to="/" class="btn-elegant text-luxury-gold" v-scroll-to-top>
         ← Torna alla Homepage
       </router-link>
     </section>

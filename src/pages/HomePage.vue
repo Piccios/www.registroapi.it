@@ -19,7 +19,7 @@
             <IconSend class="w-5 h-5 mr-3" />
             Richiedi Accesso Immediato
           </a>
-          <router-link to="/contatti#top" class="btn-elegant text-luxury-gold flex items-center">
+          <router-link to="/contatti#top" class="btn-elegant text-luxury-gold flex items-center" v-scroll-to-top>
             <IconMail class="w-5 h-5 mr-3" />
             Richiedi Informazioni
           </router-link>
@@ -343,7 +343,7 @@
 
         <div class="glass-card-enhanced">
           <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-            <router-link to="/contatti#top" class="btn-artistic text-luxury-gold text-lg px-12 py-6 flex items-center">
+            <router-link to="/contatti#top" class="btn-artistic text-luxury-gold text-lg px-12 py-6 flex items-center" v-scroll-to-top>
               <IconSend class="w-6 h-6 mr-3" />
               Compila il modulo per attivare l'accesso
             </router-link>
