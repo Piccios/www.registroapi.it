@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-page">
+  <div id="top" class="contact-page">
     <!-- Hero Section -->
     <section class="section-luxury text-center">
       <h1 class="heading-luxury mb-8">
@@ -224,11 +224,34 @@
         </a>
       </div>
     </section>
+
+    <!-- Form Validation Popup Modal -->
+    <div v-if="showValidationPopup" class="fixed inset-0 z-50 flex items-center justify-center">
+      <!-- Backdrop -->
+      <div class="absolute inset-0 bg-black/60 backdrop-blur-xl"></div>
+
+      <!-- Modal Content -->
+      <div class="relative bg-black/40 backdrop-blur-xl border border-white/20 rounded-none max-w-md mx-4 p-8 text-center shadow-2xl animate-fade-in">
+        <div class="w-16 h-16 bg-red-600 rounded-none flex items-center justify-center mx-auto mb-6">
+          <IconAlertCircle class="w-8 h-8 text-white" />
+        </div>
+
+        <h3 class="text-2xl font-display font-semibold mb-4 text-luxury-gold">Campi Obbligatori</h3>
+
+        <p class="body-text-luxury mb-6">
+          {{ validationPopupMessage }}
+        </p>
+
+        <p class="text-sm text-luxury-text-secondary">
+          Compila tutti i campi obbligatori per procedere
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { IconClock, IconMail, IconPhone, IconSend } from '@tabler/icons-vue'
+import { IconAlertCircle, IconClock, IconMail, IconPhone, IconSend } from '@tabler/icons-vue'
 import { computed, onMounted, ref } from 'vue'
 
 export default {
@@ -237,7 +260,8 @@ export default {
     IconMail,
     IconClock,
     IconPhone,
-    IconSend
+    IconSend,
+    IconAlertCircle
   },
   setup() {
     // Initialize EmailJS when component mounts
@@ -270,11 +294,46 @@ export default {
     const submitSuccess = ref(false)
     const lastSubmissionTime = ref(0)
 
+    // Validation popup state
+    const showValidationPopup = ref(false)
+    const validationPopupMessage = ref('')
+
     // Rate limiting - prevent multiple submissions
     const canSubmit = computed(() => {
       const now = Date.now()
       return now - lastSubmissionTime.value > 20000 // 20 seconds cooldown
     })
+
+    // Show validation popup for 3 seconds
+    const showValidationPopupFor3Seconds = (message) => {
+      validationPopupMessage.value = message
+      showValidationPopup.value = true
+
+      setTimeout(() => {
+        showValidationPopup.value = false
+      }, 3000)
+    }
+
+    // Check required fields and show popup if missing
+    const checkRequiredFields = () => {
+      const missingFields = []
+
+      if (!form.value.firstName.trim()) missingFields.push('Nome')
+      if (!form.value.lastName.trim()) missingFields.push('Cognome')
+      if (!form.value.email.trim()) missingFields.push('Email Aziendale')
+      if (!form.value.company.trim()) missingFields.push('Azienda')
+      if (!form.value.sector) missingFields.push('Settore di Interesse')
+      if (!form.value.message.trim()) missingFields.push('Descrizione esigenze')
+      if (!form.value.privacy) missingFields.push('Accettazione Privacy Policy')
+
+      if (missingFields.length > 0) {
+        const message = `Compila i seguenti campi obbligatori: ${missingFields.join(', ')}`
+        showValidationPopupFor3Seconds(message)
+        return false
+      }
+
+      return true
+    }
 
     // Bot detection functions
     const isBot = () => {
@@ -337,6 +396,11 @@ export default {
     }
 
     const submitForm = async () => {
+      // Check required fields first
+      if (!checkRequiredFields()) {
+        return
+      }
+
       // Rate limiting check
       if (!canSubmit.value) {
         submitMessage.value = 'Attendi un momento prima di inviare un\'altra richiesta.'
@@ -389,16 +453,16 @@ export default {
         // Update last submission time
         lastSubmissionTime.value = Date.now()
 
-                 // Reset form
-         form.value = {
-           firstName: '',
-           lastName: '',
-           email: '',
-           company: '',
-           sector: '',
-           message: '',
-           privacy: false
-         }
+        // Reset form
+        form.value = {
+          firstName: '',
+          lastName: '',
+          email: '',
+          company: '',
+          sector: '',
+          message: '',
+          privacy: false
+        }
 
         // Reset honeypot
         honeypot.value = {
@@ -406,8 +470,6 @@ export default {
           email: '',
           phone: ''
         }
-
-
 
       } catch (error) {
         console.error('Form submission error:', error)
@@ -435,18 +497,20 @@ export default {
       }))
     }
 
-         return {
-       form,
-       honeypot,
-       isSubmitting,
-       submitMessage,
-       submitSuccess,
-       canSubmit,
-       submitForm,
-       supportEmail,
-       supportEmailLink,
-       showEmailModal
-     }
+    return {
+      form,
+      honeypot,
+      isSubmitting,
+      submitMessage,
+      submitSuccess,
+      canSubmit,
+      showValidationPopup,
+      validationPopupMessage,
+      submitForm,
+      supportEmail,
+      supportEmailLink,
+      showEmailModal
+    }
   }
 }
 </script>
