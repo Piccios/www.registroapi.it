@@ -3,33 +3,32 @@
     <div class="carousel-container">
       <div class="carousel-track">
         <!-- First set of logos -->
-        <div 
-          v-for="(client, index) in clients" 
+        <div
+          v-for="(client, index) in clients"
           :key="`first-${client.name}`"
           class="carousel-item"
         >
           <div class="client-logo-container">
-            <img 
-              :src="client.logo" 
+            <img
+              :src="client.logo"
               :alt="client.name"
               :class="['client-logo', { 'no-filter': client.name === 'Comune di Venezia' }]"
               @load="onImageLoad"
             />
-            <p v-if="client.name === 'Comune di Venezia'" class="client-name-venezia">{{ client.name }}</p>
           </div>
         </div>
-        
+
         <!-- Duplicate set for seamless loop -->
-        <div 
-          v-for="(client, index) in clients" 
+        <div
+          v-for="(client, index) in clients"
           :key="`second-${client.name}`"
           class="carousel-item"
         >
           <div class="client-logo-container">
-            <img 
-              :src="client.logo" 
+            <img
+              :src="client.logo"
               :alt="client.name"
-              :class="['client-logo', { 'no-filter': client.name === 'Comune di Venezia' }]"
+              :class="['client-logo']"
               @load="onImageLoad"
             />
             <p v-if="client.name === 'Comune di Venezia'" class="client-name-venezia">{{ client.name }}</p>
@@ -61,7 +60,7 @@ export default {
       },
       {
         name: 'Comune di Venezia',
-        logo: '/img/clients/Venezia_stemma.png'
+        logo: '/img/clients/Citta_di_Venezia.png'
       },
       {
         name: 'PwC',
@@ -178,16 +177,16 @@ export default {
     padding: 0 2rem;
     min-width: 200px;
   }
-  
+
   .client-logo {
     height: 80px;
     max-width: 140px;
   }
-  
+
   .client-name-venezia {
     font-size: 0.8rem;
   }
-  
+
   .carousel-track {
     animation-duration: 60s;
   }
@@ -197,9 +196,9 @@ export default {
   .carousel-track {
     animation-duration: 50s;
   }
-  
+
   .client-carousel {
     padding: 2rem 0;
   }
 }
-</style> 
+</style>
