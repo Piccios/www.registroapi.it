@@ -126,18 +126,32 @@
               />
             </div>
             <div>
-              <label for="company" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Azienda *</label>
+              <label for="phone" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Numero Cellulare *</label>
               <input
-                id="company"
-                v-model="form.company"
-                type="text"
+                id="phone"
+                v-model="form.phone"
+                type="tel"
                 required
                 class="input-luxury"
-                placeholder="Nome azienda"
-                autocomplete="organization"
+                placeholder="+39 123 456 7890"
+                autocomplete="tel"
                 :disabled="isSubmitting"
               />
             </div>
+          </div>
+
+          <div class="mb-8">
+            <label for="company" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Azienda *</label>
+            <input
+              id="company"
+              v-model="form.company"
+              type="text"
+              required
+              class="input-luxury"
+              placeholder="Nome azienda"
+              autocomplete="organization"
+              :disabled="isSubmitting"
+            />
           </div>
 
           <div class="mb-8">
@@ -160,7 +174,7 @@
           </div>
 
           <div class="mb-8">
-            <label for="message" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Descrivi le tue esigenze *</label>
+            <label for="message" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Descrivi le tue esigenze</label>
             <textarea
               id="message"
               v-model="form.message"
@@ -276,6 +290,7 @@ export default {
       firstName: '',
       lastName: '',
       email: '',
+      phone: '',
       company: '',
       sector: '',
       message: '',
@@ -321,6 +336,7 @@ export default {
       if (!form.value.firstName.trim()) missingFields.push('Nome')
       if (!form.value.lastName.trim()) missingFields.push('Cognome')
       if (!form.value.email.trim()) missingFields.push('Email Aziendale')
+      if (!form.value.phone.trim()) missingFields.push('Numero Cellulare')
       if (!form.value.company.trim()) missingFields.push('Azienda')
       if (!form.value.sector) missingFields.push('Settore di Interesse')
       if (!form.value.message.trim()) missingFields.push('Descrizione esigenze')
@@ -385,6 +401,12 @@ export default {
         return 'Inserisci un indirizzo email valido.'
       }
 
+      // Check phone format (Italian mobile numbers)
+      const phoneRegex = /^(\+39|39)?[ ]?[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{4}$/
+      if (!phoneRegex.test(form.value.phone.replace(/\s/g, ''))) {
+        return 'Inserisci un numero di cellulare valido (formato: +39 123 456 7890).'
+      }
+
       // Check for suspicious content
       const suspiciousWords = ['casino', 'viagra', 'loan', 'credit', 'debt', 'make money', 'earn money', 'work from home']
       const messageLower = form.value.message.toLowerCase()
@@ -431,6 +453,7 @@ export default {
           form_name: form.value.firstName,
           form_lastname: form.value.lastName,
           form_email: form.value.email,
+          form_phone: form.value.phone,
           company: form.value.company,
           sector: form.value.sector,
           message: form.value.message,
@@ -458,6 +481,7 @@ export default {
           firstName: '',
           lastName: '',
           email: '',
+          phone: '',
           company: '',
           sector: '',
           message: '',
