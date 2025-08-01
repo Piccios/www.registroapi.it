@@ -57,30 +57,6 @@
         </div>
 
         <form @submit.prevent="submitForm" class="glass-card-enhanced">
-          <!-- Honeypot fields - hidden from users but visible to bots -->
-          <div class="absolute -left-[9999px] opacity-0 pointer-events-none">
-            <input
-            v-model="honeypot.name"
-            type="text"
-            name="website"
-            autocomplete="off"
-            tabindex="-1"
-            />
-            <input
-            v-model="honeypot.email"
-            type="email"
-            name="email_confirm"
-            autocomplete="off"
-            tabindex="-1"
-            />
-            <input
-            v-model="honeypot.phone"
-            type="tel"
-            name="phone"
-            autocomplete="off"
-            tabindex="-1"
-            />
-          </div>
 
           <div class="text-end mb-2 text-gray-700">
             <p>I campi con * sono obbligatori</p>
@@ -286,6 +262,9 @@ export default {
         // Initialize with EmailJS Public Key from environment variables
         window.emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
       }
+
+      // Set form start time for bot detection
+      formStartTime.value = Date.now()
     })
 
     const form = ref({
@@ -299,12 +278,8 @@ export default {
       privacy: false
     })
 
-    // Honeypot fields to catch bots
-    const honeypot = ref({
-      name: '',
-      email: '',
-      phone: ''
-    })
+    // Add form start time for better bot detection
+    const formStartTime = ref(0)
 
     const isSubmitting = ref(false)
     const submitMessage = ref('')
@@ -351,13 +326,45 @@ export default {
       return true
     }
 
-    // Bot detection functions - only honeypot fields
+    // Simplified bot detection - based on timing and user agent
     const isBot = () => {
-      // Check honeypot fields only
-      if (honeypot.value.name || honeypot.value.email || honeypot.value.phone) {
+      const now = Date.now()
+
+      // Check if form was filled too quickly (less than 3 seconds)
+      if (formStartTime.value && (now - formStartTime.value) < 3000) {
+        console.log('Form filled too quickly - potential bot')
         return true
       }
+
+      // Check for suspicious user agents (very basic check)
+      const userAgent = navigator.userAgent.toLowerCase()
+      if (userAgent.includes('bot') || userAgent.includes('crawler') || userAgent.includes('spider')) {
+        console.log('Suspicious user agent detected')
+        return true
+      }
+
       return false
+    }
+
+    // Log suspicious activity for monitoring
+    const logSuspiciousActivity = (reason) => {
+      const logData = {
+        timestamp: new Date().toISOString(),
+        reason: reason,
+        userAgent: navigator.userAgent,
+        formData: {
+          firstName: form.value.firstName ? 'filled' : 'empty',
+          lastName: form.value.lastName ? 'filled' : 'empty',
+          email: form.value.email ? 'filled' : 'empty',
+          company: form.value.company ? 'filled' : 'empty'
+        },
+        timeToFill: formStartTime.value ? Date.now() - formStartTime.value : 0
+      }
+
+      console.warn('Suspicious activity detected:', logData)
+
+      // In production, you could send this to a logging service
+      // For now, we just log to console
     }
 
     const validateForm = () => {
@@ -397,9 +404,11 @@ export default {
       submitMessage.value = ''
 
       try {
-        // Bot detection
+        // Bot detection - but be more lenient in production
         if (isBot()) {
-          throw new Error('Rilevata attività sospetta. Contattaci direttamente via email.')
+          logSuspiciousActivity('Bot detection triggered')
+          // In production, we'll log but allow the submission
+          // This prevents false positives while still logging suspicious activity
         }
 
         // Form validation
@@ -436,8 +445,6 @@ export default {
         submitSuccess.value = true
         submitMessage.value = 'La tua richiesta è stata inviata con successo! Ti contatteremo entro 1 ora.'
 
-        // Update last submission time removed
-
         // Reset form
         form.value = {
           firstName: '',
@@ -450,13 +457,6 @@ export default {
           privacy: false
         }
 
-        // Reset honeypot
-        honeypot.value = {
-          name: '',
-          email: '',
-          phone: ''
-        }
-
       } catch (error) {
         console.error('Form submission error:', error)
         submitSuccess.value = false
@@ -465,8 +465,6 @@ export default {
         isSubmitting.value = false
       }
     }
-
-    // Track form start time removed
 
     // Environment variables
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
@@ -482,7 +480,6 @@ export default {
 
     return {
       form,
-      honeypot,
       isSubmitting,
       submitMessage,
       submitSuccess,
@@ -492,7 +489,8 @@ export default {
       submitForm,
       supportEmail,
       supportEmailLink,
-      showEmailModal
+      showEmailModal,
+      logSuspiciousActivity
     }
   }
 }
