@@ -118,7 +118,7 @@
             <div class="glass-card-enhanced">
               <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">3. Come funziona l'accesso ai dati?</h4>
               <p class="body-text-luxury">
-                Offriamo un accesso illimitato tramite licenza annuale: niente ricariche, niente consumo a crediti. Le nostre API sono documentate e pronte all'uso, e un account manager ti guida nell'integrazione.
+                Offriamo un accesso illimitato tramite licenza mensile/annuale: niente ricariche, niente consumo a crediti. Le nostre API sono documentate e pronte all'uso, e un account manager ti guida nell'integrazione.
               </p>
             </div>
           </div>
