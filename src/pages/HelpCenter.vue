@@ -5,10 +5,13 @@
       <h1 class="heading-luxury mb-8">
         Help <span class="text-gradient-gold">Center</span>
       </h1>
-      <p class="subheading-luxury mb-12 max-w-3xl mx-auto">
+      <p class="subheading-luxury max-w-3xl mx-auto">
         Supporto tecnico dedicato per assistenza API e risoluzione problemi
       </p>
     </section>
+
+    <!-- Divider -->
+    <div data-v-2d1117dc="" class="divider-luxury mt-12"></div>
 
     <!-- Support Info -->
     <section class="section-luxury-compact">
