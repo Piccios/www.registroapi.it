@@ -256,14 +256,14 @@ export default {
     IconAlertCircle
   },
   setup() {
-    // Initialize EmailJS when component mounts
+    // Inizializza EmailJS quando il componente viene montato
     onMounted(() => {
       if (window.emailjs) {
-        // Initialize with EmailJS Public Key from environment variables
+        // Inizializza con la chiave pubblica EmailJS dalle variabili d'ambiente
         window.emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
       }
 
-      // Set form start time for bot detection
+      // Imposta il tempo di inizio del form per la rilevazione dei bot
       formStartTime.value = Date.now()
     })
 
@@ -278,24 +278,24 @@ export default {
       privacy: false
     })
 
-    // Add form start time for better bot detection
+    // Aggiungi il tempo di inizio del form per una migliore rilevazione dei bot
     const formStartTime = ref(0)
 
     const isSubmitting = ref(false)
     const submitMessage = ref('')
     const submitSuccess = ref(false)
-    const lastSubmissionTime = ref(0) // No longer used but kept for compatibility
+    const lastSubmissionTime = ref(0) // Non più utilizzato ma mantenuto per compatibilità
 
-    // Validation popup state
+    // Stato del popup di validazione
     const showValidationPopup = ref(false)
     const validationPopupMessage = ref('')
 
-    // Rate limiting - prevent multiple submissions
+    // Limitazione del tasso di invio - prevenire invii multipli
     const canSubmit = computed(() => {
-      return true // Removed rate limiting
+      return true // Rimossa limitazione del tasso di invio
     })
 
-    // Show validation popup for 3 seconds
+    // Mostra il popup di validazione per 3 secondi
     const showValidationPopupFor3Seconds = (message) => {
       validationPopupMessage.value = message
       showValidationPopup.value = true
@@ -305,7 +305,7 @@ export default {
       }, 3000)
     }
 
-    // Check required fields and show popup if missing
+    // Controlla i campi obbligatori e mostra il popup se mancanti
     const checkRequiredFields = () => {
       const missingFields = []
 
@@ -326,17 +326,17 @@ export default {
       return true
     }
 
-    // Simplified bot detection - based on timing and user agent
+    // Rilevazione dei bot semplificata - basata sul tempo e sull'user agent
     const isBot = () => {
       const now = Date.now()
 
-      // Check if form was filled too quickly (less than 3 seconds)
+      // Controlla se il form è stato compilato troppo rapidamente (meno di 3 secondi)
       if (formStartTime.value && (now - formStartTime.value) < 3000) {
         console.log('Form filled too quickly - potential bot')
         return true
       }
 
-      // Check for suspicious user agents (very basic check)
+      // Controlla gli user agent sospetti (controllo molto semplice)
       const userAgent = navigator.userAgent.toLowerCase()
       if (userAgent.includes('bot') || userAgent.includes('crawler') || userAgent.includes('spider')) {
         console.log('Suspicious user agent detected')
@@ -346,7 +346,7 @@ export default {
       return false
     }
 
-    // Log suspicious activity for monitoring
+    // Log sospetto per il monitoraggio
     const logSuspiciousActivity = (reason) => {
       const logData = {
         timestamp: new Date().toISOString(),
@@ -363,12 +363,12 @@ export default {
 
       console.warn('Suspicious activity detected:', logData)
 
-      // In production, you could send this to a logging service
-      // For now, we just log to console
+      // In produzione, potresti inviare questo a un servizio di logging
+      // Per ora, loggiamo solo nella console
     }
 
     const validateForm = () => {
-      // Check message length only if message is provided (prevent very short or very long messages)
+      // Controlla la lunghezza del messaggio solo se il messaggio è fornito (prevenire messaggi troppo corti o troppo lunghi)
       if (form.value.message.trim() && form.value.message.length < 10) {
         return 'Il messaggio deve contenere almeno 10 caratteri.'
       }
@@ -377,13 +377,13 @@ export default {
         return 'Il messaggio non può superare i 2000 caratteri.'
       }
 
-      // Check email format
+      // Controlla il formato dell'email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
       if (!emailRegex.test(form.value.email)) {
         return 'Inserisci un indirizzo email valido.'
       }
 
-      // Check phone format (Italian mobile numbers)
+      // Controlla il formato del numero di cellulare (numeri italiani)
       const phoneRegex = /^(\+39|39)?[ ]?[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{4}$/
       if (!phoneRegex.test(form.value.phone.replace(/\s/g, ''))) {
         return 'Inserisci un numero di cellulare valido (formato: +39 123 456 7890).'
@@ -393,34 +393,34 @@ export default {
     }
 
     const submitForm = async () => {
-      // Check required fields first
+      // Controlla prima i campi obbligatori
       if (!checkRequiredFields()) {
         return
       }
 
-      // Rate limiting check removed
+      // Rimossa limitazione del tasso di invio
 
       isSubmitting.value = true
       submitMessage.value = ''
 
       try {
-        // Bot detection - but be more lenient in production
+        // Rilevazione dei bot - ma siamo più permissivi in produzione
         if (isBot()) {
-          logSuspiciousActivity('Bot detection triggered')
-          // In production, we'll log but allow the submission
-          // This prevents false positives while still logging suspicious activity
+          logSuspiciousActivity('Rilevazione dei bot attivata')
+          // In produzione, loggeremo ma permetteremo l'invio
+          // Questo evita false positive mentre loggiamo l'attività sospetta
         }
 
-        // Form validation
+        // Validazione del form
         const validationError = validateForm()
         if (validationError) {
           throw new Error(validationError)
         }
 
-        // EmailJS configuration
+        // Configurazione EmailJS
         const emailjs = window.emailjs
 
-        // Prepare email template parameters
+        // Prepara i parametri del template email
         const templateParams = {
           form_name: form.value.firstName,
           form_lastname: form.value.lastName,
@@ -434,7 +434,7 @@ export default {
           ip_address: 'N/A' // Would be set server-side
         }
 
-        // Send email using EmailJS with environment variables
+        // Invia email usando EmailJS con le variabili d'ambiente
         const result = await emailjs.send(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -445,7 +445,7 @@ export default {
         submitSuccess.value = true
         submitMessage.value = 'La tua richiesta è stata inviata con successo! Ti contatteremo entro 1 ora.'
 
-        // Reset form
+        // Resetta il form
         form.value = {
           firstName: '',
           lastName: '',
@@ -466,13 +466,13 @@ export default {
       }
     }
 
-    // Environment variables
+    // Variabili d'ambiente
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
     const supportEmailLink = `mailto:${supportEmail}`
 
     const showEmailModal = (event) => {
       event.preventDefault()
-      // Emit event to parent component (App.vue) to show modal
+      // Emittiamo evento al componente padre (App.vue) per mostrare il modal
       window.dispatchEvent(new CustomEvent('showEmailModal', {
         detail: { href: event.target.href }
       }))

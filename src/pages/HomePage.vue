@@ -528,7 +528,7 @@ export default {
       'Rilevanza professionale'
     ])
 
-    // Environment variables
+    // Variabili d'ambiente
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
     const supportEmailLink = `mailto:${supportEmail}`
     const catalogEmail = import.meta.env.VITE_BUSINESS_EMAIL
@@ -537,7 +537,7 @@ export default {
 
     const showEmailModal = (event) => {
       event.preventDefault()
-      // Emit event to parent component (App.vue) to show modal
+      // Emittiamo evento al componente padre (App.vue) per mostrare il modal
       window.dispatchEvent(new CustomEvent('showEmailModal', {
         detail: { href: event.target.href }
       }))
@@ -589,7 +589,7 @@ Cordiali saluti,
   height: 130px;
   max-width: 300px;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* Make logos white */
+  filter: brightness(0) invert(1);
   transition: all 0.5s ease;
   opacity: 0.9;
 }
@@ -598,7 +598,7 @@ Cordiali saluti,
   opacity: 1;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .gov-logo {
     height: 60px;
