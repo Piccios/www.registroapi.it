@@ -56,20 +56,20 @@
     <!-- Elegant Footer -->
     <footer class="bg-luxury-dark border-t border-luxury-gray-medium/20 py-16">
       <div class="max-w-7xl mx-auto px-8">
-        <div class="grid md:grid-cols-4 gap-12">
-          <!-- Company Info -->
+                <div class="grid md:grid-cols-5 gap-12">
+                    <!-- Company Info -->
           <div class="md:col-span-2">
-            <div class="flex items-center space-x-4 mb-6">
-              <img src="/img/logo.svg" alt="RegistroAPI Logo" class="w-10 h-10" />
-              <span class="text-xl font-display font-semibold text-luxury-white">RegistroAPI</span>
+            <div class="flex items-center space-x-4 mb-4">
+              <img src="/img/logo.svg" alt="RegistroAPI Logo" class="w-8 h-8" />
+              <span class="text-lg font-display font-semibold text-luxury-white">RegistroAPI</span>
             </div>
-            <p class="body-text-luxury max-w-md leading-relaxed mb-6">
+            <p class="text-sm text-luxury-text-secondary max-w-md leading-relaxed mb-4">
               La piattaforma API più affidabile per professionisti e imprese di alto livello.
               Accesso illimitato ai dati ufficiali con la massima eleganza e precisione.
             </p>
 
             <!-- Government Agencies Logos -->
-            <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-4">
               <img
                 src="/img/gov/Logo_Agenzia_Entrate.png"
                 alt="Agenzia delle Entrate"
@@ -88,35 +88,75 @@
             </div>
           </div>
 
+          <!-- Principali API disponibili -->
+          <div>
+            <h3 class="text-luxury-gold font-display font-semibold mb-4 text-base">Principali API disponibili</h3>
+            <div class="space-y-2">
+              <p class="block text-sm text-luxury-text-secondary">
+                Conservatoria
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Catasto
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Tribunale
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Camera di Commercio
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Agenzia del Territorio
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Dati Ministeriali
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Anagrafe / Comune
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                P.R.A. e Pratiche Veicoli
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Agenzia delle Entrate
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Fatturazione Elettronica
+              </p>
+              <p class="block text-sm text-luxury-text-secondary">
+                Marchi
+              </p>
+            </div>
+          </div>
+
           <!-- Contact Info -->
           <div>
-            <h3 class="text-luxury-gold font-display font-semibold mb-6 text-lg">Contatti</h3>
-            <div class="space-y-4">
+            <h3 class="text-luxury-gold font-display font-semibold mb-4 text-base">Contatti</h3>
+            <div class="space-y-3">
               <div class="flex items-center space-x-3">
-                <IconMail class="w-5 h-5 text-luxury-gold flex-shrink-0" />
-                <a href="mailto:help@registroapi.com" @click="showEmailModal" class="body-text-luxury hover:text-luxury-gold transition-colors duration-300">
+                <IconMail class="w-4 h-4 text-luxury-gold flex-shrink-0" />
+                <a href="mailto:help@registroapi.com" @click="showEmailModal" class="text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300">
                   help@registroapi.com
                 </a>
               </div>
               <div class="flex items-center space-x-3">
-                <IconClock class="w-5 h-5 text-luxury-gold flex-shrink-0" />
-                <p class="body-text-luxury">Supporto 7/7 ore 9:00-19:00</p>
+                <IconClock class="w-4 h-4 text-luxury-gold flex-shrink-0" />
+                <p class="text-sm text-luxury-text-secondary">Supporto 7/7 ore 9:00-19:00</p>
               </div>
               <div class="flex items-center space-x-3">
-                <IconPhone class="w-5 h-5 text-luxury-gold flex-shrink-0" />
-                <p class="body-text-luxury">Risposta garantita entro 1 ora</p>
+                <IconPhone class="w-4 h-4 text-luxury-gold flex-shrink-0" />
+                <p class="text-sm text-luxury-text-secondary">Risposta garantita entro 1 ora</p>
               </div>
             </div>
           </div>
 
           <!-- Legal Links -->
           <div>
-            <h3 class="text-luxury-gold font-display font-semibold mb-6 text-lg">Informazioni Legali</h3>
-            <div class="space-y-4">
-              <router-link to="/privacy-policy" class="block body-text-luxury hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
+            <h3 class="text-luxury-gold font-display font-semibold mb-4 text-base">Informazioni Legali</h3>
+            <div class="space-y-3">
+              <router-link to="/privacy-policy" class="block text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
                 Privacy Policy
               </router-link>
-              <router-link to="/cookie-policy" class="block body-text-luxury hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
+              <router-link to="/cookie-policy" class="block text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
                 Cookie Policy
               </router-link>
             </div>
