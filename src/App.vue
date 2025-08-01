@@ -63,10 +63,29 @@
               <img src="/img/logo.svg" alt="RegistroAPI Logo" class="w-10 h-10" />
               <span class="text-xl font-display font-semibold text-luxury-white">RegistroAPI</span>
             </div>
-            <p class="body-text-luxury max-w-md leading-relaxed">
+            <p class="body-text-luxury max-w-md leading-relaxed mb-6">
               La piattaforma API più affidabile per professionisti e imprese di alto livello.
               Accesso illimitato ai dati ufficiali con la massima eleganza e precisione.
             </p>
+
+            <!-- Government Agencies Logos -->
+            <div class="flex items-center space-x-6">
+              <img
+                src="/img/gov/Logo_Agenzia_Entrate.png"
+                alt="Agenzia delle Entrate"
+                class="footer-gov-logo"
+              />
+              <img
+                src="/img/gov/INPS_logo_2023.svg.png"
+                alt="INPS"
+                class="footer-gov-logo"
+              />
+              <img
+                src="/img/gov/Logo_Registro_Imprese.svg"
+                alt="Registro Imprese"
+                class="footer-gov-logo"
+              />
+            </div>
           </div>
 
           <!-- Contact Info -->
