@@ -93,145 +93,185 @@
       <div class="space-y-16">
         <!-- Banking -->
         <div class="card-luxury-elegant">
-          <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
-              <IconBuildingBank class="w-10 h-10 text-luxury-gold" />
+          <div class="flex items-center justify-between">
+            <div class="flex items-start space-x-8 flex-1">
+              <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+                <IconBuildingBank class="w-10 h-10 text-luxury-gold" />
+              </div>
+              <div>
+                <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Banche e Istituti di Credito</h3>
+                <p class="body-text-luxury mb-6">
+                  Automatizza onboarding, KYC/AML e credit scoring. Le API supportano:
+                </p>
+                <ul class="space-y-3 text-base">
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Analisi real-time su imprese e privati</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Credit score, protesti, negatività</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Integrazione nei CRM per finanziamenti</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Banche e Istituti di Credito</h3>
-              <p class="body-text-luxury mb-6">
-                Automatizza onboarding, KYC/AML e credit scoring. Le API supportano:
-              </p>
-              <ul class="space-y-3 text-base">
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Analisi real-time su imprese e privati</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Credit score, protesti, negatività</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Integrazione nei CRM per finanziamenti</span>
-                </li>
-              </ul>
+            <div class="ml-8 flex-shrink-0">
+              <router-link to="/contatti#top" class="btn-elegant text-luxury-gold flex items-center whitespace-nowrap" v-scroll-to-top>
+                <IconMail class="w-5 h-5 mr-2" />
+                Richiedi maggiori informazioni
+              </router-link>
             </div>
           </div>
         </div>
 
         <!-- Legal -->
         <div class="card-luxury-elegant">
-          <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
-              <IconScale class="w-10 h-10 text-luxury-gold" />
+          <div class="flex items-center justify-between">
+            <div class="flex items-start space-x-8 flex-1">
+              <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+                <IconScale class="w-10 h-10 text-luxury-gold" />
+              </div>
+              <div>
+                <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Studi Legali Internazionali</h3>
+                <p class="body-text-luxury mb-6">
+                  Supporto completo per M&A, due diligence, recupero crediti, contenziosi:
+                </p>
+                <ul class="space-y-3 text-base">
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Struttura societaria e beneficiari effettivi</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Proprietà immobiliari, cariche, atti</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Accesso diretto a documenti ufficiali</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Studi Legali Internazionali</h3>
-              <p class="body-text-luxury mb-6">
-                Supporto completo per M&A, due diligence, recupero crediti, contenziosi:
-              </p>
-              <ul class="space-y-3 text-base">
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Struttura societaria e beneficiari effettivi</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Proprietà immobiliari, cariche, atti</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Accesso diretto a documenti ufficiali</span>
-                </li>
-              </ul>
+            <div class="ml-8 flex-shrink-0">
+              <router-link to="/contatti#top" class="btn-elegant text-luxury-gold flex items-center whitespace-nowrap" v-scroll-to-top>
+                <IconMail class="w-5 h-5 mr-2" />
+                Richiedi maggiori informazioni
+              </router-link>
             </div>
           </div>
         </div>
 
         <!-- Investment -->
         <div class="card-luxury-elegant">
-          <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
-              <IconTrendingUp class="w-10 h-10 text-luxury-gold" />
+          <div class="flex items-center justify-between">
+            <div class="flex items-start space-x-8 flex-1">
+              <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+                <IconTrendingUp class="w-10 h-10 text-luxury-gold" />
+              </div>
+              <div>
+                <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">SGR e Società di Investimento</h3>
+                <p class="body-text-luxury mb-6">
+                  Analizza imprese target, portafogli e controparti in operazioni complesse:
+                </p>
+                <ul class="space-y-3 text-base">
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Bilanci e performance storica</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Immobili intestati, soci, rischi</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Report aggregati geolocalizzati</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">SGR e Società di Investimento</h3>
-              <p class="body-text-luxury mb-6">
-                Analizza imprese target, portafogli e controparti in operazioni complesse:
-              </p>
-              <ul class="space-y-3 text-base">
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Bilanci e performance storica</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Immobili intestati, soci, rischi</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Report aggregati geolocalizzati</span>
-                </li>
-              </ul>
+            <div class="ml-8 flex-shrink-0">
+              <router-link to="/contatti#top" class="btn-elegant text-luxury-gold flex items-center whitespace-nowrap" v-scroll-to-top>
+                <IconMail class="w-5 h-5 mr-2" />
+                Richiedi maggiori informazioni
+              </router-link>
             </div>
           </div>
         </div>
 
         <!-- Fiduciary -->
         <div class="card-luxury-elegant">
-          <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
-              <IconReceipt class="w-10 h-10 text-luxury-gold" />
+          <div class="flex items-center justify-between">
+            <div class="flex items-start space-x-8 flex-1">
+              <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+                <IconReceipt class="w-10 h-10 text-luxury-gold" />
+              </div>
+              <div>
+                <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Fiduciarie e Trust Company</h3>
+                <p class="body-text-luxury mb-6">
+                  Valutazioni su soggetti terzi, trasparenza patrimoniale e supporto antiriciclaggio:
+                </p>
+                <ul class="space-y-3 text-base">
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Controllo affidabilità</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Verifica patrimonio mobiliare e immobiliare</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Ricostruzione attività economica</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Fiduciarie e Trust Company</h3>
-              <p class="body-text-luxury mb-6">
-                Valutazioni su soggetti terzi, trasparenza patrimoniale e supporto antiriciclaggio:
-              </p>
-              <ul class="space-y-3 text-base">
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Controllo affidabilità</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Verifica patrimonio mobiliare e immobiliare</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Ricostruzione attività economica</span>
-                </li>
-              </ul>
+            <div class="ml-8 flex-shrink-0">
+              <router-link to="/contatti#top" class="btn-elegant text-luxury-gold flex items-center whitespace-nowrap" v-scroll-to-top>
+                <IconMail class="w-5 h-5 mr-2" />
+                Richiedi maggiori informazioni
+              </router-link>
             </div>
           </div>
         </div>
 
         <!-- Insurance -->
         <div class="card-luxury-elegant">
-          <div class="flex items-start space-x-8">
-            <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
-              <IconShield class="w-10 h-10 text-luxury-gold" />
+          <div class="flex items-center justify-between">
+            <div class="flex items-start space-x-8 flex-1">
+              <div class="w-20 h-20 icon-elegant flex items-center justify-center flex-shrink-0">
+                <IconShield class="w-10 h-10 text-luxury-gold" />
+              </div>
+              <div>
+                <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Assicurazioni</h3>
+                <p class="body-text-luxury mb-6">
+                  Strumenti per profilazione, antifrode e sottoscrizione:
+                </p>
+                <ul class="space-y-3 text-base">
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Visure immobiliari e cariche</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Controlli su soggetti beneficiari</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-luxury-gold text-lg">•</span>
+                    <span class="text-luxury-text-secondary">Atti patrimoniali e pregiudizievoli</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h3 class="text-3xl font-display font-semibold mb-6 text-luxury-gold">Assicurazioni</h3>
-              <p class="body-text-luxury mb-6">
-                Strumenti per profilazione, antifrode e sottoscrizione:
-              </p>
-              <ul class="space-y-3 text-base">
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Visure immobiliari e cariche</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Controlli su soggetti beneficiari</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <span class="text-luxury-gold text-lg">•</span>
-                  <span class="text-luxury-text-secondary">Atti patrimoniali e pregiudizievoli</span>
-                </li>
-              </ul>
+            <div class="ml-8 flex-shrink-0">
+              <router-link to="/contatti#top" class="btn-elegant text-luxury-gold flex items-center whitespace-nowrap" v-scroll-to-top>
+                <IconMail class="w-5 h-5 mr-2" />
+                Richiedi maggiori informazioni
+              </router-link>
             </div>
           </div>
         </div>
