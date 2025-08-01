@@ -48,7 +48,7 @@
     <section class="section-luxury">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="heading-luxury-medium mb-8">
+          <h2 class="heading-luxury-medium mb-5">
             Richiedi <span class="text-gradient-gold">Accesso API</span>
           </h2>
           <p class="subheading-luxury">
@@ -60,28 +60,31 @@
           <!-- Honeypot fields - hidden from users but visible to bots -->
           <div class="absolute -left-[9999px] opacity-0 pointer-events-none">
             <input
-              v-model="honeypot.name"
-              type="text"
-              name="website"
-              autocomplete="off"
-              tabindex="-1"
+            v-model="honeypot.name"
+            type="text"
+            name="website"
+            autocomplete="off"
+            tabindex="-1"
             />
             <input
-              v-model="honeypot.email"
-              type="email"
-              name="email_confirm"
-              autocomplete="off"
-              tabindex="-1"
+            v-model="honeypot.email"
+            type="email"
+            name="email_confirm"
+            autocomplete="off"
+            tabindex="-1"
             />
             <input
-              v-model="honeypot.phone"
-              type="tel"
-              name="phone"
-              autocomplete="off"
-              tabindex="-1"
+            v-model="honeypot.phone"
+            type="tel"
+            name="phone"
+            autocomplete="off"
+            tabindex="-1"
             />
           </div>
 
+          <div class="text-end mb-2 text-gray-700">
+            <p>I campi con * sono obbligatori</p>
+          </div>
           <div class="grid md:grid-cols-2 gap-8 mb-8">
             <div>
               <label for="firstName" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Nome *</label>
