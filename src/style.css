@@ -41,6 +41,21 @@
   margin-top: -5px;
 }
 
+
+.AE-logo{
+  width: 10rem;
+  margin-right: 3rem;
+}
+
+.inps-logo{
+  width: 4rem;
+}
+
+.RI-logo{
+  width: 10rem;
+}
+
+
 /* Artistic Icon Container */
 .icon-artistic {
   @apply relative;

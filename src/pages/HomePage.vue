@@ -346,21 +346,21 @@
             <img
               src="/img/gov/Logo_Agenzia_Entrate.png"
               alt="Agenzia delle Entrate"
-              class="gov-logo"
+              class="AE-logo"
             />
           </div>
           <div class="flex flex-col items-center space-y-4">
             <img
               src="/img/gov/INPS_logo_2023.svg.png"
               alt="INPS"
-              class="gov-logo"
+              class="inps-logo"
             />
           </div>
           <div class="flex flex-col items-center">
             <img
             src="/img/gov/Logo_Registro_Imprese.svg"
             alt="Registro_Imprese"
-            class="gov-logo">
+            class="RI-logo">
           </div>
         </div>
       </div>
