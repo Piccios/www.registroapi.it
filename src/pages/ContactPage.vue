@@ -178,10 +178,9 @@
             <textarea
               id="message"
               v-model="form.message"
-              required
               rows="6"
               class="textarea-luxury"
-              placeholder="Descrivi il tuo progetto e le API di cui hai bisogno..."
+              placeholder="Descrivi il tuo progetto e le API di cui hai bisogno... (opzionale)"
               :disabled="isSubmitting"
             ></textarea>
           </div>
@@ -338,7 +337,6 @@ export default {
       if (!form.value.phone.trim()) missingFields.push('Numero Cellulare')
       if (!form.value.company.trim()) missingFields.push('Azienda')
       if (!form.value.sector) missingFields.push('Settore di Interesse')
-      if (!form.value.message.trim()) missingFields.push('Descrizione esigenze')
       if (!form.value.privacy) missingFields.push('Accettazione Privacy Policy')
 
       if (missingFields.length > 0) {
@@ -360,8 +358,8 @@ export default {
     }
 
     const validateForm = () => {
-      // Check message length (prevent very short or very long messages)
-      if (form.value.message.length < 10) {
+      // Check message length only if message is provided (prevent very short or very long messages)
+      if (form.value.message.trim() && form.value.message.length < 10) {
         return 'Il messaggio deve contenere almeno 10 caratteri.'
       }
 
