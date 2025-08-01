@@ -307,7 +307,7 @@ export default {
     const isSubmitting = ref(false)
     const submitMessage = ref('')
     const submitSuccess = ref(false)
-    const lastSubmissionTime = ref(0)
+    const lastSubmissionTime = ref(0) // No longer used but kept for compatibility
 
     // Validation popup state
     const showValidationPopup = ref(false)
@@ -315,8 +315,7 @@ export default {
 
     // Rate limiting - prevent multiple submissions
     const canSubmit = computed(() => {
-      const now = Date.now()
-      return now - lastSubmissionTime.value > 20000 // 20 seconds cooldown
+      return true // Removed rate limiting
     })
 
     // Show validation popup for 3 seconds
@@ -351,38 +350,13 @@ export default {
       return true
     }
 
-    // Bot detection functions
+    // Bot detection functions - only honeypot fields
     const isBot = () => {
-      // Check honeypot fields
+      // Check honeypot fields only
       if (honeypot.value.name || honeypot.value.email || honeypot.value.phone) {
         return true
       }
-
-      // Check if form was filled too quickly (less than 5 seconds)
-      const formStartTime = sessionStorage.getItem('formStartTime')
-      if (formStartTime) {
-        const timeSpent = Date.now() - parseInt(formStartTime)
-        if (timeSpent < 5000) {
-          return true
-        }
-      }
-
-      // Check for suspicious patterns
-      const suspiciousPatterns = [
-        /^[a-z]{1,2}\d{1,2}$/i, // Very short names with numbers
-        /^test/i, // Test submissions
-        /^admin/i, // Admin submissions
-        /^bot/i, // Bot submissions
-        /^spam/i // Spam submissions
-      ]
-
-      const email = form.value.email.toLowerCase()
-      const firstName = form.value.firstName.toLowerCase()
-      const lastName = form.value.lastName.toLowerCase()
-
-      return suspiciousPatterns.some(pattern =>
-        pattern.test(email) || pattern.test(firstName) || pattern.test(lastName)
-      )
+      return false
     }
 
     const validateForm = () => {
@@ -407,13 +381,6 @@ export default {
         return 'Inserisci un numero di cellulare valido (formato: +39 123 456 7890).'
       }
 
-      // Check for suspicious content
-      const suspiciousWords = ['casino', 'viagra', 'loan', 'credit', 'debt', 'make money', 'earn money', 'work from home']
-      const messageLower = form.value.message.toLowerCase()
-      if (suspiciousWords.some(word => messageLower.includes(word))) {
-        return 'Il contenuto del messaggio contiene parole non consentite.'
-      }
-
       return null
     }
 
@@ -423,12 +390,7 @@ export default {
         return
       }
 
-      // Rate limiting check
-      if (!canSubmit.value) {
-        submitMessage.value = 'Attendi un momento prima di inviare un\'altra richiesta.'
-        submitSuccess.value = false
-        return
-      }
+      // Rate limiting check removed
 
       isSubmitting.value = true
       submitMessage.value = ''
@@ -473,8 +435,7 @@ export default {
         submitSuccess.value = true
         submitMessage.value = 'La tua richiesta è stata inviata con successo! Ti contatteremo entro 1 ora.'
 
-        // Update last submission time
-        lastSubmissionTime.value = Date.now()
+        // Update last submission time removed
 
         // Reset form
         form.value = {
@@ -504,10 +465,7 @@ export default {
       }
     }
 
-    // Track form start time
-    onMounted(() => {
-      sessionStorage.setItem('formStartTime', Date.now().toString())
-    })
+    // Track form start time removed
 
     // Environment variables
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
