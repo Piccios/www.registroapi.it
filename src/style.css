@@ -239,7 +239,7 @@
 
   /* Luxury Section Spacing */
   .section-luxury {
-    @apply py-24 px-6 max-w-7xl mx-auto;
+    @apply py-10 px-6 max-w-7xl mx-auto;
   }
 
   .section-luxury-compact {

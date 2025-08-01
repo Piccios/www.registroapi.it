@@ -10,39 +10,8 @@
       </p>
     </section>
 
-    <!-- Contact Info -->
-    <section class="section-luxury-compact">
-      <div class="grid md:grid-cols-3 gap-12 mb-8">
-        <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
-            <IconMail class="w-10 h-10 text-luxury-gold" />
-          </div>
-          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Supporto Tecnico</h3>
-          <p class="body-text-luxury mb-6">Per assistenza API e problemi tecnici</p>
-          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium">
-            {{ supportEmail }}
-          </a>
-        </div>
-
-        <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
-            <IconClock class="w-10 h-10 text-luxury-gold" />
-          </div>
-          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Tempi di Risposta</h3>
-          <p class="body-text-luxury mb-6">Garantiamo risposta entro</p>
-          <p class="text-luxury-gold font-display font-semibold text-xl">1 ora</p>
-        </div>
-
-        <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
-            <IconPhone class="w-10 h-10 text-luxury-gold" />
-          </div>
-          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Orari Supporto</h3>
-          <p class="body-text-luxury mb-6">7 giorni su 7</p>
-          <p class="text-luxury-gold font-display font-semibold text-xl">9:00 - 19:00</p>
-        </div>
-      </div>
-    </section>
+    <!-- Divider -->
+    <div data-v-2d1117dc="" class="divider-luxury mt-12"></div>
 
     <!-- Contact Form -->
     <section class="section-luxury">
@@ -239,7 +208,41 @@
         </p>
       </div>
     </div>
-  </div>
+    </div>
+    <!-- Contact Info -->
+    <section class="section-luxury-compact">
+      <div class="grid md:grid-cols-3 gap-12 mb-8">
+        <div class="glass-card-enhanced text-center">
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconMail class="w-10 h-10 text-luxury-gold" />
+          </div>
+          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Supporto Tecnico</h3>
+          <p class="body-text-luxury mb-6">Per assistenza API e problemi tecnici</p>
+          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium">
+            {{ supportEmail }}
+          </a>
+        </div>
+
+        <div class="glass-card-enhanced text-center">
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconClock class="w-10 h-10 text-luxury-gold" />
+          </div>
+          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Tempi di Risposta</h3>
+          <p class="body-text-luxury mb-6">Garantiamo risposta entro</p>
+          <p class="text-luxury-gold font-display font-semibold text-xl">1 ora</p>
+        </div>
+
+        <div class="glass-card-enhanced text-center">
+          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
+            <IconPhone class="w-10 h-10 text-luxury-gold" />
+          </div>
+          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Orari Supporto</h3>
+          <p class="body-text-luxury mb-6">7 giorni su 7</p>
+          <p class="text-luxury-gold font-display font-semibold text-xl">9:00 - 19:00</p>
+        </div>
+      </div>
+    </section>
+
 </template>
 
 <script>
@@ -472,7 +475,7 @@ export default {
 
     const showEmailModal = (event) => {
       event.preventDefault()
-      // Emittiamo evento al componente padre (App.vue) per mostrare il modal
+      // Emit event to parent component (App.vue) to show modal
       window.dispatchEvent(new CustomEvent('showEmailModal', {
         detail: { href: event.target.href }
       }))
