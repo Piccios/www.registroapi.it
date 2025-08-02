@@ -15,23 +15,23 @@
 
     <!-- Support Info -->
     <section class="section-luxury-compact">
-      <div class="grid md:grid-cols-2 gap-12 mb-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20">
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
-            <IconMail class="w-10 h-10 text-luxury-gold" />
+          <div class="w-16 h-16 md:w-20 md:h-20 icon-artistic flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <IconMail class="w-8 h-8 md:w-10 md:h-10 text-luxury-gold" />
           </div>
-          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Supporto Email</h3>
-          <p class="body-text-luxury mb-6">Contatto diretto per assistenza tecnica</p>
-          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium">{{ supportEmail }}</a>
+          <h3 class="text-xl md:text-2xl font-display font-semibold mb-4 md:mb-6 text-luxury-gold">Supporto Email</h3>
+          <p class="body-text-luxury mb-4 md:mb-6 text-sm md:text-base">Contatto diretto per assistenza tecnica</p>
+          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium text-sm md:text-base">{{ supportEmail }}</a>
         </div>
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
-            <IconClock class="w-10 h-10 text-luxury-gold" />
+          <div class="w-16 h-16 md:w-20 md:h-20 icon-artistic flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <IconClock class="w-8 h-8 md:w-10 md:h-10 text-luxury-gold" />
           </div>
-          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Orari Supporto</h3>
-          <p class="body-text-luxury mb-6">Disponibilità garantita</p>
-          <p class="text-luxury-gold font-display font-semibold text-xl">7 giorni su 7</p>
-          <p class="text-luxury-gold font-display font-semibold text-xl">9:00 - 19:00</p>
+          <h3 class="text-xl md:text-2xl font-display font-semibold mb-4 md:mb-6 text-luxury-gold">Orari Supporto</h3>
+          <p class="body-text-luxury mb-4 md:mb-6 text-sm md:text-base">Disponibilità garantita</p>
+          <p class="text-luxury-gold font-display font-semibold text-lg md:text-xl">7 giorni su 7</p>
+          <p class="text-luxury-gold font-display font-semibold text-lg md:text-xl">9:00 - 19:00</p>
         </div>
       </div>
     </section>
@@ -43,7 +43,7 @@
           <h2 class="heading-luxury-medium mb-8">
             Contatta il <span class="text-gradient-gold">Supporto Tecnico</span>
           </h2>
-          <p class="subheading-luxury">
+          <p class="subheading-luxury text-sm md:text-base">
             Per assistenza immediata, problemi tecnici o richieste API
           </p>
         </div>
@@ -73,16 +73,16 @@
             </ul>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-            <a :href="supportEmailLink" @click="showEmailModal" class="btn-artistic text-luxury-gold text-lg px-12 py-6 flex items-center">
-              <IconMail class="w-6 h-6 mr-3" />
-              Contatta Supporto Tecnico
+          <div class="flex flex-col sm:flex-row gap-4 md:gap-8 justify-center items-center">
+            <a :href="supportEmailLink" @click="showEmailModal" class="btn-artistic text-luxury-gold text-base md:text-lg px-8 md:px-12 py-4 md:py-6 flex items-center justify-center w-full sm:w-auto">
+              <IconMail class="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />
+              <span class="text-sm md:text-base">Contatta Supporto Tecnico</span>
             </a>
           </div>
 
-          <div class="divider-luxury mt-8"></div>
+          <div class="divider-luxury mt-6 md:mt-8"></div>
 
-          <p class="text-luxury-gold text-sm mt-6 font-medium tracking-wide">
+          <p class="text-luxury-gold text-xs md:text-sm mt-4 md:mt-6 font-medium tracking-wide">
             Risposta garantita entro 1 ora • Supporto 7/7 dalle 9:00 alle 19:00
           </p>
         </div>
@@ -99,28 +99,28 @@
         </div>
 
         <!-- Funzionamento del Servizio -->
-        <div class="mb-16">
-          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold text-center">
+        <div class="mb-12 md:mb-16">
+          <h3 class="text-xl md:text-2xl font-display font-semibold mb-6 md:mb-8 text-luxury-gold text-center">
             Funzionamento del Servizio
           </h3>
-          <div class="space-y-6">
+          <div class="space-y-4 md:space-y-6">
             <div class="glass-card-enhanced">
-              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">1. Cosa sono le API offerte da RegistroAPI?</h4>
-              <p class="body-text-luxury">
+              <h4 class="text-lg md:text-xl font-display font-semibold mb-3 md:mb-4 text-luxury-gold">1. Cosa sono le API offerte da RegistroAPI?</h4>
+              <p class="body-text-luxury text-sm md:text-base">
                 Le nostre API consentono di accedere in tempo reale a informazioni ufficiali e certificate su imprese, immobili, persone, visure camerali, atti, bilanci, rischi e molto altro, con copertura nazionale ed europea.
               </p>
             </div>
 
             <div class="glass-card-enhanced">
-              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">2. A cosa servono le API di RegistroAPI?</h4>
-              <p class="body-text-luxury">
+              <h4 class="text-lg md:text-xl font-display font-semibold mb-3 md:mb-4 text-luxury-gold">2. A cosa servono le API di RegistroAPI?</h4>
+              <p class="body-text-luxury text-sm md:text-base">
                 Sono usate da banche, assicurazioni, SGR, fiduciari, studi legali, comuni, università e tech company per integrare dati pubblici e certificati nei propri processi decisionali, gestionali, investigativi o di onboarding clienti (KYC, AML, scoring, M&A, ecc.).
               </p>
             </div>
 
             <div class="glass-card-enhanced">
-              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">3. Come funziona l'accesso ai dati?</h4>
-              <p class="body-text-luxury">
+              <h4 class="text-lg md:text-xl font-display font-semibold mb-3 md:mb-4 text-luxury-gold">3. Come funziona l'accesso ai dati?</h4>
+              <p class="body-text-luxury text-sm md:text-base">
                 Offriamo un accesso illimitato tramite licenza mensile/annuale: niente ricariche, niente consumo a crediti. Le nostre API sono documentate e pronte all'uso, e un account manager ti guida nell'integrazione.
               </p>
             </div>
@@ -128,21 +128,21 @@
         </div>
 
         <!-- Modelli Commerciali -->
-        <div class="mb-16">
-          <h3 class="text-2xl font-display font-semibold mb-8 text-luxury-gold text-center">
+        <div class="mb-12 md:mb-16">
+          <h3 class="text-xl md:text-2xl font-display font-semibold mb-6 md:mb-8 text-luxury-gold text-center">
             Modelli Commerciali
           </h3>
-          <div class="space-y-6">
+          <div class="space-y-4 md:space-y-6">
             <div class="glass-card-enhanced">
-              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">4. Quanto costa il servizio?</h4>
-              <p class="body-text-luxury">
+              <h4 class="text-lg md:text-xl font-display font-semibold mb-3 md:mb-4 text-luxury-gold">4. Quanto costa il servizio?</h4>
+              <p class="body-text-luxury text-sm md:text-base">
                 Il prezzo varia in base ai moduli richiesti e all'utilizzo aziendale. Offriamo solo formule flat a canone annuo, senza costi a chiamata. Contattaci per un'offerta su misura.
               </p>
             </div>
 
             <div class="glass-card-enhanced">
-              <h4 class="text-xl font-display font-semibold mb-4 text-luxury-gold">5. Offrite anche formule a consumo o a credito?</h4>
-              <p class="body-text-luxury">
+              <h4 class="text-lg md:text-xl font-display font-semibold mb-3 md:mb-4 text-luxury-gold">5. Offrite anche formule a consumo o a credito?</h4>
+              <p class="body-text-luxury text-sm md:text-base">
                 No. A differenza di altre piattaforme, noi forniamo solo contratti flat illimitati, per garantire massima prevedibilità di costo, efficienza e libertà nell'utilizzo.
               </p>
             </div>
@@ -260,8 +260,8 @@
 
     <!-- Back to Home -->
     <section class="section-luxury-compact text-center">
-      <router-link to="/" class="btn-elegant text-luxury-gold" v-scroll-to-top>
-        ← Torna alla Homepage
+      <router-link to="/" class="btn-elegant text-luxury-gold flex items-center justify-center w-full sm:w-auto mx-auto" v-scroll-to-top>
+        <span class="text-sm md:text-base">← Torna alla Homepage</span>
       </router-link>
     </section>
   </div>

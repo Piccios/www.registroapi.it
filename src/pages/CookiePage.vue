@@ -178,9 +178,9 @@
           </div>
         </div>
 
-        <div class="text-center mt-12">
-          <router-link to="/" class="btn-elegant text-luxury-gold" v-scroll-to-top>
-            ← Torna alla Homepage
+        <div class="text-center mt-8 md:mt-12">
+          <router-link to="/" class="btn-elegant text-luxury-gold flex items-center justify-center w-full sm:w-auto mx-auto" v-scroll-to-top>
+            <span class="text-sm md:text-base">← Torna alla Homepage</span>
           </router-link>
         </div>
       </div>

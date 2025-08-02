@@ -4,11 +4,11 @@
     <div class="luxury-overlay"></div>
 
     <!-- Elegant Navigation Header -->
-    <nav class="fixed top-0 w-full h-32 z-50 bg-luxury-black/90 backdrop-blur-xl border-b border-luxury-gray-medium/20">
-      <div class="max-w-7xl mx-auto py-1 ">
+    <nav class="fixed top-0 w-full h-24 md:h-32 z-50 bg-luxury-black/90 backdrop-blur-xl border-b border-luxury-gray-medium/20">
+      <div class="max-w-7xl mx-auto py-2 md:py-1 px-4 md:px-8">
         <div class="flex justify-between items-center">
           <!-- Logo -->
-          <router-link to="/" class="flex items-center space-x-4 group" v-scroll-to-top>
+          <router-link to="/" class="flex items-center space-x-2 md:space-x-4 group" v-scroll-to-top>
             <img src="/public/img/logo_senzabackground.svg" alt="RegistroAPI_Logo" class="logo-img transition-transform duration-500 group-hover:scale-105" />
           </router-link>
 
@@ -26,21 +26,21 @@
           </div>
 
           <!-- Mobile Menu Button -->
-          <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-3 hover:bg-luxury-gray-light/20 transition-colors duration-300">
-            <IconMenu class="w-6 h-6 text-luxury-white" />
+          <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 md:p-3 hover:bg-luxury-gray-light/20 transition-colors duration-300">
+            <IconMenu class="w-5 h-5 md:w-6 md:h-6 text-luxury-white" />
           </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div v-if="mobileMenuOpen" class="md:hidden mt-4 pb-4 border-t border-luxury-gray-medium/20">
-          <div class="flex flex-col space-y-4 pt-4">
-            <router-link v-if="$route.path === '/HelpCenter'" to="/" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg" v-scroll-to-top>
+        <div v-if="mobileMenuOpen" class="md:hidden mt-4 pb-4 border-t border-luxury-gray-medium/20 bg-black/40 backdrop-blur-xl border border-white/15 rounded-none shadow-2xl">
+          <div class="flex flex-col space-y-4 pt-4 px-4">
+            <router-link v-if="$route.path !== '/'" to="/" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg py-2 px-4 hover:bg-luxury-gray-light/20 transition-all duration-300 rounded-none" v-scroll-to-top>
               Home
             </router-link>
-            <router-link v-if="$route.path !== '/HelpCenter'" to="/HelpCenter" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg hidden" v-scroll-to-top>
+            <router-link v-if="$route.path !== '/HelpCenter'" to="/HelpCenter" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg py-2 px-4 hover:bg-luxury-gray-light/20 transition-all duration-300 rounded-none" v-scroll-to-top>
               Help Center
             </router-link>
-            <router-link v-if="$route.path === '/'" to="/contatti" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center" v-scroll-to-top>
+            <router-link v-if="$route.path !== '/contatti'" to="/contatti" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center py-3 px-6" v-scroll-to-top>
               Richiedi Accesso
             </router-link>
           </div>
@@ -49,27 +49,27 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="pt-24">
+    <main class="pt-20 md:pt-24">
       <router-view />
     </main>
 
     <!-- Elegant Footer -->
-    <footer class="bg-luxury-dark border-t border-luxury-gray-medium/20 py-16">
-      <div class="max-w-7xl mx-auto px-8">
-                <div class="grid md:grid-cols-5 gap-12">
+    <footer class="bg-luxury-dark border-t border-luxury-gray-medium/20 py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
                     <!-- Company Info -->
           <div class="md:col-span-2">
             <div class="flex items-center space-x-4 mb-4">
-              <img src="/img/logo.svg" alt="RegistroAPI Logo" class="w-8 h-8" />
-              <span class="text-lg font-display font-semibold text-luxury-white">RegistroAPI</span>
+              <img src="/img/logo.svg" alt="RegistroAPI Logo" class="w-6 h-6 md:w-8 md:h-8" />
+              <span class="text-base md:text-lg font-display font-semibold text-luxury-white">RegistroAPI</span>
             </div>
-            <p class="text-sm text-luxury-text-secondary max-w-md leading-relaxed mb-4">
+            <p class="text-xs md:text-sm text-luxury-text-secondary max-w-md leading-relaxed mb-4">
               La piattaforma API più affidabile per professionisti e imprese di alto livello.
               Accesso illimitato ai dati ufficiali con la massima eleganza e precisione.
             </p>
 
             <!-- Government Agencies Logos -->
-            <div class="flex items-center space-x-4">
+            <div class="flex flex-row items-center space-x-2 md:space-x-4">
               <img
                 src="/img/gov/Logo_Agenzia_Entrate.png"
                 alt="Agenzia delle Entrate"
@@ -90,39 +90,39 @@
 
           <!-- Principali API disponibili -->
           <div>
-            <h3 class="text-luxury-gold font-display font-semibold mb-4 text-base">Principali API disponibili</h3>
-            <div class="space-y-2">
-              <p class="block text-sm text-luxury-text-secondary">
+            <h3 class="text-luxury-gold font-display font-semibold mb-3 md:mb-4 text-sm md:text-base">Principali API disponibili</h3>
+            <div class="space-y-1 md:space-y-2">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Conservatoria
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Catasto
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Tribunale
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Camera di Commercio
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Agenzia del Territorio
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Dati Ministeriali
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Anagrafe / Comune
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 P.R.A. e Pratiche Veicoli
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Agenzia delle Entrate
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Fatturazione Elettronica
               </p>
-              <p class="block text-sm text-luxury-text-secondary">
+              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Marchi
               </p>
             </div>
@@ -130,33 +130,33 @@
 
           <!-- Contact Info -->
           <div>
-            <h3 class="text-luxury-gold font-display font-semibold mb-4 text-base">Contatti</h3>
-            <div class="space-y-3">
-              <div class="flex items-center space-x-3">
-                <IconMail class="w-4 h-4 text-luxury-gold flex-shrink-0" />
-                <a href="mailto:help@registroapi.com" @click="showEmailModal" class="text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300">
+            <h3 class="text-luxury-gold font-display font-semibold mb-3 md:mb-4 text-sm md:text-base">Contatti</h3>
+            <div class="space-y-2 md:space-y-3">
+              <div class="flex items-center space-x-2 md:space-x-3">
+                <IconMail class="w-3 h-3 md:w-4 md:h-4 text-luxury-gold flex-shrink-0" />
+                <a href="mailto:help@registroapi.com" @click="showEmailModal" class="text-xs md:text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300">
                   help@registroapi.com
                 </a>
               </div>
-              <div class="flex items-center space-x-3">
-                <IconClock class="w-4 h-4 text-luxury-gold flex-shrink-0" />
-                <p class="text-sm text-luxury-text-secondary">Supporto 7/7 ore 9:00-19:00</p>
+              <div class="flex items-center space-x-2 md:space-x-3">
+                <IconClock class="w-3 h-3 md:w-4 md:h-4 text-luxury-gold flex-shrink-0" />
+                <p class="text-xs md:text-sm text-luxury-text-secondary">Supporto 7/7 ore 9:00-19:00</p>
               </div>
-              <div class="flex items-center space-x-3">
-                <IconPhone class="w-4 h-4 text-luxury-gold flex-shrink-0" />
-                <p class="text-sm text-luxury-text-secondary">Risposta garantita entro 1 ora</p>
+              <div class="flex items-center space-x-2 md:space-x-3">
+                <IconPhone class="w-3 h-3 md:w-4 md:h-4 text-luxury-gold flex-shrink-0" />
+                <p class="text-xs md:text-sm text-luxury-text-secondary">Risposta garantita entro 1 ora</p>
               </div>
             </div>
           </div>
 
           <!-- Legal Links -->
           <div>
-            <h3 class="text-luxury-gold font-display font-semibold mb-4 text-base">Informazioni Legali</h3>
-            <div class="space-y-3">
-              <router-link to="/privacy-policy" class="block text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
+            <h3 class="text-luxury-gold font-display font-semibold mb-3 md:mb-4 text-sm md:text-base">Informazioni Legali</h3>
+            <div class="space-y-2 md:space-y-3">
+              <router-link to="/privacy-policy" class="block text-xs md:text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
                 Privacy Policy
               </router-link>
-              <router-link to="/cookie-policy" class="block text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
+              <router-link to="/cookie-policy" class="block text-xs md:text-sm text-luxury-text-secondary hover:text-luxury-gold transition-colors duration-300" v-scroll-to-top>
                 Cookie Policy
               </router-link>
             </div>
@@ -164,12 +164,12 @@
         </div>
 
         <!-- Bottom Footer -->
-        <div class="mt-12 pt-8 border-t border-luxury-gray-medium/20">
-          <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p class="text-sm text-luxury-gray-medium">
+        <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-luxury-gray-medium/20">
+          <div class="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+            <p class="text-xs md:text-sm text-luxury-gray-medium text-center md:text-left">
               RegistroAPI è un brand di ITALIAN LUXURY VILLAS S.R.L. - P.IVA 13742870960
             </p>
-            <p class="text-sm text-luxury-gray-medium">
+            <p class="text-xs md:text-sm text-luxury-gray-medium text-center md:text-right">
               © 2025 RegistroAPI. Tutti i diritti riservati.
             </p>
           </div>
@@ -178,25 +178,25 @@
     </footer>
 
     <!-- Email Modal -->
-    <div v-if="emailModalOpen" class="fixed inset-0 z-50 flex items-center justify-center">
+    <div v-if="emailModalOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4">
       <!-- Backdrop -->
       <div class="absolute inset-0 bg-black/60 backdrop-blur-xl" @click="closeEmailModal"></div>
 
       <!-- Modal Content -->
-      <div class="relative bg-black/40 backdrop-blur-xl border border-white/20 rounded-none max-w-md mx-4 p-8 text-center shadow-2xl">
-        <div class="w-16 h-16 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-6">
-          <IconMail class="w-8 h-8 text-luxury-black" />
+      <div class="relative bg-black/40 backdrop-blur-xl border border-white/20 rounded-none w-full max-w-md mx-auto p-6 md:p-8 text-center shadow-2xl">
+        <div class="w-12 h-12 md:w-16 md:h-16 bg-luxury-gold rounded-none flex items-center justify-center mx-auto mb-4 md:mb-6">
+          <IconMail class="w-6 h-6 md:w-8 md:h-8 text-luxury-black" />
         </div>
 
-        <h3 class="text-2xl font-display font-semibold mb-4 text-luxury-gold">Reindirizzamento Email</h3>
+        <h3 class="text-xl md:text-2xl font-display font-semibold mb-3 md:mb-4 text-luxury-gold">Reindirizzamento Email</h3>
 
-        <p class="body-text-luxury mb-8">
+        <p class="body-text-luxury mb-6 md:mb-8 text-sm md:text-base">
           Stai per essere reindirizzato al tuo servizio email predefinito per contattare il supporto tecnico.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
           <button @click="proceedToEmail" class="btn-artistic text-luxury-gold flex items-center justify-center">
-            <IconMail class="w-5 h-5 mr-2" />
+            <IconMail class="w-4 h-4 md:w-5 md:h-5 mr-2" />
             Procedi
           </button>
           <button @click="closeEmailModal" class="btn-elegant text-luxury-gold">

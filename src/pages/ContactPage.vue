@@ -20,7 +20,7 @@
           <h2 class="heading-luxury-medium mb-5">
             Richiedi <span class="text-gradient-gold">Accesso API</span>
           </h2>
-          <p class="subheading-luxury">
+          <p class="subheading-luxury text-sm md:text-base">
             Compila il form per richiedere l'accesso alle API illimitate e ricevere una consulenza personalizzata
           </p>
         </div>
@@ -28,11 +28,11 @@
         <form @submit.prevent="submitForm" class="glass-card-enhanced">
 
           <div class="text-end mb-2 text-gray-700">
-            <p>I campi con * sono obbligatori</p>
+            <p class="text-sm">I campi con * sono obbligatori</p>
           </div>
-          <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
             <div>
-              <label for="firstName" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Nome *</label>
+              <label for="firstName" class="block text-luxury-gold font-semibold mb-2 md:mb-3 tracking-wide text-sm md:text-base">Nome *</label>
               <input
                 id="firstName"
                 v-model="form.firstName"
@@ -45,7 +45,7 @@
               />
             </div>
             <div>
-              <label for="lastName" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Cognome *</label>
+              <label for="lastName" class="block text-luxury-gold font-semibold mb-2 md:mb-3 tracking-wide text-sm md:text-base">Cognome *</label>
               <input
                 id="lastName"
                 v-model="form.lastName"
@@ -59,9 +59,9 @@
             </div>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
             <div>
-              <label for="email" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Email Aziendale *</label>
+              <label for="email" class="block text-luxury-gold font-semibold mb-2 md:mb-3 tracking-wide text-sm md:text-base">Email Aziendale *</label>
               <input
                 id="email"
                 v-model="form.email"
@@ -74,7 +74,7 @@
               />
             </div>
             <div>
-              <label for="phone" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Numero Cellulare *</label>
+              <label for="phone" class="block text-luxury-gold font-semibold mb-2 md:mb-3 tracking-wide text-sm md:text-base">Numero Cellulare *</label>
               <input
                 id="phone"
                 v-model="form.phone"
@@ -88,8 +88,8 @@
             </div>
           </div>
 
-          <div class="mb-8">
-            <label for="company" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Azienda *</label>
+          <div class="mb-6 md:mb-8">
+            <label for="company" class="block text-luxury-gold font-semibold mb-2 md:mb-3 tracking-wide text-sm md:text-base">Azienda *</label>
             <input
               id="company"
               v-model="form.company"
@@ -102,8 +102,8 @@
             />
           </div>
 
-          <div class="mb-8">
-            <label for="sector" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Settore di Interesse *</label>
+          <div class="mb-6 md:mb-8">
+            <label for="sector" class="block text-luxury-gold font-semibold mb-2 md:mb-3 tracking-wide text-sm md:text-base">Settore di Interesse *</label>
             <select
               id="sector"
               v-model="form.sector"
@@ -121,20 +121,20 @@
             </select>
           </div>
 
-          <div class="mb-8">
-            <label for="message" class="block text-luxury-gold font-semibold mb-3 tracking-wide">Descrivi le tue esigenze</label>
+          <div class="mb-6 md:mb-8">
+            <label for="message" class="block text-luxury-gold font-semibold mb-2 md:mb-3 tracking-wide text-sm md:text-base">Descrivi le tue esigenze</label>
             <textarea
               id="message"
               v-model="form.message"
-              rows="6"
+              rows="4"
               class="textarea-luxury"
               placeholder="Descrivi il tuo progetto e le API di cui hai bisogno... (opzionale)"
               :disabled="isSubmitting"
             ></textarea>
           </div>
 
-          <div class="mb-10">
-            <label class="flex items-start space-x-4">
+          <div class="mb-8 md:mb-10">
+            <label class="flex items-start space-x-3 md:space-x-4">
               <input
                 v-model="form.privacy"
                 type="checkbox"
@@ -142,7 +142,7 @@
                 class="mt-1 text-luxury-gold focus:ring-luxury-gold"
                 :disabled="isSubmitting"
               />
-              <span class="body-text-luxury">
+              <span class="body-text-luxury text-sm md:text-base">
                 Accetto la <router-link to="/privacy-policy" class="text-luxury-gold hover:text-luxury-gold-light underline transition-colors duration-300" v-scroll-to-top>Privacy Policy</router-link>
                 e autorizzo il trattamento dei miei dati per ricevere informazioni commerciali. *
               </span>
@@ -153,17 +153,17 @@
             <button
               type="submit"
               :disabled="isSubmitting || !canSubmit"
-              class="btn-artistic text-luxury-gold text-lg px-12 py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+              class="btn-artistic text-luxury-gold text-base md:text-lg px-8 md:px-12 py-4 md:py-6 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
             >
               <span v-if="isSubmitting">Invio in corso...</span>
-              <span v-else class="flex items-center">
-                <IconSend class="w-5 h-5 mr-3" />
+              <span v-else class="flex items-center justify-center">
+                <IconSend class="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
                 <span>Invia Richiesta</span>
               </span>
             </button>
           </div>
 
-          <div v-if="submitMessage" class="mt-8 p-6 rounded-none" :class="submitSuccess ? 'bg-green-900/20 border border-green-500/30 text-green-400' : 'bg-red-900/20 border border-red-500/30 text-red-400'">
+          <div v-if="submitMessage" class="mt-6 md:mt-8 p-4 md:p-6 rounded-none" :class="submitSuccess ? 'bg-green-900/20 border border-green-500/30 text-green-400' : 'bg-red-900/20 border border-red-500/30 text-red-400'">
             {{ submitMessage }}
           </div>
         </form>
@@ -175,35 +175,35 @@
       <h2 class="heading-luxury-medium mb-8">
         Hai bisogno di <span class="text-gradient-gold">Supporto Tecnico?</span>
       </h2>
-      <p class="body-text-luxury mb-10 max-w-2xl mx-auto">
+      <p class="body-text-luxury mb-8 md:mb-10 max-w-2xl mx-auto text-sm md:text-base">
         Per problemi tecnici, assistenza API o supporto immediato, contatta direttamente il nostro team
       </p>
       <div class="flex justify-center">
-        <a :href="supportEmailLink" @click="showEmailModal" class="btn-elegant text-luxury-gold flex items-center">
-          <IconMail class="w-5 h-5 mr-3" />
-          Supporto Tecnico Diretto
+        <a :href="supportEmailLink" @click="showEmailModal" class="btn-elegant text-luxury-gold flex items-center justify-center w-full sm:w-auto">
+          <IconMail class="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
+          <span class="text-sm md:text-base">Supporto Tecnico Diretto</span>
         </a>
       </div>
     </section>
 
     <!-- Form Validation Popup Modal -->
-    <div v-if="showValidationPopup" class="fixed inset-0 z-50 flex items-center justify-center">
+    <div v-if="showValidationPopup" class="fixed inset-0 z-50 flex items-center justify-center p-4">
       <!-- Backdrop -->
       <div class="absolute inset-0 bg-black/60 backdrop-blur-xl"></div>
 
       <!-- Modal Content -->
-      <div class="relative bg-black/40 backdrop-blur-xl border border-white/20 rounded-none max-w-md mx-4 p-8 text-center shadow-2xl animate-fade-in">
-        <div class="w-16 h-16 bg-red-600 rounded-none flex items-center justify-center mx-auto mb-6">
-          <IconAlertCircle class="w-8 h-8 text-white" />
+      <div class="relative bg-black/40 backdrop-blur-xl border border-white/20 rounded-none w-full max-w-md mx-auto p-6 md:p-8 text-center shadow-2xl animate-fade-in">
+        <div class="w-12 h-12 md:w-16 md:h-16 bg-red-600 rounded-none flex items-center justify-center mx-auto mb-4 md:mb-6">
+          <IconAlertCircle class="w-6 h-6 md:w-8 md:h-8 text-white" />
         </div>
 
-        <h3 class="text-2xl font-display font-semibold mb-4 text-luxury-gold">Campi Obbligatori</h3>
+        <h3 class="text-xl md:text-2xl font-display font-semibold mb-3 md:mb-4 text-luxury-gold">Campi Obbligatori</h3>
 
-        <p class="body-text-luxury mb-6">
+        <p class="body-text-luxury mb-4 md:mb-6 text-sm md:text-base">
           {{ validationPopupMessage }}
         </p>
 
-        <p class="text-sm text-luxury-text-secondary">
+        <p class="text-xs md:text-sm text-luxury-text-secondary">
           Compila tutti i campi obbligatori per procedere
         </p>
       </div>
@@ -211,34 +211,34 @@
     </div>
     <!-- Contact Info -->
     <section class="section-luxury-compact">
-      <div class="grid md:grid-cols-3 gap-12 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8">
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
-            <IconMail class="w-10 h-10 text-luxury-gold" />
+          <div class="w-16 h-16 md:w-20 md:h-20 icon-artistic flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <IconMail class="w-8 h-8 md:w-10 md:h-10 text-luxury-gold" />
           </div>
-          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Supporto Tecnico</h3>
-          <p class="body-text-luxury mb-6">Per assistenza API e problemi tecnici</p>
-          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium">
+          <h3 class="text-xl md:text-2xl font-display font-semibold mb-4 md:mb-6 text-luxury-gold">Supporto Tecnico</h3>
+          <p class="body-text-luxury mb-4 md:mb-6 text-sm md:text-base">Per assistenza API e problemi tecnici</p>
+          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium text-sm md:text-base">
             {{ supportEmail }}
           </a>
         </div>
 
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
-            <IconClock class="w-10 h-10 text-luxury-gold" />
+          <div class="w-16 h-16 md:w-20 md:h-20 icon-artistic flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <IconClock class="w-8 h-8 md:w-10 md:h-10 text-luxury-gold" />
           </div>
-          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Tempi di Risposta</h3>
-          <p class="body-text-luxury mb-6">Garantiamo risposta entro</p>
-          <p class="text-luxury-gold font-display font-semibold text-xl">1 ora</p>
+          <h3 class="text-xl md:text-2xl font-display font-semibold mb-4 md:mb-6 text-luxury-gold">Tempi di Risposta</h3>
+          <p class="body-text-luxury mb-4 md:mb-6 text-sm md:text-base">Garantiamo risposta entro</p>
+          <p class="text-luxury-gold font-display font-semibold text-lg md:text-xl">1 ora</p>
         </div>
 
         <div class="glass-card-enhanced text-center">
-          <div class="w-20 h-20 icon-artistic flex items-center justify-center mx-auto mb-8">
-            <IconPhone class="w-10 h-10 text-luxury-gold" />
+          <div class="w-16 h-16 md:w-20 md:h-20 icon-artistic flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <IconPhone class="w-8 h-8 md:w-10 md:h-10 text-luxury-gold" />
           </div>
-          <h3 class="text-2xl font-display font-semibold mb-6 text-luxury-gold">Orari Supporto</h3>
-          <p class="body-text-luxury mb-6">7 giorni su 7</p>
-          <p class="text-luxury-gold font-display font-semibold text-xl">9:00 - 19:00</p>
+          <h3 class="text-xl md:text-2xl font-display font-semibold mb-4 md:mb-6 text-luxury-gold">Orari Supporto</h3>
+          <p class="body-text-luxury mb-4 md:mb-6 text-sm md:text-base">7 giorni su 7</p>
+          <p class="text-luxury-gold font-display font-semibold text-lg md:text-xl">9:00 - 19:00</p>
         </div>
       </div>
     </section>
