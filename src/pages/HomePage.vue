@@ -465,17 +465,17 @@
 
 <script>
 import {
-    IconBuildingBank,
-    IconCheck,
-    IconDatabase,
-    IconMail,
-    IconPackage,
-    IconReceipt,
-    IconScale,
-    IconSearch,
-    IconSend,
-    IconShield,
-    IconTrendingUp
+  IconBuildingBank,
+  IconCheck,
+  IconDatabase,
+  IconMail,
+  IconPackage,
+  IconReceipt,
+  IconScale,
+  IconSearch,
+  IconSend,
+  IconShield,
+  IconTrendingUp
 } from '@tabler/icons-vue'
 import { ref } from 'vue'
 import ClientCarousel from '../components/ClientCarousel.vue'
