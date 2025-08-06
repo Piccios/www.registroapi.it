@@ -259,13 +259,8 @@ export default {
     IconAlertCircle
   },
   setup() {
-    // Inizializza EmailJS quando il componente viene montato
+    // Inizializza il componente
     onMounted(() => {
-      if (window.emailjs) {
-        // Inizializza con la chiave pubblica EmailJS dalle variabili d'ambiente
-        window.emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-      }
-
       // Imposta il tempo di inizio del form per la rilevazione dei bot
       formStartTime.value = Date.now()
     })
@@ -329,45 +324,22 @@ export default {
       return true
     }
 
-    // Rilevazione dei bot semplificata - basata sul tempo e sull'user agent
+    // Rilevazione dei bot semplificata - basata sul tempo
     const isBot = () => {
       const now = Date.now()
 
       // Controlla se il form è stato compilato troppo rapidamente (meno di 3 secondi)
       if (formStartTime.value && (now - formStartTime.value) < 3000) {
-        console.log('Form filled too quickly - potential bot')
         return true
       }
 
-      // Controlla gli user agent sospetti (controllo molto semplice)
+      // Controlla gli user agent sospetti
       const userAgent = navigator.userAgent.toLowerCase()
       if (userAgent.includes('bot') || userAgent.includes('crawler') || userAgent.includes('spider')) {
-        console.log('Suspicious user agent detected')
         return true
       }
 
       return false
-    }
-
-    // Log sospetto per il monitoraggio
-    const logSuspiciousActivity = (reason) => {
-      const logData = {
-        timestamp: new Date().toISOString(),
-        reason: reason,
-        userAgent: navigator.userAgent,
-        formData: {
-          firstName: form.value.firstName ? 'filled' : 'empty',
-          lastName: form.value.lastName ? 'filled' : 'empty',
-          email: form.value.email ? 'filled' : 'empty',
-          company: form.value.company ? 'filled' : 'empty'
-        },
-        timeToFill: formStartTime.value ? Date.now() - formStartTime.value : 0
-      }
-
-      console.warn('Suspicious activity detected:', logData)
-
-      // In produzione, potresti inviare questo a un servizio di logging
-      // Per ora, loggiamo solo nella console
     }
 
     const validateForm = () => {
@@ -401,17 +373,13 @@ export default {
         return
       }
 
-      // Rimossa limitazione del tasso di invio
-
       isSubmitting.value = true
       submitMessage.value = ''
 
       try {
-        // Rilevazione dei bot - ma siamo più permissivi in produzione
+        // Rilevazione dei bot - permissiva in produzione
         if (isBot()) {
-          logSuspiciousActivity('Rilevazione dei bot attivata')
-          // In produzione, loggeremo ma permetteremo l'invio
-          // Questo evita false positive mentre loggiamo l'attività sospetta
+          // In produzione, permettiamo l'invio anche se rileviamo attività sospetta
         }
 
         // Validazione del form
@@ -420,44 +388,54 @@ export default {
           throw new Error(validationError)
         }
 
-        // Configurazione EmailJS
-        const emailjs = window.emailjs
-
-        // Prepara i parametri del template email
-        const templateParams = {
-          form_name: form.value.firstName,
-          form_lastname: form.value.lastName,
-          form_email: form.value.email,
-          form_phone: form.value.phone,
-          company: form.value.company,
-          sector: form.value.sector,
-          message: form.value.message,
-          time: new Date().toLocaleString('it-IT'),
-          user_agent: navigator.userAgent,
-          ip_address: 'N/A' // Would be set server-side
+        // Prepara i dati per l'invio
+        const postData = {
+          to: import.meta.env.VITE_CONTACT_EMAIL || 'info@registroapi.it',
+          subject: `Richiesta Accesso API - ${form.value.company}`,
+          message: `
+Nome: ${form.value.firstName} ${form.value.lastName}
+Email: ${form.value.email}
+Telefono: ${form.value.phone}
+Azienda: ${form.value.company}
+Settore: ${form.value.sector}
+Messaggio: ${form.value.message || 'Nessun messaggio aggiuntivo'}
+Data: ${new Date().toLocaleString('it-IT')}
+User Agent: ${navigator.userAgent}
+          `.trim()
         }
 
-        // Invia email usando EmailJS con le variabili d'ambiente
-        const result = await emailjs.send(
-          import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          templateParams,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        )
+        // Invia la richiesta AJAX
+        const response = await fetch('/mail.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(postData)
+        })
 
-        submitSuccess.value = true
-        submitMessage.value = 'La tua richiesta è stata inviata con successo! Ti contatteremo entro 1 ora.'
+        if (!response.ok) {
+          throw new Error(`Errore HTTP: ${response.status}`)
+        }
 
-        // Resetta il form
-        form.value = {
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          company: '',
-          sector: '',
-          message: '',
-          privacy: false
+        const result = await response.json()
+
+        if (result.success) {
+          submitSuccess.value = true
+          submitMessage.value = 'La tua richiesta è stata inviata con successo! Ti contatteremo entro 1 ora.'
+
+          // Resetta il form
+          form.value = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            company: '',
+            sector: '',
+            message: '',
+            privacy: false
+          }
+        } else {
+          throw new Error(result.error || 'Errore durante l\'invio')
         }
 
       } catch (error) {
@@ -492,8 +470,7 @@ export default {
       submitForm,
       supportEmail,
       supportEmailLink,
-      showEmailModal,
-      logSuspiciousActivity
+      showEmailModal
     }
   }
 }
