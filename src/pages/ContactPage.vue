@@ -179,7 +179,12 @@
         Per problemi tecnici, assistenza API o supporto immediato, contatta direttamente il nostro team
       </p>
       <div class="flex justify-center">
-        <a :href="supportEmailLink" @click="showEmailModal" class="btn-elegant text-luxury-gold flex items-center justify-center w-full sm:w-auto">
+        <a
+          :href="supportEmailLink"
+          @click="showEmailModal"
+          class="btn-elegant text-luxury-gold flex items-center justify-center w-full sm:w-auto"
+          :title="`Contatta il supporto tecnico: ${supportEmail}`"
+        >
           <IconMail class="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
           <span class="text-sm md:text-base">Supporto Tecnico Diretto</span>
         </a>
@@ -218,7 +223,12 @@
           </div>
           <h3 class="text-xl md:text-2xl font-display font-semibold mb-4 md:mb-6 text-luxury-gold">Supporto Tecnico</h3>
           <p class="body-text-luxury mb-4 md:mb-6 text-sm md:text-base">Per assistenza API e problemi tecnici</p>
-          <a :href="supportEmailLink" @click="showEmailModal" class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium text-sm md:text-base">
+          <a
+            :href="supportEmailLink"
+            @click="showEmailModal"
+            class="text-luxury-gold hover:text-luxury-gold-light transition-colors duration-300 font-medium text-sm md:text-base"
+            :title="`Contatta il supporto tecnico: ${supportEmail}`"
+          >
             {{ supportEmail }}
           </a>
         </div>
@@ -448,15 +458,34 @@ User Agent: ${navigator.userAgent}
     }
 
     // Variabili d'ambiente
-    const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL
-    const supportEmailLink = `mailto:${supportEmail}`
+    const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL || 'help@registroapi.com'
+    const supportEmailLink = supportEmail ? `mailto:${supportEmail}` : 'mailto:help@registroapi.com'
+
+    // Debug: log delle variabili d'ambiente (rimuovere in produzione)
+    console.log('VITE_SUPPORT_EMAIL:', import.meta.env.VITE_SUPPORT_EMAIL)
+    console.log('supportEmail:', supportEmail)
+    console.log('supportEmailLink:', supportEmailLink)
 
     const showEmailModal = (event) => {
       event.preventDefault()
+
+      // Verifica che il link sia valido
+      const href = event.target.href || event.currentTarget.href
+      if (!href || !href.startsWith('mailto:')) {
+        console.error('Invalid mailto link:', href)
+        return
+      }
+
       // Emit event to parent component (App.vue) to show modal
-      window.dispatchEvent(new CustomEvent('showEmailModal', {
-        detail: { href: event.target.href }
-      }))
+      try {
+        window.dispatchEvent(new CustomEvent('showEmailModal', {
+          detail: { href: href }
+        }))
+      } catch (error) {
+        // Fallback: if modal fails, proceed with direct mailto
+        console.warn('Modal failed, proceeding with direct mailto:', error)
+        window.location.href = href
+      }
     }
 
     return {
