@@ -191,7 +191,7 @@
         <h3 class="text-xl md:text-2xl font-display font-semibold mb-3 md:mb-4 text-luxury-gold">Reindirizzamento Email</h3>
 
         <p class="body-text-luxury mb-6 md:mb-8 text-sm md:text-base">
-          Stai per essere reindirizzato al tuo servizio email predefinito per contattare il supporto tecnico.
+          Stai per essere reindirizzato al tuo servizio email predefinito per contattare il team di RegistroAPI.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
