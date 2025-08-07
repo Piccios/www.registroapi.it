@@ -26,13 +26,13 @@
           </div>
 
           <!-- Mobile Menu Button -->
-          <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 md:p-3 hover:bg-luxury-gray-light/20 transition-colors duration-300">
+          <button @click="mobileMenuOpen = !mobileMenuOpen" class="hamburger-button md:hidden p-2 md:p-3 hover:bg-luxury-gray-light/20 transition-colors duration-300">
             <IconMenu class="w-5 h-5 md:w-6 md:h-6 text-luxury-white" />
           </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div v-if="mobileMenuOpen" class="md:hidden mt-4 pb-4 border-t border-luxury-gray-medium/20 bg-black/40 backdrop-blur-xl border border-white/15 rounded-none shadow-2xl">
+        <div v-if="mobileMenuOpen" class="mobile-menu-container md:hidden mt-4 pb-4 border-t border-luxury-gray-medium/20 bg-black/90 backdrop-blur-xl border border-white/15 rounded-none shadow-2xl">
           <div class="flex flex-col space-y-4 pt-4 px-4">
             <router-link v-if="$route.path !== '/'" to="/" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg py-2 px-4 hover:bg-luxury-gray-light/20 transition-all duration-300 rounded-none" v-scroll-to-top>
               Home
@@ -249,12 +249,32 @@ export default {
       emailModalOpen.value = true
     }
 
+    // Handle click outside mobile menu
+    const handleClickOutside = (event) => {
+      if (mobileMenuOpen.value) {
+        // Check if click is outside the mobile menu and hamburger button
+        const mobileMenu = document.querySelector('.mobile-menu-container')
+        const hamburgerButton = document.querySelector('.hamburger-button')
+
+        if (mobileMenu && hamburgerButton) {
+          const isClickInsideMenu = mobileMenu.contains(event.target)
+          const isClickOnButton = hamburgerButton.contains(event.target)
+
+          if (!isClickInsideMenu && !isClickOnButton) {
+            mobileMenuOpen.value = false
+          }
+        }
+      }
+    }
+
     onMounted(() => {
       window.addEventListener('showEmailModal', handleShowEmailModal)
+      document.addEventListener('click', handleClickOutside)
     })
 
     onUnmounted(() => {
       window.removeEventListener('showEmailModal', handleShowEmailModal)
+      document.removeEventListener('click', handleClickOutside)
     })
 
     return {
