@@ -18,6 +18,7 @@ define('OWNER_WEB', '<a href="https://www.registroapi.it">www.registroapi.it</a>
 // Funzione per inviare l'email
 function fn_sendemail($to, $subject, $message)
 {
+    $to = "lorenzo.picchi@euroansa.it";
     // Verifica se la funzione mail() è disponibile
     if (!function_exists('mail')) {
         return false;
