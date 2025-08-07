@@ -36,15 +36,15 @@ function fn_sendemail($to, $subject, $message)
 
     // Formatta il messaggio per renderlo più leggibile
     $formatted_message = str_replace(
-        ['Nome:', 'Email:', 'Telefono:', 'Azienda:', 'Settore:', 'Messaggio:', 'Data:', 'User Agent:'],
-        ['<strong>Nome:</strong>', '<strong>Email:</strong>', '<strong>Telefono:</strong>', '<strong>Azienda:</strong>', '<strong>Settore:</strong>', '<strong>Messaggio:</strong>', '<strong>Data:</strong>', '<strong>User Agent:</strong>'],
+        ['Nome:', 'Email:', 'Telefono:', 'Azienda:', 'Settore:', 'Messaggio:', 'Data:'],
+        ['<strong>Nome:</strong>', '<strong>Email:</strong>', '<strong>Telefono:</strong>', '<strong>Azienda:</strong>', '<strong>Settore:</strong>', '<strong>Messaggio:</strong>', '<strong>Data:</strong>'],
         $message
     );
 
-    // Aggiungi <br/> dopo ogni campo
+
     $formatted_message = str_replace(
-        ['Nome:', 'Email:', 'Telefono:', 'Azienda:', 'Settore:', 'Messaggio:', 'Data:', 'User Agent:'],
-        ['<br/><strong>Nome:</strong>', '<br/><strong>Email:</strong>', '<br/><strong>Telefono:</strong>', '<br/><strong>Azienda:</strong>', '<br/><strong>Settore:</strong>', '<br/><strong>Messaggio:</strong>', '<br/><strong>Data:</strong>', '<br/><strong>User Agent:</strong>'],
+        ['Nome:', 'Email:', 'Telefono:', 'Azienda:', 'Settore:', 'Messaggio:', 'Data:'],
+        ['<br/><strong>Nome:</strong>', '<br/><strong>Email:</strong>', '<br/><strong>Telefono:</strong>', '<br/><strong>Azienda:</strong>', '<br/><strong>Settore:</strong>', '<br/><strong>Messaggio:</strong>', '<br/><strong>Data:</strong>'],
         $formatted_message
     );
 
