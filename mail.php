@@ -9,16 +9,13 @@ error_reporting(0);
 header('Content-Type: application/json; charset=utf-8');
 
 // Definisci le costanti per il footer
-define('OWNER_TITOLARE', 'Registro API Team');
-define('OWNER_IND', 'Via dei Pierini, 20 55100 Lucca');
-define('OWNER_TEL', '+39 349 5326608');
-define('OWNER_MOBILE', '+39 349 5326608');
+define('OWNER_TITOLARE', 'Registro API');
+define('OWNER_IND', 'Via Carlo Pisacane, 36 20129 Milano ');
 define('OWNER_WEB', '<a href="https://www.registroapi.it">www.registroapi.it</a>');
 
 // Funzione per inviare l'email
 function fn_sendemail($to, $subject, $message)
 {
-    $to = "lorenzo.picchi@euroansa.it";
     // Verifica se la funzione mail() è disponibile
     if (!function_exists('mail')) {
         return false;
@@ -33,13 +30,25 @@ function fn_sendemail($to, $subject, $message)
 
     $footer = "<p style='margin-top:100px;'>
         ----------------------------------------<br />" .
-        OWNER_TITOLARE . "<br />" .
-        OWNER_IND . "<br />
-        Tel. " . OWNER_TEL . "<br />
-        Mobile: " . OWNER_MOBILE . "<br />" .
+        "<strong>" . OWNER_TITOLARE . "</strong><br />" .
+        OWNER_IND . "<br />" .
         OWNER_WEB . "</p>";
 
-    $message = "<html><body>" . $message . $footer . "</body></html>";
+    // Formatta il messaggio per renderlo più leggibile
+    $formatted_message = str_replace(
+        ['Nome:', 'Email:', 'Telefono:', 'Azienda:', 'Settore:', 'Messaggio:', 'Data:', 'User Agent:'],
+        ['<strong>Nome:</strong>', '<strong>Email:</strong>', '<strong>Telefono:</strong>', '<strong>Azienda:</strong>', '<strong>Settore:</strong>', '<strong>Messaggio:</strong>', '<strong>Data:</strong>', '<strong>User Agent:</strong>'],
+        $message
+    );
+
+    // Aggiungi <br/> dopo ogni campo
+    $formatted_message = str_replace(
+        ['Nome:', 'Email:', 'Telefono:', 'Azienda:', 'Settore:', 'Messaggio:', 'Data:', 'User Agent:'],
+        ['<br/><strong>Nome:</strong>', '<br/><strong>Email:</strong>', '<br/><strong>Telefono:</strong>', '<br/><strong>Azienda:</strong>', '<br/><strong>Settore:</strong>', '<br/><strong>Messaggio:</strong>', '<br/><strong>Data:</strong>', '<br/><strong>User Agent:</strong>'],
+        $formatted_message
+    );
+
+    $message = "<html><body>" . $formatted_message . $footer . "</body></html>";
 
     try {
         // Prova a inviare l'email
@@ -91,4 +100,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Se non è una richiesta POST, restituisci errore
 echo json_encode(['success' => false, 'error' => 'Metodo non supportato']);
-?>
