@@ -120,9 +120,6 @@
                 Agenzia delle Entrate
               </p>
               <p class="block text-xs md:text-sm text-luxury-text-secondary">
-                Fatturazione Elettronica
-              </p>
-              <p class="block text-xs md:text-sm text-luxury-text-secondary">
                 Marchi
               </p>
             </div>
