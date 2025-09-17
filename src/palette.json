@@ -1,0 +1,108 @@
+{
+  "name": "RegistroAPI Luxury Design System",
+  "description": "Guida completa per mantenere lo stesso stile di design nei progetti correlati",
+  "version": "1.0.0",
+  "palette": {
+    "luxury": {
+      "black": "#000000",
+      "dark": "#0A0A0A",
+      "gray": "#1A1A1A",
+      "gray-light": "#2A2A2A",
+      "gray-medium": "#4A4A4A",
+      "gold": "#D4AF37",
+      "gold-light": "#E6C547",
+      "gold-dark": "#B8941F",
+      "white": "#FFFFFF",
+      "cream": "#F5F5F0",
+      "beige": "#F8F6F0",
+      "text-primary": "#FFFFFF",
+      "text-secondary": "#E5E5E5",
+      "text-muted": "#B0B0B0",
+      "text-accent": "#D4AF37"
+    }
+  },
+  "typography": {
+    "font-families": {
+      "serif": ["Playfair Display", "Georgia", "serif"],
+      "sans": ["Inter", "ui-sans-serif", "system-ui"],
+      "display": ["Playfair Display", "Georgia", "serif"]
+    },
+    "usage": {
+      "headings": "Playfair Display (display/serif)",
+      "body": "Inter (sans)",
+      "accent": "Playfair Display (serif)"
+    }
+  },
+  "tailwind_config": {
+    "colors": {
+      "luxury-black": "#000000",
+      "luxury-dark": "#0A0A0A",
+      "luxury-gray": "#1A1A1A",
+      "luxury-gray-light": "#2A2A2A",
+      "luxury-gray-medium": "#4A4A4A",
+      "luxury-gold": "#D4AF37",
+      "luxury-gold-light": "#E6C547",
+      "luxury-gold-dark": "#B8941F",
+      "luxury-white": "#FFFFFF",
+      "luxury-cream": "#F5F5F0",
+      "luxury-beige": "#F8F6F0",
+      "luxury-text-primary": "#FFFFFF",
+      "luxury-text-secondary": "#E5E5E5",
+      "luxury-text-muted": "#B0B0B0",
+      "luxury-text-accent": "#D4AF37"
+    }
+  },
+  "css_examples": {
+    "backgrounds": {
+      "main": "bg-luxury-black",
+      "secondary": "bg-luxury-dark",
+      "cards": "bg-luxury-gray",
+      "accent": "bg-luxury-gold"
+    },
+    "text": {
+      "primary": "text-luxury-text-primary",
+      "secondary": "text-luxury-text-secondary",
+      "muted": "text-luxury-text-muted",
+      "accent": "text-luxury-text-accent"
+    },
+    "borders": {
+      "subtle": "border-luxury-gray-light",
+      "medium": "border-luxury-gray-medium",
+      "accent": "border-luxury-gold"
+    }
+  },
+  "component_examples": {
+    "buttons": {
+      "primary": "bg-luxury-gold text-luxury-black hover:bg-luxury-gold-light",
+      "secondary": "border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-luxury-black",
+      "ghost": "text-luxury-gold hover:text-luxury-gold-light"
+    },
+    "cards": {
+      "glass": "bg-luxury-gray/80 backdrop-blur-sm border border-luxury-gray-light",
+      "solid": "bg-luxury-gray border border-luxury-gray-light"
+    },
+    "gradients": {
+      "gold": "bg-gradient-to-r from-luxury-gold to-luxury-gold-light",
+      "text_gold": "bg-gradient-to-r from-luxury-gold to-luxury-gold-light bg-clip-text text-transparent"
+    }
+  },
+  "cursor_prompt": "Usa sempre la palette luxury definita in questo file. Mantieni lo stile elegante e professionale con sfondo nero (#000000), testo bianco (#FFFFFF) e accenti dorati (#D4AF37). Usa i font Playfair Display per i titoli e Inter per il corpo del testo. Applica sempre le classi Tailwind corrispondenti (es: bg-luxury-black, text-luxury-gold, etc.). Mantieni un design minimalista e di lusso con contrasti elevati per la leggibilità.",
+  "design_principles": [
+    "Sfondo sempre nero (#000000) o dark (#0A0A0A)",
+    "Testo principale bianco (#FFFFFF) per massimo contrasto",
+    "Accenti dorati (#D4AF37) per elementi importanti",
+    "Grigi per elementi secondari e bordi",
+    "Font serif (Playfair Display) per titoli e accenti",
+    "Font sans (Inter) per testo del corpo",
+    "Design minimalista e professionale",
+    "Alto contrasto per accessibilità",
+    "Effetti glass e backdrop-blur per modernità"
+  ],
+  "usage_notes": [
+    "Importa questo file nei progetti per mantenere coerenza",
+    "Usa sempre le classi Tailwind predefinite",
+    "Mantieni il contrasto elevato per l'accessibilità",
+    "Applica gli effetti glass per un look moderno",
+    "Usa i gradienti dorati per elementi di enfasi"
+  ]
+}

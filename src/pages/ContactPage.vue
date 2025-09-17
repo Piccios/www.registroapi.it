@@ -394,7 +394,7 @@ export default {
 
         // Validazione del form
         const validationError = validateForm()
-        if (validationError) {
+        if (validationError) {w
           throw new Error(validationError)
         }
 
@@ -403,14 +403,14 @@ export default {
           to: import.meta.env.VITE_CONTACT_EMAIL || 'info@registroapi.it',
           subject: `Richiesta Accesso API - ${form.value.company}`,
           message: `
-Nome: ${form.value.firstName} ${form.value.lastName}
-Email: ${form.value.email}
-Telefono: ${form.value.phone}
-Azienda: ${form.value.company}
-Settore: ${form.value.sector}
-Messaggio: ${form.value.message || 'Nessun messaggio aggiuntivo'}
-Data: ${new Date().toLocaleString('it-IT')}
-User Agent: ${navigator.userAgent}
+            Nome: ${form.value.firstName} ${form.value.lastName}
+            Email: ${form.value.email}
+            Telefono: ${form.value.phone}
+            Azienda: ${form.value.company}
+            Settore: ${form.value.sector}
+            Messaggio: ${form.value.message || 'Nessun messaggio aggiuntivo'}
+            Data: ${new Date().toLocaleString('it-IT')}
+            User Agent: ${navigator.userAgent}
           `.trim()
         }
 

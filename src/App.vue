@@ -58,18 +58,21 @@
       <div class="max-w-7xl mx-auto px-4 md:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
                     <!-- Company Info -->
-          <div class="md:col-span-2">
-            <div class="flex items-center space-x-4 mb-4">
+          <div class="md:col-span-2 flex flex-col justify-between">
+            <div class="flex items-center space-x-4 mb-2">
               <img src="/img/logo.svg" alt="RegistroAPI Logo" class="w-6 h-6 md:w-8 md:h-8" />
               <span class="text-base md:text-lg font-display font-semibold text-luxury-white">RegistroAPI</span>
             </div>
-            <p class="text-xs md:text-sm text-luxury-text-secondary max-w-md leading-relaxed mb-4">
+            <p class="text-xs md:text-sm text-luxury-text-secondary max-w-md leading-relaxed mb-6">
               La piattaforma API più affidabile per professionisti e imprese di alto livello.
               Accesso illimitato ai dati ufficiali con la massima eleganza e precisione.
             </p>
 
+            <div class="mb-2">
+              <span class="text-base md:text-lg font-display font-semibold text-luxury-white">Le nostre fonti</span>
+            </div>
             <!-- Government Agencies Logos -->
-            <div class="flex flex-row items-center space-x-2 md:space-x-4">
+            <div class="flex flex-row items-center space-x-2 md:space-x-4 mb-6">
               <img
                 src="/img/gov/Logo_Agenzia_Entrate.png"
                 alt="Agenzia delle Entrate"
@@ -85,6 +88,14 @@
                 alt="Registro Imprese"
                 class="footer-gov-logo"
               />
+            </div>
+            <div>
+              <span class="text-base md:text-lg font-display font-semibold text-luxury-white mb-2">RegistroAPI è partner di</span>
+            </div>
+            <div class="flex items-center space-x-2 md:space-x-3 ">
+              <a href="https://www.bigdata.it" target="_blank" rel="noopener" aria-label="BigData.it" title="BigData.it">
+                <img src="/img/log-bigdata-bianco.png" alt="BigData.it" class="h-8 md:h-10" />
+              </a>
             </div>
           </div>
 
