@@ -68,35 +68,14 @@
               Accesso illimitato ai dati ufficiali con la massima eleganza e precisione.
             </p>
 
-            <div class="mb-2">
+            <div class="mb-3">
               <span class="text-base md:text-lg font-display font-semibold text-luxury-white">Le nostre fonti</span>
             </div>
-            <!-- Government Agencies Logos -->
-            <div class="flex flex-row items-center space-x-2 md:space-x-4 mb-6">
-              <img
-                src="/img/gov/Logo_Agenzia_Entrate.png"
-                alt="Agenzia delle Entrate"
-                class="footer-gov-logo"
-              />
-              <img
-                src="/img/gov/INPS_logo_2023.svg.png"
-                alt="INPS"
-                class="footer-gov-logo"
-              />
-              <img
-                src="/img/gov/Logo_Registro_Imprese.svg"
-                alt="Registro Imprese"
-                class="footer-gov-logo"
-              />
+            <PartnerLogoGrid :items="govSources" customGridClass="mb-6" defaultImgClass="max-h-8 md:max-h-9 lg:max-h-10" />
+            <div class="mb-2">
+              <span class="text-base md:text-lg font-display font-semibold text-luxury-white">RegistroAPI è partner di</span>
             </div>
-            <div>
-              <span class="text-base md:text-lg font-display font-semibold text-luxury-white mb-2">RegistroAPI è partner di</span>
-            </div>
-            <div class="flex items-center space-x-2 md:space-x-3 ">
-              <a href="https://www.bigdata.it" target="_blank" rel="noopener" aria-label="BigData.it" title="BigData.it">
-                <img src="/img/log-bigdata-bianco.png" alt="BigData.it" class="h-8 md:h-10" />
-              </a>
-            </div>
+            <PartnerLogoGrid :items="partners" defaultImgClass="h-12 md:h-16 lg:h-20" />
           </div>
 
           <!-- Principali API disponibili -->
@@ -172,12 +151,24 @@
         </div>
 
         <!-- Bottom Footer -->
-        <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-luxury-gray-medium/20">
-          <div class="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
-            <p class="text-xs md:text-sm text-luxury-gray-medium text-center md:text-left">
+        <div class="mt-5 md:mt-10 pt-8 md:pt-3 border-t border-luxury-gray-medium/20">
+          <div class="order-3 md:order-2 flex-1 w-full mb-6">
+            <div class="flex flex-col items-center md:items-start text-center ">
+              <p class="text-[10px] md:text-xs text-luxury-gray-medium leading-relaxed">
+                Italian Luxury Villas tramite il ramo dedicato
+                <a href="https://valuediligence.it" target="_blank" rel="noopener" class="text-luxury-gold hover:underline"> Value Diligence</a>
+                – analisi, dati e reportistica avanzata su piattaforma
+                <a href="https://www.bigdata.it" target="_blank" rel="noopener" class="text-luxury-gold hover:underline"> BigData.it</a>.
+                Licenza T.U.L.P.S. art. 134 – Prot. n. 0023787 del 28/03/2025 – AREA 1 P.A.
+                Certificazioni: ISO 9001 – ISO 27001, unitamente ad altre autorizzazioni di settore.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row flex-wrap justify-between items-center md:items-start gap-4 md:gap-6">
+            <p class="order-1 text-xs md:text-sm text-luxury-gray-medium text-center md:text-left">
               RegistroAPI è un brand di ITALIAN LUXURY VILLAS S.R.L. - P.IVA 13742870960
             </p>
-            <p class="text-xs md:text-sm text-luxury-gray-medium text-center md:text-right">
+            <p class="order-2 md:order-3 text-xs md:text-sm text-luxury-gray-medium text-center md:text-right">
               © 2025 RegistroAPI. Tutti i diritti riservati.
             </p>
           </div>
@@ -219,6 +210,7 @@
 <script>
 import { IconClock, IconMail, IconMenu, IconPhone } from '@tabler/icons-vue'
 import { onMounted, onUnmounted, ref } from 'vue'
+import PartnerLogoGrid from './components/footer/PartnerLogoGrid.vue'
 
 export default {
   name: 'App',
@@ -226,12 +218,49 @@ export default {
     IconMenu,
     IconMail,
     IconPhone,
-    IconClock
+    IconClock,
+    PartnerLogoGrid
   },
   setup() {
     const mobileMenuOpen = ref(false)
     const emailModalOpen = ref(false)
     const pendingEmailLink = ref('')
+
+    const govSources = [
+      {
+        src: '/img/gov/Logo_Agenzia_Entrate.png',
+        alt: 'Agenzia delle Entrate',
+        width: 120,
+        height: 32
+      },
+      {
+        src: '/img/gov/INPS_logo_2023.svg.png',
+        alt: 'INPS',
+        width: 120,
+        height: 32
+      },
+      {
+        src: '/img/gov/Logo_Registro_Imprese.svg',
+        alt: 'Registro Imprese',
+        width: 120,
+        height: 32
+      }
+    ]
+
+    const partners = [
+      {
+        src: '/img/partners/log-bigdata-bianco.png',
+        alt: 'BigData.it',
+        href: 'https://www.bigdata.it',
+        imgClass: 'h-12 md:h-16 lg:h-20'
+      },
+      {
+        src: '/img/partners/ValueDiligence.png',
+        alt: 'Value Diligence',
+        href: 'https://valuediligence.it',
+        imgClass: 'h-12 md:h-16 lg:h-20'
+      }
+    ]
 
     const showEmailModal = (event) => {
       event.preventDefault()
@@ -290,7 +319,9 @@ export default {
       emailModalOpen,
       showEmailModal,
       closeEmailModal,
-      proceedToEmail
+      proceedToEmail,
+      govSources,
+      partners
     }
   }
 }
