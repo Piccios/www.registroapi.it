@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid auto-rows-fr grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 items-center"
+    class="grid auto-rows-auto grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 items-center"
     :class="customGridClass"
   >
     <template v-for="item in items" :key="item.alt">
@@ -13,16 +13,28 @@
         :title="item.title || item.alt"
         class="group flex items-center justify-center p-2 bg-transparent rounded-none transition-colors duration-300"
       >
-        <img
-          :src="item.src"
-          :alt="item.alt"
-          :height="undefined"
-          :width="undefined"
-          loading="lazy"
-          decoding="async"
-          class="w-auto object-contain grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-[1.02] transition duration-300"
-          :class="[defaultImgClass, item.imgClass]"
-        />
+        <template v-if="item.raw">
+          <img
+            :src="item.src"
+            :alt="item.alt"
+            :height="item.height"
+            :width="item.width"
+            loading="lazy"
+            decoding="async"
+          />
+        </template>
+        <template v-else>
+          <img
+            :src="item.src"
+            :alt="item.alt"
+            :height="undefined"
+            :width="undefined"
+            loading="lazy"
+            decoding="async"
+            class="max-w-full object-contain grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-[1.02] transition duration-300"
+            :class="[defaultImgClass, item.imgClass]"
+          />
+        </template>
       </component>
     </template>
   </div>
@@ -39,6 +51,7 @@ export type PartnerItem = {
   width?: number;
   height?: number;
   imgClass?: string;
+  raw?: boolean;
 };
 
 const props = defineProps<{

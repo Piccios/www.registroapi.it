@@ -75,7 +75,7 @@
             <div class="mb-2">
               <span class="text-base md:text-lg font-display font-semibold text-luxury-white">RegistroAPI è partner di</span>
             </div>
-            <PartnerLogoGrid :items="partners" defaultImgClass="h-12 md:h-16 lg:h-20" />
+            <PartnerLogoGrid :items="partners" />
           </div>
 
           <!-- Principali API disponibili -->
@@ -252,13 +252,15 @@ export default {
         src: '/img/partners/log-bigdata-bianco.png',
         alt: 'BigData.it',
         href: 'https://www.bigdata.it',
-        imgClass: 'h-12 md:h-16 lg:h-20'
+        raw: true,
+        height: 80
       },
       {
         src: '/img/partners/ValueDiligence.png',
         alt: 'Value Diligence',
         href: 'https://valuediligence.it',
-        imgClass: 'h-12 md:h-16 lg:h-20'
+        raw: true,
+        height: 80
       }
     ]
 
