@@ -20,7 +20,7 @@
             <router-link v-if="$route.path !== '/HelpCenter'" to="/HelpCenter" class="nav-link-luxury" v-scroll-to-top>
               Help Center
             </router-link>
-            <router-link v-if="$route.path === '/' || $route.path === '/HelpCenter' || $route.path.startsWith('/value_diligence')" :to="$route.path.startsWith('/value_diligence') ? '/value_diligence#top' : '/contatti'" class="btn-artistic text-luxury-gold" v-scroll-to-top>
+            <router-link v-if="$route.path === '/' || $route.path === '/HelpCenter' || $route.path.startsWith('/value_diligence')" :to="$route.path.startsWith('/value_diligence') ? '#top' : '/contatti'" class="btn-artistic text-luxury-gold">
               {{ $route.path.startsWith('/value_diligence') ? 'Richiedi Informazioni' : 'Richiedi Accesso' }}
             </router-link>
           </div>
@@ -40,7 +40,7 @@
             <router-link v-if="$route.path !== '/HelpCenter'" to="/HelpCenter" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg py-2 px-4 hover:bg-luxury-gray-light/20 transition-all duration-300 rounded-none" v-scroll-to-top>
               Help Center
             </router-link>
-            <router-link v-if="$route.path.startsWith('/value_diligence')" to="/value_diligence#top" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center py-3 px-6" v-scroll-to-top>
+            <router-link v-if="$route.path.startsWith('/value_diligence')" to="#top" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center py-3 px-6">
               Richiedi Informazioni
             </router-link>
             <router-link v-else-if="$route.path !== '/contatti'" to="/contatti" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center py-3 px-6" v-scroll-to-top>
