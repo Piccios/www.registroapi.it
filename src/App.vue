@@ -8,8 +8,8 @@
       <div class="max-w-7xl mx-auto py-2 md:py-1 px-4 md:px-8">
         <div class="flex justify-between items-center">
           <!-- Logo -->
-          <router-link to="/" class="flex items-center space-x-2 md:space-x-4 group" v-scroll-to-top>
-            <img src="/public/img/logo_senzabackground.svg" alt="RegistroAPI_Logo" class="logo-img transition-transform duration-500 group-hover:scale-105" />
+          <router-link :to="$route.path.startsWith('/value_diligence') ? '/value_diligence' : '/'" class="flex items-center space-x-2 md:space-x-4 group" v-scroll-to-top>
+            <img :src="$route.path.startsWith('/value_diligence') ? '/img/partners/value_diligence.png' : '/public/img/logo_senzabackground.svg'" :alt="$route.path.startsWith('/value_diligence') ? 'Value Diligence' : 'RegistroAPI'" class="logo-img transition-transform duration-500 group-hover:scale-105 h-40 w-auto max-w-[160px] md:max-w-[200px] object-contain" />
           </router-link>
 
           <!-- Desktop Navigation -->
@@ -20,8 +20,8 @@
             <router-link v-if="$route.path !== '/HelpCenter'" to="/HelpCenter" class="nav-link-luxury" v-scroll-to-top>
               Help Center
             </router-link>
-            <router-link v-if="$route.path === '/' || $route.path === '/HelpCenter'" to="/contatti" class="btn-artistic text-luxury-gold" v-scroll-to-top>
-              Richiedi Accesso
+            <router-link v-if="$route.path === '/' || $route.path === '/HelpCenter' || $route.path.startsWith('/value_diligence')" :to="$route.path.startsWith('/value_diligence') ? '/value_diligence#top' : '/contatti'" class="btn-artistic text-luxury-gold" v-scroll-to-top>
+              {{ $route.path.startsWith('/value_diligence') ? 'Richiedi Informazioni' : 'Richiedi Accesso' }}
             </router-link>
           </div>
 
@@ -40,7 +40,10 @@
             <router-link v-if="$route.path !== '/HelpCenter'" to="/HelpCenter" @click="mobileMenuOpen = false" class="nav-link-luxury text-lg py-2 px-4 hover:bg-luxury-gray-light/20 transition-all duration-300 rounded-none" v-scroll-to-top>
               Help Center
             </router-link>
-            <router-link v-if="$route.path !== '/contatti'" to="/contatti" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center py-3 px-6" v-scroll-to-top>
+            <router-link v-if="$route.path.startsWith('/value_diligence')" to="/value_diligence#top" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center py-3 px-6" v-scroll-to-top>
+              Richiedi Informazioni
+            </router-link>
+            <router-link v-else-if="$route.path !== '/contatti'" to="/contatti" @click="mobileMenuOpen = false" class="btn-artistic text-luxury-gold text-center py-3 px-6" v-scroll-to-top>
               Richiedi Accesso
             </router-link>
           </div>
@@ -59,27 +62,27 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
                     <!-- Company Info -->
           <div class="md:col-span-2 flex flex-col justify-between">
-            <div class="flex items-center space-x-4 mb-2">
-              <img src="/img/logo.svg" alt="RegistroAPI Logo" class="w-6 h-6 md:w-8 md:h-8" />
-              <span class="text-base md:text-lg font-display font-semibold text-luxury-white">RegistroAPI</span>
-            </div>
-            <p class="text-xs md:text-sm text-luxury-text-secondary max-w-md leading-relaxed mb-6">
+            <component :is="$route.path.startsWith('/value_diligence') ? 'a' : 'div'" :href="$route.path.startsWith('/value_diligence') ? 'https://www.valuedilignece.it' : undefined" target="_blank" rel="noopener" class="flex items-center space-x-4 mb-2">
+              <img :src="$route.path.startsWith('/value_diligence') ? '/img/partners/value_diligence.png' : '/img/logo.svg'" :alt="$route.path.startsWith('/value_diligence') ? 'Value Diligence' : 'RegistroAPI Logo'" class="w-6 h-6 md:w-8 md:h-8" />
+              <span class="text-base md:text-lg font-display font-semibold text-luxury-white">{{ $route.path.startsWith('/value_diligence') ? 'Value Diligence' : 'RegistroAPI' }}</span>
+            </component>
+            <p v-if="!$route.path.startsWith('/value_diligence')" class="text-xs md:text-sm text-luxury-text-secondary max-w-md leading-relaxed mb-6">
               La piattaforma API più affidabile per professionisti e imprese di alto livello.
               Accesso illimitato ai dati ufficiali con la massima eleganza e precisione.
             </p>
 
-            <div class="mb-3">
+            <div v-if="!$route.path.startsWith('/value_diligence')" class="mb-3">
               <span class="text-base md:text-lg font-display font-semibold text-luxury-white">Le nostre fonti</span>
             </div>
-            <PartnerLogoGrid :items="govSources" customGridClass="mb-6" defaultImgClass="max-h-8 md:max-h-9 lg:max-h-10" />
+            <PartnerLogoGrid v-if="!$route.path.startsWith('/value_diligence')" :items="govSources" customGridClass="mb-6" defaultImgClass="max-h-8 md:max-h-9 lg:max-h-10" />
             <div class="mb-2">
-              <span class="text-base md:text-lg font-display font-semibold text-luxury-white">RegistroAPI è partner di</span>
+              <span class="text-base md:text-lg font-display font-semibold text-luxury-white">{{ $route.path.startsWith('/value_diligence') ? 'Value Diligence è partner di' : 'RegistroAPI è partner di' }}</span>
             </div>
-            <PartnerLogoGrid :items="partners" />
+            <PartnerLogoGrid :items="$route.path.startsWith('/value_diligence') ? partnersVD : partnersRA" />
           </div>
 
           <!-- Principali API disponibili -->
-          <div>
+          <div v-if="!$route.path.startsWith('/value_diligence')">
             <h3 class="text-luxury-gold font-display font-semibold mb-3 md:mb-4 text-sm md:text-base">Principali API disponibili</h3>
             <div class="space-y-1 md:space-y-2">
               <p class="block text-xs md:text-sm text-luxury-text-secondary">
@@ -155,20 +158,31 @@
           <div class="order-3 md:order-2 flex-1 w-full mb-6">
             <div class="flex flex-col items-center md:items-start text-center ">
               <p class="text-[10px] md:text-xs text-luxury-gray-medium leading-relaxed">
-                Italian Luxury Villas tramite il ramo dedicato
-                <a href="https://valuediligence.it" target="_blank" rel="noopener" class="text-luxury-gold hover:underline"> Value Diligence</a>
-                – analisi, dati e reportistica avanzata su piattaforma
-                <a href="https://www.bigdata.it" target="_blank" rel="noopener" class="text-luxury-gold hover:underline"> BigData.it</a>.
-                Licenza T.U.L.P.S. art. 134 – Prot. n. 0023787 del 28/03/2025 – AREA 1 P.A.
-                Certificazioni: ISO 9001 – ISO 27001, unitamente ad altre autorizzazioni di settore.
+                <template v-if="$route.path.startsWith('/value_diligence')">
+                  Value Diligence – analisi, dati e reportistica avanzata su piattaforma
+                  <a href="https://www.bigdata.it" target="_blank" rel="noopener" class="text-luxury-gold hover:underline"> BigData.it</a>.
+                  Licenza T.U.L.P.S. art. 134 – Prot. n. 0023787 del 28/03/2025 – AREA 1 P.A.
+                  Certificazioni: ISO 9001 – ISO 27001, unitamente ad altre autorizzazioni di settore.
+                </template>
+                <template v-else>
+                  Italian Luxury Villas tramite il ramo dedicato
+                  <a href="https://valuediligence.it" target="_blank" rel="noopener" class="text-luxury-gold hover:underline"> Value Diligence</a>
+                  – analisi, dati e reportistica avanzata su piattaforma
+                  <a href="https://www.bigdata.it" target="_blank" rel="noopener" class="text-luxury-gold hover:underline"> BigData.it</a>.
+                  Licenza T.U.L.P.S. art. 134 – Prot. n. 0023787 del 28/03/2025 – AREA 1 P.A.
+                  Certificazioni: ISO 9001 – ISO 27001, unitamente ad altre autorizzazioni di settore.
+                </template>
               </p>
             </div>
           </div>
           <div class="flex flex-col md:flex-row flex-wrap justify-between items-center md:items-start gap-4 md:gap-6">
             <p class="order-1 text-xs md:text-sm text-luxury-gray-medium text-center md:text-left">
-              RegistroAPI è un brand di ITALIAN LUXURY VILLAS S.R.L. - P.IVA 13742870960
+              {{ $route.path.startsWith('/value_diligence') ? 'Value Diligence è un brand di ITALIAN LUXURY VILLAS S.R.L. - P.IVA 13742870960' : 'RegistroAPI è un brand di ITALIAN LUXURY VILLAS S.R.L. - P.IVA 13742870960' }}
             </p>
-            <p class="order-2 md:order-3 text-xs md:text-sm text-luxury-gray-medium text-center md:text-right">
+            <p class="order-2 md:order-3 text-xs md:text-sm text-luxury-gray-medium text-center md:text-right" v-if="$route.path.startsWith('/value_diligence')">
+              © 2025 Value Diligence. Tutti i diritti riservati.
+            </p>
+            <p class="order-2 md:order-3 text-xs md:text-sm text-luxury-gray-medium text-center md:text-right" v-else>
               © 2025 RegistroAPI. Tutti i diritti riservati.
             </p>
           </div>
@@ -256,9 +270,28 @@ export default {
         height: 80
       },
       {
-        src: '/img/partners/ValueDiligence.png',
+        src: '/img/partners/value_diligence.png',
         alt: 'Value Diligence',
         href: 'https://valuediligence.it',
+        raw: true,
+        height: 80
+      }
+    ]
+
+    // Footer partners per brand
+    const partnersRA = partners
+    const partnersVD = [
+      {
+        src: '/img/partners/log-bigdata-bianco.png',
+        alt: 'BigData.it',
+        href: 'https://www.bigdata.it',
+        raw: true,
+        height: 80
+      },
+      {
+        src: '/img/logo_senzabackground.svg',
+        alt: 'RegistroAPI',
+        href: '/',
         raw: true,
         height: 80
       }
@@ -323,7 +356,9 @@ export default {
       closeEmailModal,
       proceedToEmail,
       govSources,
-      partners
+      partners,
+      partnersRA,
+      partnersVD
     }
   }
 }
