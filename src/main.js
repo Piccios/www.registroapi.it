@@ -46,6 +46,54 @@ router.beforeEach((to, from, next) => {
   }
 })
 
+// Dynamic document title and favicon per route
+const DEFAULT_TITLE = 'RegistroAPI - Dati Ufficiali. Accesso Illimitato. API Professionali'
+const DEFAULT_FAVICON = '/img/favicon.png'
+const VD_TITLE = 'Value Diligence - Compliance, Reputazione e Due Diligence'
+const VD_FAVICON = '/img/partners/value_diligence.png'
+
+function setFavicon(href) {
+  // Remove existing icon links to avoid duplicates
+  document.head.querySelectorAll('link[rel*="icon"], link[rel="apple-touch-icon"]').forEach(n => n.parentNode && n.parentNode.removeChild(n))
+
+  // Add multiple sizes so browsers can pick a larger, crisp icon
+  const sizes = [
+    { rel: 'icon', size: '32x32' },
+    { rel: 'icon', size: '48x48' },
+    { rel: 'icon', size: '64x64' },
+    { rel: 'icon', size: '96x96' },
+    { rel: 'icon', size: '192x192' },
+  ]
+
+  sizes.forEach(({ rel, size }) => {
+    const link = document.createElement('link')
+    link.setAttribute('rel', rel)
+    link.setAttribute('type', 'image/png')
+    link.setAttribute('sizes', size)
+    link.setAttribute('href', href)
+    document.head.appendChild(link)
+  })
+
+  // Apple touch icon for iOS/Android add-to-home-screen
+  const apple = document.createElement('link')
+  apple.setAttribute('rel', 'apple-touch-icon')
+  apple.setAttribute('sizes', '180x180')
+  apple.setAttribute('href', href)
+  document.head.appendChild(apple)
+
+  // Shortcut icon fallback
+  const shortcut = document.createElement('link')
+  shortcut.setAttribute('rel', 'shortcut icon')
+  shortcut.setAttribute('href', href)
+  document.head.appendChild(shortcut)
+}
+
+router.afterEach((to) => {
+  const isValueDiligence = to.path.startsWith('/value_diligence')
+  document.title = isValueDiligence ? VD_TITLE : DEFAULT_TITLE
+  setFavicon(isValueDiligence ? VD_FAVICON : DEFAULT_FAVICON)
+})
+
 const app = createApp(App)
 app.use(router)
 
