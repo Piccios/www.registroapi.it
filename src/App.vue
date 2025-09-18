@@ -9,7 +9,7 @@
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <router-link :to="$route.path.startsWith('/value_diligence') ? '/value_diligence' : '/'" class="flex items-center space-x-2 md:space-x-4 group" v-scroll-to-top>
-            <img :src="$route.path.startsWith('/value_diligence') ? '/img/partners/value_diligence.png' : '/public/img/logo_senzabackground.svg'" :alt="$route.path.startsWith('/value_diligence') ? 'Value Diligence' : 'RegistroAPI'" class="logo-img transition-transform duration-500 group-hover:scale-105 h-40 w-auto max-w-[160px] md:max-w-[200px] object-contain" />
+            <img :src="$route.path.startsWith('/value_diligence') ? '/img/partners/value_diligence.png' : '/img/logo_senzabackground.svg'" :alt="$route.path.startsWith('/value_diligence') ? 'Value Diligence' : 'RegistroAPI'" class="logo-img transition-transform duration-500 group-hover:scale-105 h-40 w-auto max-w-[160px] md:max-w-[200px] object-contain" />
           </router-link>
 
           <!-- Desktop Navigation -->
