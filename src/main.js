@@ -9,10 +9,12 @@ import CookiePage from './pages/CookiePage.vue'
 import HelpCenter from './pages/HelpCenter.vue'
 import HomePage from './pages/HomePage.vue'
 import PrivacyPage from './pages/PrivacyPage.vue'
+import ValueDiligencePage from './pages/ValueDiligencePage.vue'
 
 // Router configuration
 const routes = [
   { path: '/', name: 'home', component: HomePage },
+  { path: '/value_diligence', name: 'value-diligence', component: ValueDiligencePage },
   { path: '/contatti', name: 'contact', component: ContactPage },
   { path: '/HelpCenter', name: 'help', component: HelpCenter },
   { path: '/privacy-policy', name: 'privacy', component: PrivacyPage },
