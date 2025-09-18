@@ -233,7 +233,7 @@ export default {
         const err = validate()
         if (err) throw new Error(err)
 
-        const to = import.meta.env.VITE_VD_CONTACT_EMAIL || 'info@valuediligence.it'
+        const to = import.meta.env.VITE_VD_CONTACT_EMAIL || 'help@registroapi.it'
         const subject = `Richiesta Value Diligence - ${form.value.company}`
         const message = `
 Nome: ${form.value.firstName} ${form.value.lastName}
