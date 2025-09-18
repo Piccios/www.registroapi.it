@@ -27,6 +27,7 @@
               <li>Grandi aziende, banche, assicurazioni, SGR</li>
               <li>Studi legali internazionali e pubbliche amministrazioni</li>
               <li>Organizzazioni con elevati requisiti di compliance</li>
+              <li>Istituzioni ed enti complessi</li>
             </ul>
           </div>
 
@@ -35,7 +36,6 @@
             <ul class="space-y-2 text-sm md:text-base text-luxury-text-secondary">
               <li>Accedere in modalità flat e illimitata a report professionali</li>
               <li>Analizzare imprese, persone, asset e gruppi societari</li>
-              <li>Affidarti a un team dedicato con alta competenza</li>
               <li>Supportare M&A, onboarding istituzionali, valutazioni rischio AML</li>
               <li>Controllare posizioni apicali e profili reputazionali</li>
             </ul>
