@@ -233,16 +233,16 @@ export default {
         const err = validate()
         if (err) throw new Error(err)
 
-        const to = import.meta.env.VITE_VD_CONTACT_EMAIL || 'help@registroapi.it'
+        const to = import.meta.env.VITE_CONTACT_EMAIL || 'help@registroapi.it'
         const subject = `Richiesta Value Diligence - ${form.value.company}`
         const message = `
-Nome: ${form.value.firstName} ${form.value.lastName}
-Email: ${form.value.email}
-Telefono: ${form.value.phone}
-Azienda: ${form.value.company}
-Messaggio: ${form.value.message || 'Nessun messaggio aggiuntivo'}
-Data: ${new Date().toLocaleString('it-IT')}
-User Agent: ${navigator.userAgent}
+        Nome: ${form.value.firstName} ${form.value.lastName}
+        Email: ${form.value.email}
+        Telefono: ${form.value.phone}
+        Azienda: ${form.value.company}
+        Messaggio: ${form.value.message || 'Nessun messaggio aggiuntivo'}
+        Data: ${new Date().toLocaleString('it-IT')}
+        User Agent: ${navigator.userAgent}
         `.trim()
 
         const response = await fetch('/mail.php', {
