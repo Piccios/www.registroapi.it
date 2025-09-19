@@ -400,7 +400,7 @@ export default {
 
         // Prepara i dati per l'invio
         const postData = {
-          to: import.meta.env.VITE_CONTACT_EMAIL || 'info@registroapi.it',
+          to: import.meta.env.VITE_CONTACT_EMAIL || 'help@registroapi.it',
           subject: `Richiesta Accesso API - ${form.value.company}`,
           message: `
             Nome: ${form.value.firstName} ${form.value.lastName}
