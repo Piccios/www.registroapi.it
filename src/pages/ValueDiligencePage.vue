@@ -192,10 +192,12 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { IconAlertCircle } from '@tabler/icons-vue'
 
 export default {
   name: 'ValueDiligencePage',
+  components: { IconAlertCircle },
   setup() {
     const form = ref({
       firstName: '',
@@ -207,11 +209,50 @@ export default {
       privacy: false
     })
 
+    // Stati interni
     const isSubmitting = ref(false)
     const submitMessage = ref('')
     const submitSuccess = ref(false)
+    const formStartTime = ref(0)
 
-    const validate = () => {
+    onMounted(() => {
+      formStartTime.value = Date.now()
+    })
+
+    // Popup validazione
+    const showValidationPopup = ref(false)
+    const validationPopupMessage = ref('')
+    const showValidationPopupFor3Seconds = (message) => {
+      validationPopupMessage.value = message
+      showValidationPopup.value = true
+      setTimeout(() => { showValidationPopup.value = false }, 3000)
+    }
+
+    // Controllo campi obbligatori
+    const checkRequiredFields = () => {
+      const missing = []
+      if (!form.value.firstName.trim()) missing.push('Nome')
+      if (!form.value.lastName.trim()) missing.push('Cognome')
+      if (!form.value.email.trim()) missing.push('Email Aziendale')
+      if (!form.value.phone.trim()) missing.push('Numero Cellulare')
+      if (!form.value.company.trim()) missing.push('Azienda')
+      if (!form.value.privacy) missing.push('Accettazione Privacy Policy')
+
+      if (missing.length > 0) {
+        showValidationPopupFor3Seconds(`Compila i seguenti campi obbligatori: ${missing.join(', ')}`)
+        return false
+      }
+      return true
+    }
+
+    // Validazione dati
+    const validateForm = () => {
+      if (form.value.message.trim() && form.value.message.length < 10) {
+        return 'Il messaggio deve contenere almeno 10 caratteri.'
+      }
+      if (form.value.message.length > 2000) {
+        return 'Il messaggio non può superare i 2000 caratteri.'
+      }
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
       if (!emailRegex.test(form.value.email)) {
         return 'Inserisci un indirizzo email valido.'
@@ -220,35 +261,50 @@ export default {
       if (!phoneRegex.test(form.value.phone.replace(/\s/g, ''))) {
         return 'Inserisci un numero di cellulare valido (formato: +39 123 456 7890).'
       }
-      if (form.value.message && form.value.message.trim() && form.value.message.length < 10) {
-        return 'Il messaggio deve contenere almeno 10 caratteri.'
-      }
       return null
     }
 
+    // Protezione anti-bot
+    const isBot = () => {
+      const now = Date.now()
+      if (formStartTime.value && (now - formStartTime.value) < 3000) return true
+      const ua = navigator.userAgent.toLowerCase()
+      return ua.includes('bot') || ua.includes('crawler') || ua.includes('spider')
+    }
+
+    // Invio form (identico a ContactPage)
     const submitForm = async () => {
+      if (!checkRequiredFields()) return
+
       isSubmitting.value = true
       submitMessage.value = ''
-      try {
-        const err = validate()
-        if (err) throw new Error(err)
 
-        const to = import.meta.env.VITE_VD_CONTACT_EMAIL || 'info@valuediligence.it'
-        const subject = `Richiesta Value Diligence - ${form.value.company}`
-        const message = `
-Nome: ${form.value.firstName} ${form.value.lastName}
-Email: ${form.value.email}
-Telefono: ${form.value.phone}
-Azienda: ${form.value.company}
-Messaggio: ${form.value.message || 'Nessun messaggio aggiuntivo'}
-Data: ${new Date().toLocaleString('it-IT')}
-User Agent: ${navigator.userAgent}
-        `.trim()
+      try {
+        if (isBot()) {
+          // eventuale log, ma non bloccare in produzione
+        }
+
+        const validationError = validateForm()
+        if (validationError) throw new Error(validationError)
+
+        const postData = {
+          to: import.meta.env.VITE_CONTACT_EMAIL || 'info@registroapi.it',
+          subject: `Richiesta Value Diligence - ${form.value.company}`,
+          message: `
+            Nome: ${form.value.firstName} ${form.value.lastName}
+            Email: ${form.value.email}
+            Telefono: ${form.value.phone}
+            Azienda: ${form.value.company}
+            Messaggio: ${form.value.message || 'Nessun messaggio aggiuntivo'}
+            Data: ${new Date().toLocaleString('it-IT')}
+            User Agent: ${navigator.userAgent}
+          `.trim()
+        }
 
         const response = await fetch('/mail.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({ to, subject, message })
+          body: new URLSearchParams(postData)
         })
 
         if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`)
@@ -256,8 +312,18 @@ User Agent: ${navigator.userAgent}
         if (!result.success) throw new Error(result.error || 'Errore durante l\'invio')
 
         submitSuccess.value = true
-        submitMessage.value = 'Richiesta inviata con successo! Riceverai risposta entro 1 ora.'
-        form.value = { firstName: '', lastName: '', email: '', phone: '', company: '', message: '', privacy: false }
+        submitMessage.value = 'La tua richiesta è stata inviata con successo! Ti contatteremo entro 1 ora.'
+
+        // reset form
+        form.value = {
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: '',
+          privacy: false
+        }
       } catch (e) {
         submitSuccess.value = false
         submitMessage.value = e.message || 'Si è verificato un errore. Riprova più tardi.'
@@ -266,10 +332,15 @@ User Agent: ${navigator.userAgent}
       }
     }
 
-    return { form, isSubmitting, submitMessage, submitSuccess, submitForm }
+    return {
+      form,
+      isSubmitting,
+      submitMessage,
+      submitSuccess,
+      submitForm,
+      showValidationPopup,
+      validationPopupMessage
+    }
   }
 }
 </script>
-
-<style scoped>
-</style>
